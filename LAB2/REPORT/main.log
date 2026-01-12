@@ -1,0 +1,1492 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.4)  5 DEC 2025 21:10
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"f:/ANHTHU/1-HCMUS/1 - STUDY/HKVII/DIP/LAB/LAB2/REPORT/main.tex"
+(f:/ANHTHU/1-HCMUS/1 - STUDY/HKVII/DIP/LAB/LAB2/REPORT/main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(F:\ANHTHU\programs\Miktex\tex/latex/base\report.cls
+Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
+(F:\ANHTHU\programs\Miktex\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (F:\ANHTHU\programs\Miktex\tex/latex/forest\forest.sty
+Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
+ (F:\ANHTHU\programs\Miktex\tex/latex/pgf/frontendlayer\tikz.sty (F:\ANHTHU\programs\Miktex\tex/latex/pgf/basiclayer\pgf.sty (F:\ANHTHU\programs\Miktex\tex/latex/pgf/utilities\pgfrcs.sty (F:\ANHTHU\programs\Miktex\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks17
+\pgfutil@tempdima=\dimen141
+\pgfutil@tempdimb=\dimen142
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box51
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/utilities\pgfrcs.code.tex (F:\ANHTHU\programs\Miktex\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/latex/pgf/basiclayer\pgfcore.sty (F:\ANHTHU\programs\Miktex\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (F:\ANHTHU\programs\Miktex\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+) (F:\ANHTHU\programs\Miktex\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (F:\ANHTHU\programs\Miktex\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (F:\ANHTHU\programs\Miktex\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (F:\ANHTHU\programs\Miktex\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+) (F:\ANHTHU\programs\Miktex\tex/latex/pgf/systemlayer\pgfsys.sty (F:\ANHTHU\programs\Miktex\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks19
+\pgfkeys@temptoks=\toks20
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks21
+))
+\pgf@x=\dimen145
+\pgf@y=\dimen146
+\pgf@xa=\dimen147
+\pgf@ya=\dimen148
+\pgf@xb=\dimen149
+\pgf@yb=\dimen150
+\pgf@xc=\dimen151
+\pgf@yc=\dimen152
+\pgf@xd=\dimen153
+\pgf@yd=\dimen154
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count196
+\c@pgf@countb=\count197
+\c@pgf@countc=\count198
+\c@pgf@countd=\count199
+\t@pgf@toka=\toks22
+\t@pgf@tokb=\toks23
+\t@pgf@tokc=\toks24
+\pgf@sys@id@count=\count266
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count267
+\pgfsyssoftpath@bigbuffer@items=\count268
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (F:\ANHTHU\programs\Miktex\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (F:\ANHTHU\programs\Miktex\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (F:\ANHTHU\programs\Miktex\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmath.code.tex (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathutil.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen155
+\pgfmath@count=\count269
+\pgfmath@box=\box52
+\pgfmath@toks=\toks25
+\pgfmath@stack@operand=\toks26
+\pgfmath@stack@operation=\toks27
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathcalc.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count270
+)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfint.code.tex) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen156
+\pgf@picmaxx=\dimen157
+\pgf@picminy=\dimen158
+\pgf@picmaxy=\dimen159
+\pgf@pathminx=\dimen160
+\pgf@pathmaxx=\dimen161
+\pgf@pathminy=\dimen162
+\pgf@pathmaxy=\dimen163
+\pgf@xx=\dimen164
+\pgf@xy=\dimen165
+\pgf@yx=\dimen166
+\pgf@yy=\dimen167
+\pgf@zx=\dimen168
+\pgf@zy=\dimen169
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen170
+\pgf@path@lasty=\dimen171
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen172
+\pgf@shorten@start@additional=\dimen173
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box53
+\pgf@hbox=\box54
+\pgf@layerbox@main=\box55
+\pgf@picture@serial@count=\count271
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen174
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen175
+\pgf@pt@y=\dimen176
+\pgf@pt@temp=\dimen177
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen178
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen179
+\pgf@sys@shading@range@num=\count272
+\pgf@shadingcount=\count273
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box56
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box57
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen180
+\pgf@nodesepend=\dimen181
+) (F:\ANHTHU\programs\Miktex\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (F:\ANHTHU\programs\Miktex\tex/latex/pgf/utilities\pgffor.sty (F:\ANHTHU\programs\Miktex\tex/latex/pgf/utilities\pgfkeys.sty (F:\ANHTHU\programs\Miktex\tex/generic/pgf/utilities\pgfkeys.code.tex)) (F:\ANHTHU\programs\Miktex\tex/latex/pgf/math\pgfmath.sty (F:\ANHTHU\programs\Miktex\tex/generic/pgf/math\pgfmath.code.tex)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen182
+\pgffor@skip=\dimen183
+\pgffor@stack=\toks28
+\pgffor@toks=\toks29
+)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count274
+\pgfplotmarksize=\dimen184
+)
+\tikz@lastx=\dimen185
+\tikz@lasty=\dimen186
+\tikz@lastxsaved=\dimen187
+\tikz@lastysaved=\dimen188
+\tikz@lastmovetox=\dimen189
+\tikz@lastmovetoy=\dimen190
+\tikzleveldistance=\dimen191
+\tikzsiblingdistance=\dimen192
+\tikz@figbox=\box58
+\tikz@figbox@bg=\box59
+\tikz@tempbox=\box60
+\tikz@tempbox@bg=\box61
+\tikztreelevel=\count275
+\tikznumberofchildren=\count276
+\tikznumberofcurrentchild=\count277
+\tikz@fig@count=\count278
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count279
+\pgfmatrixcurrentcolumn=\count280
+\pgf@matrix@numberofcolumns=\count281
+)
+\tikz@expandcount=\count282
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries/shapes\pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries/shapes\pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries/shapes\pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries/shapes\pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.callouts.code.tex (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries/shapes\pgflibraryshapes.callouts.code.tex)) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries/shapes\pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box62
+\pgfnodeparttwobox=\box63
+\pgfnodepartthreebox=\box64
+\pgfnodepartfourbox=\box65
+\pgfnodeparttwentybox=\box66
+\pgfnodepartnineteenbox=\box67
+\pgfnodeparteighteenbox=\box68
+\pgfnodepartseventeenbox=\box69
+\pgfnodepartsixteenbox=\box70
+\pgfnodepartfifteenbox=\box71
+\pgfnodepartfourteenbox=\box72
+\pgfnodepartthirteenbox=\box73
+\pgfnodeparttwelvebox=\box74
+\pgfnodepartelevenbox=\box75
+\pgfnodeparttenbox=\box76
+\pgfnodepartninebox=\box77
+\pgfnodeparteightbox=\box78
+\pgfnodepartsevenbox=\box79
+\pgfnodepartsixbox=\box80
+\pgfnodepartfivebox=\box81
+))) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries\pgflibraryintersections.code.tex (F:\ANHTHU\programs\Miktex\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
+\pgf@intersect@solutions=\count283
+) (F:\ANHTHU\programs\Miktex\tex/latex/pgfopts\pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks30
+\pgfopts@list@add@b@toks=\toks31
+) (F:\ANHTHU\programs\Miktex\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count284
+) (F:\ANHTHU\programs\Miktex\tex/latex/elocalloc\elocalloc.sty
+Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
+) (F:\ANHTHU\programs\Miktex\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (F:\ANHTHU\programs\Miktex\tex/latex/trimspaces\trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks32
+) (F:\ANHTHU\programs\Miktex\tex/latex/l3packages/xparse\xparse.sty (F:\ANHTHU\programs\Miktex\tex/latex/l3kernel\expl3.sty
+Package: expl3 2024-01-04 L3 programming layer (loader) 
+ (F:\ANHTHU\programs\Miktex\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count285
+\l__pdf_internal_box=\box82
+))
+Package: xparse 2023-10-10 L3 Experimental document command parser
+) (F:\ANHTHU\programs\Miktex\tex/latex/inlinedef\inlinedef.sty
+Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
+\ID@toks=\toks33
+\ID@count=\count286
+)
+\ID@usercommands=\toks34
+\safeloop@depth=\count287
+\safeRKloop@depth=\count288
+\forest@temp@dimen=\dimen193
+\forest@temp@count=\count289
+\forest@n=\count290
+\forest@temp@global@count=\count291
+\forest@temp@toks=\toks35
+\forest@temparray@M=\count292
+\forest@temparray@N=\count293
+\forest@global@temparray@M=\count294
+\forest@global@temparray@N=\count295
+\forest@isnum@count=\count296
+\forest@isdim@nonintpart=\count297
+\forest@isdim@dimen=\dimen194
+\forest@sort@m=\count298
+\forest@sort@k=\count299
+\forest@sort@p=\count300
+\bracket@content=\toks36
+\bracket@afterthought=\toks37
+\forest@node@maxid=\count301
+\forest@process@left@M=\count302
+\forest@process@left@N=\count303
+\forest@process@right@M=\count304
+\forest@process@right@N=\count305
+\forest@process@saved@M=\count306
+\forest@process@saved@N=\count307
+\forest@process@result@M=\count308
+\forest@process@result@N=\count309
+\forest@process@n=\count310
+\forest@nodewalk@branch@toks=\toks38
+\forest@nodewalk@shortsteps@resolution=\toks39
+\forest@do@dynamics=\toks40
+\forest@box=\box83
+\forest@xg=\dimen195
+\forest@yg=\dimen196
+\forest@xs=\dimen197
+\forest@ys=\dimen198
+\forest@pi@toks=\toks41
+\forest@segment@toks=\toks42
+\forest@PIi@toks=\toks43
+\forest@PIii@toks=\toks44
+\forest@copy@in=\read3
+\forest@copy@out=\write4
+\forest@externalize@max@outer@n=\count311
+\forest@externalize@inner@n=\count312
+) (F:\ANHTHU\programs\Miktex\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (F:\ANHTHU\programs\Miktex\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen199
+\captionmargin=\dimen256
+\caption@leftmargin=\dimen257
+\caption@rightmargin=\dimen258
+\caption@width=\dimen259
+\caption@indent=\dimen260
+\caption@parindent=\dimen261
+\caption@hangindent=\dimen262
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count313
+\c@continuedfloat=\count314
+) (F:\ANHTHU\programs\Miktex\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen263
+\lightrulewidth=\dimen264
+\cmidrulewidth=\dimen265
+\belowrulesep=\dimen266
+\belowbottomsep=\dimen267
+\aboverulesep=\dimen268
+\abovetopsep=\dimen269
+\cmidrulesep=\dimen270
+\cmidrulekern=\dimen271
+\defaultaddspace=\dimen272
+\@cmidla=\count315
+\@cmidlb=\count316
+\@aboverulesep=\dimen273
+\@belowrulesep=\dimen274
+\@thisruleclass=\count317
+\@lastruleclass=\count318
+\@thisrulewidth=\dimen275
+) (hcmus-report-template.sty (F:\ANHTHU\programs\Miktex\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
+
+For additional information on amsmath, use the `?' option.
+(F:\ANHTHU\programs\Miktex\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (F:\ANHTHU\programs\Miktex\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks45
+\ex@=\dimen276
+)) (F:\ANHTHU\programs\Miktex\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen277
+) (F:\ANHTHU\programs\Miktex\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count319
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count320
+\leftroot@=\count321
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count322
+\DOTSCASE@=\count323
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box84
+\strutbox@=\box85
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen278
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count324
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count325
+\dotsspace@=\muskip16
+\c@parentequation=\count326
+\dspbrk@lvl=\count327
+\tag@help=\toks46
+\row@=\count328
+\column@=\count329
+\maxfields@=\count330
+\andhelp@=\toks47
+\eqnshift@=\dimen279
+\alignsep@=\dimen280
+\tagshift@=\dimen281
+\tagwidth@=\dimen282
+\totwidth@=\dimen283
+\lineht@=\dimen284
+\@envbody=\toks48
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks49
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (F:\ANHTHU\programs\Miktex\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (F:\ANHTHU\programs\Miktex\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count331
+\float@exts=\toks50
+\float@box=\box86
+\@float@everytoks=\toks51
+\@floatcapt=\box87
+) (F:\ANHTHU\programs\Miktex\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+\f@nch@headwidth=\skip53
+\f@nch@offset@elh=\skip54
+\f@nch@offset@erh=\skip55
+\f@nch@offset@olh=\skip56
+\f@nch@offset@orh=\skip57
+\f@nch@offset@elf=\skip58
+\f@nch@offset@erf=\skip59
+\f@nch@offset@olf=\skip60
+\f@nch@offset@orf=\skip61
+\f@nch@height=\skip62
+\f@nch@footalignment=\skip63
+\f@nch@widthL=\skip64
+\f@nch@widthC=\skip65
+\f@nch@widthR=\skip66
+\@temptokenb=\toks52
+) (F:\ANHTHU\programs\Miktex\tex/latex/setspace\setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (F:\ANHTHU\programs\Miktex\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+ (F:\ANHTHU\programs\Miktex\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (F:\ANHTHU\programs\Miktex\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (F:\ANHTHU\programs\Miktex\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (F:\ANHTHU\programs\Miktex\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (F:\ANHTHU\programs\Miktex\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (F:\ANHTHU\programs\Miktex\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (F:\ANHTHU\programs\Miktex\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (F:\ANHTHU\programs\Miktex\tex/latex/letltxmacro\letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (F:\ANHTHU\programs\Miktex\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (F:\ANHTHU\programs\Miktex\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (F:\ANHTHU\programs\Miktex\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (F:\ANHTHU\programs\Miktex\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (F:\ANHTHU\programs\Miktex\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count332
+)
+\@linkdim=\dimen285
+\Hy@linkcounter=\count333
+\Hy@pagecounter=\count334
+ (F:\ANHTHU\programs\Miktex\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (F:\ANHTHU\programs\Miktex\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count335
+ (F:\ANHTHU\programs\Miktex\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4064.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count336
+ (F:\ANHTHU\programs\Miktex\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen286
+ (F:\ANHTHU\programs\Miktex\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (F:\ANHTHU\programs\Miktex\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count337
+\Field@Width=\dimen287
+\Fld@charsize=\dimen288
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring ON on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+ (F:\ANHTHU\programs\Miktex\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count338
+\c@Item=\count339
+\c@Hfootnote=\count340
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (F:\ANHTHU\programs\Miktex\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+ (F:\ANHTHU\programs\Miktex\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count341
+\c@bookmark@seq@number=\count342
+ (F:\ANHTHU\programs\Miktex\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (F:\ANHTHU\programs\Miktex\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip67
+) (F:\ANHTHU\programs\Miktex\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (F:\ANHTHU\programs\Miktex\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count343
+\Gm@cntv=\count344
+\c@Gm@tempcnt=\count345
+\Gm@bindingoffset=\dimen289
+\Gm@wd@mp=\dimen290
+\Gm@odd@mp=\dimen291
+\Gm@even@mp=\dimen292
+\Gm@layoutwidth=\dimen293
+\Gm@layoutheight=\dimen294
+\Gm@layouthoffset=\dimen295
+\Gm@layoutvoffset=\dimen296
+\Gm@dimlist=\toks53
+ (F:\ANHTHU\programs\Miktex\tex/latex/geometry\geometry.cfg)) (F:\ANHTHU\programs\Miktex\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks54
+\inpenc@posthook=\toks55
+) (F:\ANHTHU\programs\Miktex\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (F:\ANHTHU\programs\Miktex\tex/latex/lm\lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (F:\ANHTHU\programs\Miktex\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count346
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count347
+) (F:\ANHTHU\programs\Miktex\tex/generic/babel\babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count348
+\U@D=\dimen297
+\l@unhyphenated=\language79
+ (F:\ANHTHU\programs\Miktex\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read4
+\bbl@dirlevel=\count349
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(F:\ANHTHU\programs\Miktex\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (F:\ANHTHU\programs\Miktex\tex/latex/babel-english\english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+)) (F:\ANHTHU\programs\Miktex\tex/generic/babel/locale/en\babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+) (F:\ANHTHU\programs\Miktex\tex/latex/minted\minted.sty
+Package: minted 2025/05/14 v3.7.0 Yet another Pygments shim for LaTeX
+ (F:\ANHTHU\programs\Miktex\tex/generic/catchfile\catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (F:\ANHTHU\programs\Miktex\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (F:\ANHTHU\programs\Miktex\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2025/05/29 v1.13.2 fvextra - extensions and patches for fancyvrb
+ (F:\ANHTHU\programs\Miktex\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count350
+\FV@InFile=\read5
+\FV@TabBox=\box88
+\c@FancyVerbLine=\count351
+\FV@StepNumber=\count352
+\FV@OutFile=\write5
+) (F:\ANHTHU\programs\Miktex\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+ (F:\ANHTHU\programs\Miktex\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)) (F:\ANHTHU\programs\Miktex\tex/latex/lineno\lineno.sty
+Package: lineno 2025/05/13 line numbers on paragraphs v5.5
+\linenopenalty=\count353
+\output=\toks56
+\linenoprevgraf=\count354
+\linenumbersep=\dimen298
+\linenumberwidth=\dimen299
+\c@linenumber=\count355
+\c@pagewiselinenumber=\count356
+\c@LN@truepage=\count357
+\c@internallinenumber=\count358
+\c@internallinenumbers=\count359
+\quotelinenumbersep=\dimen300
+\bframerule=\dimen301
+\bframesep=\dimen302
+\bframebox=\box89
+\@LN@amsmath@ams@eqpen=\count360
+)
+\c@FancyVerbWriteLine=\count361
+\c@FancyVerbBufferLine=\count362
+\c@FV@TrueTabGroupLevel=\count363
+\c@FV@TrueTabCounter=\count364
+\FV@TabBox@Group=\box90
+\FV@bgcolorstructbox=\box91
+\FV@TmpLength=\skip68
+\c@FV@HighlightLinesStart=\count365
+\c@FV@HighlightLinesStop=\count366
+\FV@LoopCount=\count367
+\FV@NCharsBox=\box92
+\FV@BreakIndent=\dimen303
+\FV@BreakIndentNChars=\count368
+\FV@BreakSymbolSepLeft=\dimen304
+\FV@BreakSymbolSepLeftNChars=\count369
+\FV@BreakSymbolSepRight=\dimen305
+\FV@BreakSymbolSepRightNChars=\count370
+\FV@BreakSymbolIndentLeft=\dimen306
+\FV@BreakSymbolIndentLeftNChars=\count371
+\FV@BreakSymbolIndentRight=\dimen307
+\FV@BreakSymbolIndentRightNChars=\count372
+\c@FancyVerbLineBreakLast=\count373
+\FV@LineBox=\box93
+\FV@LineIndentBox=\box94
+\c@FV@BreakBufferDepth=\count374
+\FV@LineWidth=\dimen308
+) (F:\ANHTHU\programs\Miktex\tex/latex/latex2pydata\latex2pydata.sty
+Package: latex2pydata 2025/03/26 v0.6.0 latex2pydata - write data to file in Python literal format
+) (F:\ANHTHU\programs\Miktex\tex/latex/tools\shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@minted@FancyVerbLineTemp=\count375
+\@float@every@listing=\toks57
+\c@listing=\count376
+) (F:\ANHTHU\programs\Miktex\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
+ (F:\ANHTHU\programs\Miktex\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (F:\ANHTHU\programs\Miktex\tex/generic/xkeyval\xkeyval.tex (F:\ANHTHU\programs\Miktex\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks58
+\XKV@tempa@toks=\toks59
+)
+\XKV@depth=\count377
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (F:\ANHTHU\programs\Miktex\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (F:\ANHTHU\programs\Miktex\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
+ (F:\ANHTHU\programs\Miktex\tex/latex/collectbox\collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box95
+)
+\tc@llx=\dimen309
+\tc@lly=\dimen310
+\tc@urx=\dimen311
+\tc@ury=\dimen312
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+ (F:\ANHTHU\programs\Miktex\tex/latex/adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen313
+\adjbox@Height=\dimen314
+\adjbox@Depth=\dimen315
+\adjbox@Totalheight=\dimen316
+\adjbox@pwidth=\dimen317
+\adjbox@pheight=\dimen318
+\adjbox@pdepth=\dimen319
+\adjbox@ptotalheight=\dimen320
+ (F:\ANHTHU\programs\Miktex\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count378
+) (F:\ANHTHU\programs\Miktex\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box96
+\sift@deathcycles=\count379
+\@vwid@loff=\dimen321
+\@vwid@roff=\dimen322
+)) (F:\ANHTHU\programs\Miktex\tex/latex/algorithms\algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+ (F:\ANHTHU\programs\Miktex\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks60
+\c@algorithm=\count380
+) (F:\ANHTHU\programs\Miktex\tex/latex/algorithmicx\algpseudocode.sty
+Package: algpseudocode 
+ (F:\ANHTHU\programs\Miktex\tex/latex/algorithmicx\algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count381
+\c@ALG@rem=\count382
+\c@ALG@nested=\count383
+\ALG@tlm=\skip69
+\ALG@thistlm=\skip70
+\c@ALG@Lnr=\count384
+\c@ALG@blocknr=\count385
+\c@ALG@storecount=\count386
+\c@ALG@tmpcounter=\count387
+\ALG@tmplength=\skip71
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (F:\ANHTHU\programs\Miktex\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+ (F:\ANHTHU\programs\Miktex\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen323
+\ar@mcellbox=\box97
+\extrarowheight=\dimen324
+\NC@list=\toks61
+\extratabsurround=\skip72
+\backup@length=\skip73
+\ar@cellbox=\box98
+)
+\TX@col@width=\dimen325
+\TX@old@table=\dimen326
+\TX@old@col=\dimen327
+\TX@target=\dimen328
+\TX@delta=\dimen329
+\TX@cols=\count388
+\TX@ftn=\toks62
+) (F:\ANHTHU\programs\Miktex\tex/latex/listings\listings.sty
+\lst@mode=\count389
+\lst@gtempboxa=\box99
+\lst@token=\toks63
+\lst@length=\count390
+\lst@currlwidth=\dimen330
+\lst@column=\count391
+\lst@pos=\count392
+\lst@lostspace=\dimen331
+\lst@width=\dimen332
+\lst@newlines=\count393
+\lst@lineno=\count394
+\lst@maxwidth=\dimen333
+ (F:\ANHTHU\programs\Miktex\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count395
+\lst@skipnumbers=\count396
+\lst@framebox=\box100
+) (F:\ANHTHU\programs\Miktex\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+) (F:\ANHTHU\programs\Miktex\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip74
+\enit@outerparindent=\dimen334
+\enit@toks=\toks64
+\enit@inbox=\box101
+\enit@count@id=\count397
+\enitdp@description=\count398
+) (F:\ANHTHU\programs\Miktex\tex/latex/tocloft\tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 51.
+\cftparskip=\skip75
+\cftbeforetoctitleskip=\skip76
+\cftaftertoctitleskip=\skip77
+\cftbeforepartskip=\skip78
+\cftpartnumwidth=\skip79
+\cftpartindent=\skip80
+\cftbeforechapskip=\skip81
+\cftchapindent=\skip82
+\cftchapnumwidth=\skip83
+\cftbeforesecskip=\skip84
+\cftsecindent=\skip85
+\cftsecnumwidth=\skip86
+\cftbeforesubsecskip=\skip87
+\cftsubsecindent=\skip88
+\cftsubsecnumwidth=\skip89
+\cftbeforesubsubsecskip=\skip90
+\cftsubsubsecindent=\skip91
+\cftsubsubsecnumwidth=\skip92
+\cftbeforeparaskip=\skip93
+\cftparaindent=\skip94
+\cftparanumwidth=\skip95
+\cftbeforesubparaskip=\skip96
+\cftsubparaindent=\skip97
+\cftsubparanumwidth=\skip98
+\cftbeforeloftitleskip=\skip99
+\cftafterloftitleskip=\skip100
+\cftbeforefigskip=\skip101
+\cftfigindent=\skip102
+\cftfignumwidth=\skip103
+\c@lofdepth=\count399
+\c@lotdepth=\count400
+\cftbeforelottitleskip=\skip104
+\cftafterlottitleskip=\skip105
+\cftbeforetabskip=\skip106
+\cfttabindent=\skip107
+\cfttabnumwidth=\skip108
+) (F:\ANHTHU\programs\Miktex\tex/latex/tools\indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+) (F:\ANHTHU\programs\Miktex\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box102
+\beforetitleunit=\skip109
+\aftertitleunit=\skip110
+\ttl@plus=\dimen335
+\ttl@minus=\dimen336
+\ttl@toksa=\toks65
+\titlewidth=\dimen337
+\titlewidthlast=\dimen338
+\titlewidthfirst=\dimen339
+)
+\c@subsubsubsection=\count401
+Package hyperref Info: Option `colorlinks' set `true' on input line 108.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 128.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+ (F:\ANHTHU\programs\Miktex\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count402
+\scratchdimen=\dimen340
+\scratchbox=\box103
+\nofMPsegments=\count403
+\nofMParguments=\count404
+\everyMPshowfont=\toks66
+\MPscratchCnt=\count405
+\MPscratchDim=\dimen341
+\MPnumerator=\count406
+\makeMPintoPDFobject=\count407
+\everyMPtoPDFconversion=\toks67
+) (F:\ANHTHU\programs\Miktex\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (F:\ANHTHU\programs\Miktex\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring ON on input line 128.
+ (main.out) (main.out)
+\@outlinefile=\write6
+\openout6 = `main.out'.
+
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(54.2025pt, 505.89pt, 54.2025pt)
+* v-part:(T,H,B)=(54.2025pt, 668.4975pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=505.89pt
+* \textheight=668.4975pt
+* \oddsidemargin=-18.06749pt
+* \evensidemargin=-18.06749pt
+* \topmargin=-55.06749pt
+* \headheight=29.43912pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@lstlisting=\count408
+(content/title.tex
+<img/hcmus-logo.png, id=319, 597.9138pt x 597.9138pt>
+File: img/hcmus-logo.png Graphic file (type png)
+<use img/hcmus-logo.png>
+Package pdftex.def Info: img/hcmus-logo.png  used on input line 9.
+(pdftex.def)             Requested size: 179.37552pt x 179.37552pt.
+ [1
+
+{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{F:/ANHTHU/programs/Miktex/fonts/enc/dvips/lm/lm-ec.enc} <./img/hcmus-logo.png>]) (main.toc
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 2.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 2.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (F:\ANHTHU\programs\Miktex\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+ (F:\ANHTHU\programs\Miktex\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.27 ...numberline {1.4}Canny}{13}{subsection.2.4}
+                                                  % [1] [2])
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+ [3] [4] (main.lof
+Overfull \hbox (1.04251pt too wide) detected at line 16
+\T1/lmr/m/n/12 IV.10 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 17
+\T1/lmr/m/n/12 IV.11 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 18
+\T1/lmr/m/n/12 IV.12 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 19
+\T1/lmr/m/n/12 IV.13 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 20
+\T1/lmr/m/n/12 IV.14 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 21
+\T1/lmr/m/n/12 IV.15 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 22
+\T1/lmr/m/n/12 IV.16 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 23
+\T1/lmr/m/n/12 IV.17 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 24
+\T1/lmr/m/n/12 IV.18 
+ []
+
+
+Overfull \hbox (1.04251pt too wide) detected at line 25
+\T1/lmr/m/n/12 IV.19 
+ []
+
+)
+\tf@lof=\write8
+\openout8 = `main.lof'.
+
+ [5
+
+] (main.lot)
+\tf@lot=\write9
+\openout9 = `main.lot'.
+
+ [6
+
+] (content/chapter1/Chapter1-introduction.tex
+Chapter I.
+(content/chapter1/1-overview.tex [1
+
+
+{F:/ANHTHU/programs/Miktex/fonts/enc/dvips/lm/lm-mathit.enc}{F:/ANHTHU/programs/Miktex/fonts/enc/dvips/lm/lm-rm.enc}{F:/ANHTHU/programs/Miktex/fonts/enc/dvips/lm/lm-mathsy.enc}]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 67.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)) (content/chapter1/2-objectives.tex [2{F:/ANHTHU/programs/Miktex/fonts/enc/dvips/lm/lm-mathex.enc}{F:/ANHTHU/programs/Miktex/fonts/enc/dvips/lm/lm-ts1.enc}]) (content/chapter1/3-structure.tex
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.1.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.6 \subsection{Input}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.1.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.12 \subsection{Output}
+                        )) (content/chapter2/chapter2.tex [3]
+Chapter II.
+(content/chapter2/1-1-overview.tex) (content/chapter2/1-2-gradient-operators.tex [4
+
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 26.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [5] [6] [7]) (content/chapter2/1-3-laplacian-operators.tex
+pdfTeX warning (ext4): destination with the same identifier (name{subsubsection.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.19 \subsubsection{4-neighborhood Laplacian}
+                                              [8]
+pdfTeX warning (ext4): destination with the same identifier (name{subsubsection.2.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.63 \subsubsection{8-neighborhood Laplacian}
+                                              [9]
+pdfTeX warning (ext4): destination with the same identifier (name{subsubsection.2.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.108 \subsubsection{Laplacian Mask Variants}
+                                              [10]
+pdfTeX warning (ext4): destination with the same identifier (name{subsubsection.2.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.175 \subsubsection{Laplacian of Gaussian (LoG)}
+                                                  [11] [12]) (content/chapter2/1-5-canny.tex
+pdfTeX warning (ext4): destination with the same identifier (name{subsubsection.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \subsubsection{Theory}
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{subsubsection.2.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.11 \subsubsection{Method}
+                            [13]
+pdfTeX warning (ext4): destination with the same identifier (name{subsubsection.2.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.79 \subsubsection{Algorithm}
+                               [14]) (content/chapter2/2-1-overview.tex) (content/chapter2/2-2-deeplearning.tex
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2 \subsection{BIPEDv2 Dataset}
+                                 [15]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.2.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.16 \subsection{Model Architecture}
+                                     [16]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.2.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.55 \subsection{Data Preprocessing}
+                                    
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.2.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.69 \subsection{Loss Function and Metrics}
+                                            [17] [18])) (content/chapter3/chapter3.tex [19]
+Chapter III.
+(content/chapter3/1-enviroment-setup.tex [20
+
+] [21]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 111.
+ (F:\ANHTHU\programs\Miktex\tex/latex/lm\ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [22]) (content/chapter3/2-how-to-run.tex
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.3.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 ...Traditional Edge Detection on Single Image}
+                                                   [23]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.3.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.72 ...{Test Classical Edge Detection Algorithms}
+                                                   [24]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.3.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.134 \subsection{Evaluate Deep Learning Models}
+                                                
+Overfull \hbox (6.69005pt too wide) in paragraph at lines 146--147
+[]\T1/lmtt/m/n/12 UNet_edge_detection/deploy.prototxt.txt \T1/lmr/m/n/12 or \T1/lmtt/m/n/12 source/model/deploy.prototxt.txt\T1/lmr/m/n/12 ; 
+ []
+
+
+Overfull \hbox (142.54012pt too wide) in paragraph at lines 147--148
+[]\T1/lmtt/m/n/12 UNet_edge_detection/hed_pretrained_bsds.caffemodel \T1/lmr/m/n/12 or \T1/lmtt/m/n/12 source/model/hed_pretrained_bsds.caffemodel\T1/lmr/m/n/12 . 
+ []
+
+[25]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.3.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.174 ...n{Evaluation Metrics Table and PR Curves}
+                                                  
+Overfull \hbox (19.70306pt too wide) in paragraph at lines 176--177
+[]\T1/lmr/m/n/12 Script \T1/lmtt/m/n/12 evaluation/evaluation.py \T1/lmr/m/n/12 pro-vides func-tions for eval-u-a-tion met-rics ta-ble and Precision-
+ []
+
+[26]
+Overfull \hbox (1.58717pt too wide) in paragraph at lines 218--219
+[]\T1/lmtt/m/n/12 evaluate_classical_and_deep_on_biped()\T1/lmr/m/n/12 : Eval-u-ate both clas-si-cal and deep learn-ing mod-
+ []
+
+[27]) (content/chapter3/3-program-structure.tex
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.3.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \subsection{Project Directory Structure}
+                                             [28]
+Overfull \hbox (79.23497pt too wide) in paragraph at lines 25--25
+ []\TS1/lmtt/m/n/12 `\T1/lmtt/m/n/12 -- main.py                 # Entry point - run traditional edge detection on single image[] 
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.3.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.28 \subsection{Key Functions and Classes}
+                                           
+Underfull \hbox (badness 1509) in paragraph at lines 40--40
+\T1/lmr/m/n/12 de-tec-tors, pro-vid-ing pre-pro-cess-ing and
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 54--54
+\T1/lmr/m/n/12 bin-ing Gaus-sian smooth-ing with zero-
+ []
+
+[29]
+Overfull \hbox (5.9363pt too wide) in paragraph at lines 102--102
+[]|\T1/lmtt/m/n/12 visualize_edge_detection| 
+ []
+
+
+Underfull \hbox (badness 1038) in paragraph at lines 125--125
+\T1/lmr/m/n/12 mod-els on BIPED dataset, out-puts
+ []
+
+)) (content/chapter4/chapter4.tex [30] [31]
+Chapter IV.
+(content/chapter4/1-evaluation.tex [32
+
+] [33]) (content/chapter4/1-result.tex
+<img/result/original.jpg, id=848, 1284.8pt x 722.7pt>
+File: img/result/original.jpg Graphic file (type jpg)
+<use img/result/original.jpg>
+Package pdftex.def Info: img/result/original.jpg  used on input line 5.
+(pdftex.def)             Requested size: 242.82503pt x 136.58661pt.
+<img/result/ground_truth.png, id=849, 1284.8pt x 722.7pt>
+File: img/result/ground_truth.png Graphic file (type png)
+<use img/result/ground_truth.png>
+Package pdftex.def Info: img/result/ground_truth.png  used on input line 12.
+(pdftex.def)             Requested size: 242.82503pt x 136.58661pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.20 \subsection{Basic Gradient}
+                                
+<img/result/basic_gradient.png, id=850, 1284.8pt x 722.7pt>
+File: img/result/basic_gradient.png Graphic file (type png)
+<use img/result/basic_gradient.png>
+Package pdftex.def Info: img/result/basic_gradient.png  used on input line 24.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [34 <./img/result/original.jpg> <./img/result/ground_truth.png (PNG copy)> <./img/result/basic_gradient.png (PNG copy)>]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.31 \subsection{Forward Difference}
+                                    
+<img/result/forward_diff.png, id=855, 1284.8pt x 722.7pt>
+File: img/result/forward_diff.png Graphic file (type png)
+<use img/result/forward_diff.png>
+Package pdftex.def Info: img/result/forward_diff.png  used on input line 35.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.42 \subsection{Backward Difference}
+                                     
+<img/result/backward_diff.png, id=856, 1284.8pt x 722.7pt>
+File: img/result/backward_diff.png Graphic file (type png)
+<use img/result/backward_diff.png>
+Package pdftex.def Info: img/result/backward_diff.png  used on input line 46.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [35 <./img/result/forward_diff.png (PNG copy)>]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.53 \subsection{Central Difference}
+                                    
+<img/result/central_diff.png, id=861, 1284.8pt x 722.7pt>
+File: img/result/central_diff.png Graphic file (type png)
+<use img/result/central_diff.png>
+Package pdftex.def Info: img/result/central_diff.png  used on input line 57.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [36 <./img/result/backward_diff.png (PNG copy)>]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.64 \subsection{Roberts Operator}
+                                  
+<img/result/Roberts.png, id=867, 1284.8pt x 722.7pt>
+File: img/result/Roberts.png Graphic file (type png)
+<use img/result/Roberts.png>
+Package pdftex.def Info: img/result/Roberts.png  used on input line 68.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [37 <./img/result/central_diff.png (PNG copy)>]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.75 \subsection{Prewitt Operator}
+                                  
+<img/result/Prewitt.png, id=872, 1284.8pt x 722.7pt>
+File: img/result/Prewitt.png Graphic file (type png)
+<use img/result/Prewitt.png>
+Package pdftex.def Info: img/result/Prewitt.png  used on input line 79.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [38 <./img/result/Roberts.png (PNG copy)>]
+<img/result/Sobel.png, id=877, 1284.8pt x 722.7pt>
+File: img/result/Sobel.png Graphic file (type png)
+<use img/result/Sobel.png>
+Package pdftex.def Info: img/result/Sobel.png  used on input line 90.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [39 <./img/result/Prewitt.png (PNG copy)>]
+<img/result/FreiChen.png, id=882, 1284.8pt x 722.7pt>
+File: img/result/FreiChen.png Graphic file (type png)
+<use img/result/FreiChen.png>
+Package pdftex.def Info: img/result/FreiChen.png  used on input line 101.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [40 <./img/result/Sobel.png (PNG copy)>]
+<img/result/Laplacian4.png, id=887, 1284.8pt x 722.7pt>
+File: img/result/Laplacian4.png Graphic file (type png)
+<use img/result/Laplacian4.png>
+Package pdftex.def Info: img/result/Laplacian4.png  used on input line 112.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [41 <./img/result/FreiChen.png (PNG copy)>]
+<img/result/Laplacian8.png, id=892, 1284.8pt x 722.7pt>
+File: img/result/Laplacian8.png Graphic file (type png)
+<use img/result/Laplacian8.png>
+Package pdftex.def Info: img/result/Laplacian8.png  used on input line 123.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [42 <./img/result/Laplacian4.png (PNG copy)>]
+<img/result/LoG.png, id=898, 1284.8pt x 722.7pt>
+File: img/result/LoG.png Graphic file (type png)
+<use img/result/LoG.png>
+Package pdftex.def Info: img/result/LoG.png  used on input line 134.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [43 <./img/result/Laplacian8.png (PNG copy)>]
+<img/result/Canny.png, id=903, 1284.8pt x 722.7pt>
+File: img/result/Canny.png Graphic file (type png)
+<use img/result/Canny.png>
+Package pdftex.def Info: img/result/Canny.png  used on input line 145.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [44 <./img/result/LoG.png (PNG copy)>]
+<img/result/unet.PNG, id=908, 345.6915pt x 363.759pt>
+File: img/result/unet.PNG Graphic file (type png)
+<use img/result/unet.PNG>
+Package pdftex.def Info: img/result/unet.PNG  used on input line 158.
+(pdftex.def)             Requested size: 303.53708pt x 319.40399pt.
+ [45 <./img/result/Canny.png (PNG copy)>]
+<img/result/hed_RGB_008.png, id=913, 1284.8pt x 722.7pt>
+File: img/result/hed_RGB_008.png Graphic file (type png)
+<use img/result/hed_RGB_008.png>
+Package pdftex.def Info: img/result/hed_RGB_008.png  used on input line 169.
+(pdftex.def)             Requested size: 404.71353pt x 227.6517pt.
+ [46 <./img/result/unet.PNG>]) (content/chapter4/2-compare.tex
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \subsection{Metrics comparison}
+                                   
+<img/result/comparison.png, id=919, 1438.173pt x 859.5312pt>
+File: img/result/comparison.png Graphic file (type png)
+<use img/result/comparison.png>
+Package pdftex.def Info: img/result/comparison.png  used on input line 7.
+(pdftex.def)             Requested size: 505.89pt x 302.3487pt.
+ [47 <./img/result/hed_RGB_008.png (PNG copy)>]
+<img/result/metrics.png, id=925, 2091.815pt x 1486.55376pt>
+File: img/result/metrics.png Graphic file (type png)
+<use img/result/metrics.png>
+Package pdftex.def Info: img/result/metrics.png  used on input line 16.
+(pdftex.def)             Requested size: 505.89pt x 359.50215pt.
+ [48 <./img/result/comparison.png>] [49 <./img/result/metrics.png>]
+<img/Precision-Recall traditional.png, id=937, 462.528pt x 346.896pt>
+File: img/Precision-Recall traditional.png Graphic file (type png)
+<use img/Precision-Recall traditional.png>
+Package pdftex.def Info: img/Precision-Recall traditional.png  used on input line 67.
+(pdftex.def)             Requested size: 414.8335pt x 311.13957pt.
+ [50]
+<img/Figure_1.png, id=945, 1084.05pt x 455.301pt>
+File: img/Figure_1.png Graphic file (type png)
+<use img/Figure_1.png>
+Package pdftex.def Info: img/Figure_1.png  used on input line 78.
+(pdftex.def)             Requested size: 505.89pt x 212.47003pt.
+ [51 <./img/Precision-Recall traditional.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{subsection.4.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.100 \subsection{Overall Assessment}
+                                      [52 <./img/Figure_1.png>])) (content/chapter5/chapter5.tex [53]
+Chapter V.
+) [54
+
+] (ref/ref.tex [55] (main.bbl)) [56
+
+
+]
+runsystem(latexminted cleantemp  --timestamp 20251205211055 FAD58DE7366495DB4650CFEFAC2FCD61)...disabled (restricted).
+
+ (main.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+ ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: DCDDF0264FD2EEBE85D46A52CBCAE95A;13185.
+ ) 
+Here is how much of TeX's memory you used:
+ 45161 strings out of 474485
+ 968861 string characters out of 5752648
+ 2124542 words of memory out of 5000000
+ 66401 multiletter control sequences out of 15000+600000
+ 619695 words of font info for 74 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 143i,12n,135p,1656b,2349s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmbx12.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmcsc10.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmex10.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmmi12.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmmi8.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmr10.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmr12.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmr6.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmr8.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmri12.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmsy10.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmsy8.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmtt10.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/lm/lmtt12.pfb><F:/ANHTHU/programs/Miktex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (63 pages, 11879673 bytes).
+PDF statistics:
+ 1131 PDF objects out of 1200 (max. 8388607)
+ 337 named destinations out of 1000 (max. 500000)
+ 798 words of extra memory for PDF output out of 10000 (max. 10000000)
+

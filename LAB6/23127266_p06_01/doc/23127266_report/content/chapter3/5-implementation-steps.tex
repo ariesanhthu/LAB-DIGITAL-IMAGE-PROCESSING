@@ -1,0 +1,70 @@
+\subsection{Implementation Sections}
+
+\begin{longtable}{|p{1cm}|p{3.5cm}|p{9cm}|}
+\hline
+\textbf{No.} & \textbf{Section Name} & \textbf{Summary (Inputs / Outputs / Properties)} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Section Name} & \textbf{Summary (Inputs / Outputs / Properties)} \\
+\hline
+\endhead
+\hline
+\endfoot
+\hline
+\caption{Implementation sections in the notebook}
+\label{tab:implementation-sections}
+\endlastfoot
+
+1 & Environment Setup & 
+Inputs: none. Outputs: imported libraries, verified installation. \\
+\hline
+
+2 & Dataset Download & 
+Inputs: dataset URL or Kaggle API credentials. Outputs: \texttt{mnistasjpg\_data} directory with image folders. \\
+\hline
+
+3 & Pre-processing Dataset & 
+Inputs: image directory paths. Outputs: CSV files (\texttt{mnist\_trainingSample.csv}, \texttt{mnist\_trainingSet.csv}) with label and 784 pixel columns. \\
+\hline
+
+4 & Define FFNeuralNetwork & 
+Class properties: W1, b1, W2, b2 (weights and biases), z1, h1, z2, out (intermediate values). Inputs: configuration dict. Outputs: initialized model. \\
+\hline
+
+5 & Build CSV from Images & 
+Function: \texttt{build\_mnist\_like\_csv()}. Inputs: dataset root, split name, output CSV path. Outputs: CSV file path and statistics dict. \\
+\hline
+
+6 & Load and Normalize Data & 
+Function: \texttt{load\_mnist\_csv()}. Inputs: config dict with csv\_path. Outputs: train/validation splits with normalized features and one-hot encoded labels. \\
+\hline
+
+7 & Training Function & 
+Function: \texttt{train\_ffnn\_from\_csv()}. Inputs: config dict with hyperparameters. Outputs: trained model, training history, accuracy metrics. \\
+\hline
+
+8 & Visualization Utilities & 
+Functions: \texttt{visualize\_input\_images\_from\_csv()}, \texttt{visualize\_results()}. Inputs: CSV path or results dict. Outputs: displayed plots and images. \\
+\hline
+
+9 & Model Evaluation & 
+Function: \texttt{evaluate\_and\_visualize\_from\_csv()}. Inputs: config dict, model path. Outputs: validation accuracy, prediction visualizations. \\
+\hline
+
+10 & Model Persistence & 
+Methods: \texttt{save\_weights()}, \texttt{load\_weights()}. Inputs: model instance, file path. Outputs: saved/loaded model files (\texttt{ffnn\_mnist\_state\_dict.pt}, \texttt{ffnn\_mnist\_state\_dict\_set.pt}). \\
+\hline
+
+\end{longtable}
+
+\subsection{Key Implementation Details}
+
+\textbf{Data Preprocessing:} Images are loaded, resized to $28 \times 28$ pixels, converted to grayscale, flattened to 784-dimensional vectors, and normalized to $[0, 1]$ range. The processed data is stored in CSV format with one label column and 784 pixel columns.
+
+\textbf{Training Process:} Training uses manual forward and backward propagation with ReLU activation in the hidden layer and Softmax in the output layer. Cross-entropy loss is minimized using gradient descent with configurable learning rate and batch size.
+
+\textbf{Model Architecture:} The network consists of an input layer (784 neurons), one hidden layer (configurable size, typically 32 or 128 neurons), and an output layer (10 neurons). Weights are initialized from a normal distribution with small variance.
+
+\textbf{Model Persistence:} Model parameters are saved using PyTorch's \texttt{state\_dict()} mechanism, storing only weights and biases. Saved models can be loaded by creating a new instance with matching architecture and applying the state dictionary.
+

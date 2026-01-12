@@ -1,0 +1,41 @@
+\chapter{Conclusion}
+
+\section{Task Completion Summary}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.15\textwidth} p{0.6\textwidth} p{0.15\textwidth}}
+\hline
+\textbf{No.} & \textbf{Objective} & \textbf{Completion} \\
+\hline
+1 & Implement a Feed Forward Neural Network with manual backpropagation in PyTorch & 100\% \\
+2 & Visualize input images and network-related results & 100\% \\
+3 & Convert image datasets into MNIST-like CSV format for training & 100\% \\
+4 & Train and evaluate the model on both sample and full datasets & 100\% \\
+5 & Visualize training loss, accuracy, and confusion matrices & 100\% \\
+6 & Save and reload trained model parameters for validation & 100\% \\
+7 & Compare the results with different hidden sizes and learning rates & 100\% \\
+\hline
+\end{tabular}
+\caption{Objective completion summary}
+\label{tab:objective-completion}
+\end{table}
+
+
+\section{Conclusion}
+
+\section{Conclusion}
+
+This report presented the design, implementation, and evaluation of a Feed Forward Neural Network for handwritten digit classification using an MNIST-like dataset.
+The experimental results demonstrate that the proposed approach is able to achieve high classification accuracy with stable convergence behavior, especially when trained on the full training set.
+
+\textbf{Best Practices.}
+Effective dataset preprocessing through CSV-based representation simplifies data loading and ensures reproducibility.
+Using a training sample for early verification and hyperparameter tuning helps reduce development time and detect implementation errors.
+Training on the full dataset significantly improves generalization, while monitoring validation loss and accuracy provides a reliable indicator of overfitting.
+
+\textbf{Limitations.}
+The model shows overfitting when trained on limited data due to its fully connected architecture.
+In addition, the absence of convolutional layers limits the model’s ability to exploit spatial information in images, which restricts its performance compared to more advanced architectures.
+
+Overall, the full training set configuration offers the best balance between accuracy and generalization and is recommended for final evaluation.

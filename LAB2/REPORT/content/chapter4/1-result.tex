@@ -1,0 +1,174 @@
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/result/original.jpg}
+        \caption{Original image.}
+        \label{fig:original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/result/ground_truth.png}
+        \caption{Ground truth edge map.}
+        \label{fig:ground-truth}
+    \end{subfigure}
+    \caption{Input image and ground truth for edge detection evaluation.}
+    \label{fig:input-groundtruth}
+\end{figure}
+
+\subsection{Basic Gradient}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/basic_gradient.png}
+    \caption{Edge detection result using basic gradient method.}
+    \label{fig:basic-gradient-result}
+\end{figure}
+
+The basic gradient method computes edge magnitude directly from pixel intensity differences, providing a fundamental approach to edge detection. The method produces edge maps with moderate sensitivity to intensity changes, capturing major object boundaries effectively. However, the output exhibits noticeable noise sensitivity, particularly in regions with high-frequency texture. The detected edges show reasonable continuity for strong boundaries but may appear fragmented in areas with gradual transitions. The simplicity of the approach makes it computationally efficient but limits its ability to distinguish between true edges and noise-induced gradients.
+
+\subsection{Forward Difference}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/forward_diff.png}
+    \caption{Edge detection result using forward difference operator.}
+    \label{fig:forward-diff-result}
+\end{figure}
+
+The forward difference operator computes gradients by comparing each pixel with its forward neighbors, resulting in edge maps that emphasize transitions in the forward direction. The method produces edge responses with good localization for strong boundaries but exhibits asymmetric behavior due to its directional nature. The detected edges show reasonable continuity along the forward direction but may miss edges oriented perpendicular to the gradient computation direction. The operator's simplicity provides computational efficiency but introduces directional bias in edge detection, making it less suitable for isotropic edge detection tasks.
+
+\subsection{Backward Difference}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/backward_diff.png}
+    \caption{Edge detection result using backward difference operator.}
+    \label{fig:backward-diff-result}
+\end{figure}
+
+The backward difference operator computes gradients by comparing each pixel with its backward neighbors, producing edge maps complementary to the forward difference approach. Similar to forward difference, the method exhibits directional bias, emphasizing edges in the backward direction. The detected edges demonstrate good localization for strong boundaries but show asymmetric characteristics. The operator captures edge transitions effectively in its preferred direction but may produce incomplete edge maps due to its unidirectional nature. While computationally efficient, the method requires combination with other directional operators for comprehensive edge detection.
+
+\subsection{Central Difference}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/central_diff.png}
+    \caption{Edge detection result using central difference operator.}
+    \label{fig:central-diff-result}
+\end{figure}
+
+The central difference operator computes gradients using symmetric differences around each pixel, providing more balanced edge detection compared to forward and backward difference methods. The symmetric computation reduces directional bias and produces more isotropic edge responses. The detected edges show improved continuity and better localization compared to unidirectional difference operators. The method effectively captures edge transitions in multiple directions while maintaining computational simplicity. However, the operator still exhibits moderate noise sensitivity and may produce fragmented edges in regions with complex texture patterns.
+
+\subsection{Roberts Operator}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/Roberts.png}
+    \caption{Edge detection result using Roberts operator.}
+    \label{fig:roberts-result}
+\end{figure}
+
+The Roberts operator produces edge maps with high sensitivity to diagonal edges due to its $2 \times 2$ kernel design. However, the output exhibits significant noise and fragmented edge structures. Many weak edges are missed, and the detected boundaries appear discontinuous, particularly in regions with gradual intensity transitions. The operator's small kernel size makes it computationally efficient but limits its ability to suppress noise effectively.
+
+\subsection{Prewitt Operator}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/Prewitt.png}
+    \caption{Edge detection result using Prewitt operator.}
+    \label{fig:prewitt-result}
+\end{figure}
+
+The Prewitt operator demonstrates improved edge continuity compared to Roberts, benefiting from its $3 \times 3$ smoothing kernel. The detected edges are smoother and more coherent, with better noise suppression capabilities. However, the operator still struggles with weak edges and produces thicker edge responses than ideal. The uniform weighting in the kernel provides balanced edge detection but lacks the emphasis on central pixels found in more sophisticated operators.
+
+\subsection{Sobel Operator}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/Sobel.png}
+    \caption{Edge detection result using Sobel operator.}
+    \label{fig:sobel-result}
+\end{figure}
+
+The Sobel operator yields superior results among gradient-based methods, with well-defined edge boundaries and good noise suppression. The weighted $3 \times 3$ kernel emphasizes central pixels, resulting in sharper edge localization. The output shows continuous edge structures with reduced noise artifacts compared to Prewitt and Roberts. However, some fine details and weak edges remain undetected, and the operator tends to produce slightly thicker edges than ground truth.
+
+\subsection{Frei--Chen Operator}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/FreiChen.png}
+    \caption{Edge detection result using Frei--Chen operator.}
+    \label{fig:freichen-result}
+\end{figure}
+
+The Frei--Chen operator produces edge maps with characteristics similar to Sobel, featuring smooth edge boundaries and moderate noise suppression. The operator's design incorporates multiple directional templates, providing balanced edge detection across different orientations. The results show good edge continuity and reasonable localization accuracy. However, like other gradient-based methods, it struggles with weak edges and textured regions, producing some false positives in areas with high-frequency content.
+
+\subsection{Laplacian Operator (4-neighborhood)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/Laplacian4.png}
+    \caption{Edge detection result using 4-neighborhood Laplacian operator.}
+    \label{fig:laplacian4-result}
+\end{figure}
+
+The 4-neighborhood Laplacian operator produces edge maps with high sensitivity to intensity changes but suffers from significant noise amplification. The second-order derivative nature of the operator makes it highly sensitive to small intensity variations, resulting in numerous false edge responses in textured regions. The detected edges appear fragmented and lack continuity, with many spurious edges appearing in areas that should be uniform. The operator's zero-crossing detection helps identify edge locations but fails to distinguish between true edges and noise-induced zero crossings.
+
+\subsection{Laplacian Operator (8-neighborhood)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/Laplacian8.png}
+    \caption{Edge detection result using 8-neighborhood Laplacian operator.}
+    \label{fig:laplacian8-result}
+\end{figure}
+
+The 8-neighborhood Laplacian operator shows similar characteristics to its 4-neighborhood counterpart, with high noise sensitivity and fragmented edge structures. The extended neighborhood provides slightly better edge connectivity but does not significantly improve noise suppression. The operator detects many false edges in textured backgrounds and produces discontinuous boundaries. While the 8-neighborhood variant offers more isotropic edge detection, it remains highly susceptible to noise, limiting its practical utility in complex scenes.
+
+\subsection{Laplacian of Gaussian (LoG)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/LoG.png}
+    \caption{Edge detection result using Laplacian of Gaussian operator.}
+    \label{fig:log-result}
+\end{figure}
+
+The Laplacian of Gaussian operator demonstrates improved performance over standard Laplacian methods by incorporating Gaussian smoothing prior to edge detection. The Gaussian pre-filtering effectively reduces noise, resulting in cleaner edge maps with fewer false positives. The detected edges show better continuity and reduced fragmentation compared to Laplacian variants. However, the smoothing operation introduces slight edge blurring, and the operator still produces some spurious edges in highly textured regions. The zero-crossing detection provides good edge localization but requires careful threshold selection.
+
+\subsection{Canny Edge Detector}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/Canny.png}
+    \caption{Edge detection result using Canny edge detector.}
+    \label{fig:canny-result}
+\end{figure}
+
+The Canny edge detector produces the most visually appealing results among traditional methods, with clean, continuous edge boundaries and excellent noise suppression. The multi-stage algorithm combining Gaussian smoothing, gradient computation, non-maximum suppression, and hysteresis thresholding yields well-localized edges with minimal false positives. The detected edges show strong continuity and accurately represent object boundaries. The operator successfully preserves important edge structures while effectively suppressing noise and texture-induced gradients. However, some very weak edges may be missed due to the hysteresis thresholding mechanism, and fine details in complex scenes can be lost.
+
+\subsection{Deep Learning Results}
+
+\subsubsection{U-Net}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img/result/unet.PNG}
+    \caption{Quantitative performance metrics of U-Net edge detection model: Precision, Recall, F1-score, and IoU on the BIPED test set.}
+    \label{fig:unet-metrics}
+\end{figure}
+
+The U-Net achieves a high F1-score and strong IoU, indicating that the model effectively captures fine structural boundaries while maintaining robustness across various scenes.
+
+\subsubsection{HED}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/hed_RGB_008.png}
+    \caption{Edge detection result using HED (Holistically-Nested Edge Detection) model.}
+    \label{fig:hed-result}
+\end{figure}
+
+The HED model produces edge maps with excellent edge continuity and precise boundary localization. The holistically-nested architecture enables multi-scale feature learning, capturing both fine details and global edge structures effectively. The detected edges demonstrate strong coherence and accurately represent object boundaries with minimal noise artifacts.

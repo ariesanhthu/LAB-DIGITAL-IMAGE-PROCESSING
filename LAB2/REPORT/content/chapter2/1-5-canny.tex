@@ -1,0 +1,109 @@
+\subsection{Canny}
+
+\subsubsection{Theory}
+
+The Canny detector identifies edges by optimizing the signal-to-noise ratio,
+edge localization accuracy, and the single-edge response criterion. 
+Mathematically, the process consists of Gaussian smoothing, gradient 
+computation, non–maximum suppression, double thresholding, and 
+edge linking through hysteresis 
+
+\subsubsection{Method}
+
+\textbf{Step 1: Gaussian smoothing}  
+Smooth the input image to reduce noise before computing derivatives:
+
+\[
+f_s(x,y) = f(x,y) * G_\sigma(x,y),
+\]
+\[
+G_\sigma(x,y)=\frac{1}{2\pi \sigma^2}
+\exp\left(-\frac{x^2+y^2}{2\sigma^2}\right).
+\]
+
+\textbf{Step 2: Compute gradient magnitude and direction}  
+Use Sobel filters or derivative masks:
+
+\[
+f_x = f_s * W_x, \qquad f_y = f_s * W_y,
+\]
+
+\[
+M(x,y)=\sqrt{f_x^2 + f_y^2},
+\]
+
+\[
+\theta(x,y) = \tan^{-1}\left(\frac{f_y}{f_x}\right).
+\]
+
+\textbf{Step 3: Non–maximum suppression}  
+Retain only local maxima along the gradient direction:
+
+\[
+M_{\text{thin}}(x,y)=
+\begin{cases}
+M(x,y), & \text{if } M(x,y) \text{ is maximal along } \theta(x,y),\\[4pt]
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+\textbf{Step 4: Double thresholding}  
+Apply two thresholds $T_{high}$ and $T_{low}$:
+
+\[
+E(x,y)=
+\begin{cases}
+\text{strong edge}, & M_{\text{thin}}(x,y)\ge T_{high},\\[4pt]
+\text{weak edge}, & T_{low}\le M_{\text{thin}}(x,y)<T_{high},\\[4pt]
+0, & M_{\text{thin}}(x,y)<T_{low}.
+\end{cases}
+\]
+
+\textbf{Step 5: Hysteresis edge tracking}  
+Retain a weak edge if it connects to at least one strong edge in the 
+8-neighborhood:
+
+\[
+E_{\text{final}}(x,y)=
+\begin{cases}
+1, & \text{if weak edge and } 
+\exists(i,j)\in N_8: E(i,j)=\text{strong},\\[4pt]
+1, & \text{if strong edge},\\[4pt]
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+\cite{lyquocngoc_lecture6, nguyenngocthao_edgedetection}.
+
+
+\subsubsection{Algorithm}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function Canny_edge_detection(f, sigma, T_low, T_high):
+
+    # Step 1: Gaussian smoothing
+    f_s = G_sigma * f
+
+    # Step 2: Gradient magnitude and direction
+    fx = f_s * Wx
+    fy = f_s * Wy
+    M  = sqrt(fx^2 + fy^2)
+    theta = atan2(fy, fx)
+
+    # Step 3: Non-maximum suppression
+    M_thin = suppress_nonmax(M, theta)
+
+    # Step 4: Double threshold
+    Label pixels as strong, weak, or zero using T_high and T_low
+
+    # Step 5: Hysteresis tracking
+    For each weak pixel (x,y):
+        If any 8-neighbor is strong:
+            E_final(x,y) = 1
+        Else:
+            E_final(x,y) = 0
+
+    Return E_final
+\end{lstlisting}
+\end{quote}

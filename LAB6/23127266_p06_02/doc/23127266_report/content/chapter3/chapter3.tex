@@ -1,0 +1,299 @@
+\chapter{Installation and Usage}
+
+This chapter describes the implementation of a custom feed-forward neural network for MNIST digit classification using PyTorch. The implementation includes activation functions, loss functions, layer architectures, and a complete training pipeline. This section covers environment setup, dataset preparation, implementation structure, and usage instructions.
+
+\section{Environment Setup}
+
+\input{content/chapter3/1-enviroment-setup}
+
+\section{Dataset Download}
+
+\input{content/chapter3/2-dataset-download}
+
+\section{Implementation Structure}
+
+This section provides an overview of the core components implemented in the neural network framework.
+
+\subsection{Core Classes}
+
+The implementation consists of several key classes organized into functional modules.
+
+\subsubsection{Activation Functions}
+
+The \texttt{Activation} class provides static methods for non-linear activation functions used in neural network layers.
+
+\begin{table}[H]
+\centering
+\caption{Activation Class Methods}
+\begin{tabular}{|l|p{8cm}|p{3cm}|}
+\hline
+\textbf{Method} & \textbf{Description} & \textbf{Output} \\
+\hline
+\texttt{relu(x)} & Computes Rectified Linear Unit activation: $\max(0, x)$ & \texttt{torch.Tensor} \\
+\hline
+\texttt{softmax(x)} & Computes stable softmax activation for multi-class classification. Input must be 2D tensor of shape (N, C) & \texttt{torch.Tensor} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Activation Derivatives}
+
+The \texttt{ActivationPrime} class provides derivatives of activation functions required for backpropagation.
+
+\begin{table}[H]
+\centering
+\caption{ActivationPrime Class Methods}
+\begin{tabular}{|l|p{5cm}|p{3cm}|}
+\hline
+\textbf{Method} & \textbf{Description} & \textbf{Output} \\
+\hline
+\texttt{relu\_derivative(z)} & Computes derivative of ReLU w.r.t. pre-activation z & \texttt{torch.Tensor} \\
+\hline
+\texttt{softmax\_derivative(z, out\_error)} & Computes gradient through softmax layer. Requires pre-activation z and output error gradient & \texttt{torch.Tensor} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Loss Functions}
+
+The \texttt{Loss} class implements loss functions for training neural networks.
+
+\begin{table}[H]
+\centering
+\caption{Loss Class Methods}
+\begin{tabular}{|p{6cm}|p{4cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{Method} & \textbf{Description} & \textbf{Input} & \textbf{Output} \\
+\hline
+\texttt{cross\_entropy\_with\_logits (y\_true\_int, logits)} & Computes cross-entropy loss from raw logits using stable formulation & \texttt{y\_true\_int: torch.Tensor (N,), logits: torch.Tensor (N, C)} & \texttt{torch.Tensor} (scalar) \\
+\hline
+\texttt{cross\_entropy (y\_true\_int, probs)} & Computes cross-entropy loss from probability tensor & \texttt{y\_true\_int: torch.Tensor (N,), probs: torch.Tensor (N, C)} & \texttt{torch.Tensor} (scalar) \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Loss Derivatives}
+
+The \texttt{LossPrime} class provides derivatives of loss functions for gradient computation.
+
+\begin{table}[H]
+\centering
+\caption{LossPrime Class Methods}
+\begin{tabular}{|p{5cm}|p{3cm}|p{4cm}|p{3cm}|}
+\hline
+\textbf{Method} & \textbf{Description} & \textbf{Input} & \textbf{Output} \\
+\hline
+\texttt{cross\_entropy\_with\_logits\_prime (y\_true\_int, logits)} & Computes derivative of cross-entropy w.r.t. logits & \texttt{y\_true\_int: torch.Tensor (N,), logits: torch.Tensor (N, C)} & \texttt{torch.Tensor} (N, C) \\
+\hline
+\texttt{cross\_entropy\_prime (y\_true\_int, probs)} & Computes derivative of cross-entropy w.r.t. probabilities & \texttt{y\_true\_int: torch.Tensor (N,), probs: torch.Tensor (N, C)} & \texttt{torch.Tensor} (N, C) \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Base Layer}
+
+The \texttt{BaseLayer} abstract class defines the interface for all neural network layers.
+
+\begin{table}[H]
+\centering
+\caption{BaseLayer Class Properties and Methods}
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\textbf{Property/Method} & \textbf{Description} \\
+\hline
+\texttt{forward(in\_data)} & Abstract method for forward propagation. Must be implemented by subclasses \\
+\hline
+\texttt{backward(out\_error, rate)} & Abstract method for backward propagation and parameter updates. Must be implemented by subclasses \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Fully-Connected Layer}
+
+The \texttt{FCLayer} class implements a fully-connected (linear) layer with weights and bias.
+
+\begin{table}[H]
+\centering
+\caption{FCLayer Class Properties and Methods}
+\begin{tabular}{|l|p{9cm}|}
+\hline
+\textbf{Property/Method} & \textbf{Description} \\
+\hline
+\texttt{weights} & Weight matrix of shape (in\_size, out\_size), initialized with small random values \\
+\hline
+\texttt{bias} & Bias vector of shape (1, out\_size), initialized to zeros \\
+\hline
+\texttt{in\_data} & Cached input tensor from forward pass \\
+\hline
+\texttt{out\_data} & Cached output tensor from forward pass \\
+\hline
+\texttt{\_\_init\_\_(in\_size, out\_size, init\_std)} & Initializes layer with input/output dimensions and weight initialization standard deviation \\
+\hline
+\texttt{forward(in\_data)} & Computes linear transformation: $out = in \times W + b$ \\
+\hline
+\texttt{backward(out\_error, rate)} & Performs backpropagation, computes gradients, and updates weights/bias using SGD \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Activation Layer}
+
+The \texttt{ActivationLayer} class applies non-linear activation functions element-wise.
+
+\begin{table}[H]
+\centering
+\caption{ActivationLayer Class Properties and Methods}
+\begin{tabular}{|l|p{5cm}|}
+\hline
+\textbf{Property/Method} & \textbf{Description} \\
+\hline
+\texttt{activation} & Activation function callable (e.g., sigmoid, tanh, relu, softmax) \\
+\hline
+\texttt{activation\_derivative} & Derivative function callable for backpropagation \\
+\hline
+\texttt{in\_data} & Cached pre-activation tensor from forward pass \\
+\hline
+\texttt{out\_data} & Cached activated tensor from forward pass \\
+\hline
+\texttt{\_\_init\_\_(activation, activation\_derivative)} & Initializes layer with activation function and its derivative \\
+\hline
+\texttt{forward(in\_data)} & Applies activation function to input tensor \\
+\hline
+\texttt{backward(out\_error, rate)} & Computes gradient through activation function (rate parameter unused) \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Network Class}
+
+The \texttt{Network} class is a sequential container for neural network layers with training and inference capabilities.
+
+\begin{table}[H]
+\centering
+\caption{Network Class Properties and Methods}
+\begin{tabular}{|p{7cm}|p{7cm}|}
+\hline
+\textbf{Property/Method} & \textbf{Description} \\
+\hline
+\texttt{layers} & List of layer objects in sequential order \\
+\hline
+\texttt{loss} & Loss function callable \\
+\hline
+\texttt{loss\_prime} & Loss function derivative callable \\
+\hline
+\texttt{\_\_init\_\_()} & Initializes empty network with no layers \\
+\hline
+\texttt{add(layer)} & Adds a layer to the network \\
+\hline
+\texttt{use(loss, loss\_prime)} & Sets loss function and its derivative for training \\
+\hline
+\texttt{predict(data)} & Forward propagates a single sample through all layers \\
+\hline
+\texttt{predicts(data)} & Forward propagates multiple samples, returns list of outputs \\
+\hline
+\texttt{fit(x\_train, y\_train, epochs, alpha, print\_every)} & Trains network using sample-wise SGD with specified epochs and learning rate \\
+\hline
+\texttt{state\_dict()} & Returns dictionary containing all trainable parameters (weights and biases) \\
+\hline
+\texttt{load\_state\_dict(state\_dict)} & Loads weights and biases from state dictionary \\
+\hline
+\texttt{save(filepath)} & Saves network state (architecture and weights) to file using pickle \\
+\hline
+\texttt{load(filepath, network)} & Static method that loads network from file and automatically reconstructs architecture \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Utility Functions}
+
+The implementation includes utility functions for data loading, network building, training, and evaluation.
+
+\begin{table}[H]
+\centering
+\caption{Data Loading and Network Building Functions}
+\begin{tabular}{|p{6cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{Function} & \textbf{Description} & \textbf{Input} & \textbf{Output} \\
+\hline
+\texttt{load\_mnist\_from \_image\_folders(cfg)} & Loads MNIST images from folder structure, performs train/val split, normalization, and returns tensors & \texttt{cfg: dict} with dataset config & \texttt{dict} with X\_train, y\_train, X\_val, y\_val, mean, std, paths \\
+\hline
+\texttt{build\_network\_mnist(cfg)} & Builds MNIST classifier network with configurable hidden layers and activations & \texttt{cfg: dict} with model config & \texttt{Network} instance \\
+\hline
+\texttt{get\_activation \_functions(name)} & Maps activation name to (activation, derivative) tuple & \texttt{name: str} ("relu", "tanh", "sigmoid", "softmax") & \texttt{tuple} of callables \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{longtable}{|p{6cm}|p{3cm}|p{4cm}|p{4cm}|}
+\caption{Training and Evaluation Functions} \label{tab:training-eval-functions} \\
+\hline
+\textbf{Function} & \textbf{Description} & \textbf{Input} & \textbf{Output} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline
+\textbf{Function} & \textbf{Description} & \textbf{Input} & \textbf{Output} \\
+\hline
+\endhead
+
+\hline \multicolumn{4}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{train\_digit\_classifier(cfg)} & Complete training pipeline for digit classification using mini-batch SGD & \texttt{cfg: dict} with training config & \texttt{dict} with network, history, data \\
+\hline
+\texttt{train\_and\_evaluate(cfg, checkpoint\_path, single\_image\_path)} & Complete pipeline: load data, train, evaluate, visualize, and save checkpoint & \texttt{cfg: dict}, optional checkpoint/image paths & \texttt{dict} with network, history, data, results \\
+\hline
+\texttt{accuracy\_from\_probs(probs, y\_true\_int)} & Computes classification accuracy from probability tensor and integer labels & \texttt{probs: torch.Tensor (N, C), y\_true\_int: torch.Tensor (N,)} & \texttt{float} accuracy \\
+\hline
+\texttt{plot\_history(history)} & Plots training curves (loss and accuracy) over epochs & \texttt{history: dict} with training metrics & \texttt{None} (displays plots) \\
+\hline
+\texttt{confusion\_matrix\_np(y\_true, y\_pred, num\_classes)} & Computes confusion matrix for classification evaluation & \texttt{y\_true, y\_pred: np.ndarray (N,), num\_classes: int} & \texttt{np.ndarray} (C, C) \\
+\hline
+\texttt{show\_confusion\_matrix(cm, title)} & Visualizes confusion matrix as heatmap & \texttt{cm: np.ndarray (C, C), title: str} & \texttt{None} (displays plot) \\
+\hline
+\texttt{describe\_network(net)} & Extracts and prints FC-layer architecture & \texttt{net: Network} & \texttt{list[int]} architecture \\
+\hline
+\texttt{visualize\_network\_structure(net, title)} & Visualizes network architecture as flow diagram & \texttt{net: Network, title: str} & \texttt{None} (displays plot) \\
+\hline
+\texttt{visualize\_samples(paths, y\_true, num\_show, title)} & Displays grid of sample images with labels & \texttt{paths: list[str], y\_true: np.ndarray, num\_show: int, title: str} & \texttt{None} (displays plot) \\
+\hline
+\texttt{predict\_single\_image(path, net, mean, std, device)} & Predicts digit class for a single image file & \texttt{path: str, net: Network, mean/std: np.ndarray, device: str} & \texttt{tuple[int, np.ndarray]} (pred, probs) \\
+\hline
+\texttt{visualize\_predictions(net, paths, y\_true, mean, std, device, num\_show)} & Visualizes predictions on validation images with true/predicted labels & \texttt{net: Network, paths: list[str], y\_true: np.ndarray, mean/std: np.ndarray, device: str, num\_show: int} & \texttt{None} (displays plot) \\
+\hline
+\texttt{save\_checkpoint(path, network, cfg)} & Saves network weights and config to file & \texttt{path: str, network: Network, cfg: dict} & \texttt{None} \\
+\hline
+\texttt{load\_checkpoint(path)} & Loads checkpoint and rebuilds network & \texttt{path: str} & \texttt{dict} with network and config \\
+\hline
+\end{longtable}
+
+\section{Implementation Structure and Execution Steps}
+
+% \input{content/chapter3/4-implementation-steps}
+
+\section{Training Configuration Parameters}
+
+This section lists the key configuration parameters used for training the neural network on different datasets.
+
+\subsection{Training Configuration}
+
+The full training set configuration uses the complete dataset for final model evaluation:
+
+\begin{itemize}
+    \item \textbf{Input size}: 784
+    \item \textbf{Hidden layers}: [128, 64]
+    \item \textbf{Output size}: 10 classes
+    \item \textbf{Epochs}: 100
+    \item \textbf{Batch size}: 32
+    \item \textbf{Learning rate}: 0.01
+    \item \textbf{Validation split}: 0.2
+    \item \textbf{Weight initialization}: Standard deviation 0.01
+    \item \textbf{Normalization mode}: Standardize
+    \item \textbf{Hidden activation}: ReLU
+    \item \textbf{Seed}: 42
+\end{itemize}

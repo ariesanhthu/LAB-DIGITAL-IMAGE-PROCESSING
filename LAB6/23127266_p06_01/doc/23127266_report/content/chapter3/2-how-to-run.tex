@@ -1,0 +1,37 @@
+\subsection{Running the Notebook}
+
+The implementation is provided as a Jupyter Notebook (\texttt{23127266\_p05.ipynb}) that can be executed interactively. The notebook is organized into 9 sequential sections that build upon each other.
+
+\textbf{a) Start Jupyter Notebook.}
+
+Navigate to the project directory and launch Jupyter Notebook:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+jupyter notebook
+\end{lstlisting}
+\end{quote}
+
+This will open Jupyter in your web browser. Navigate to and open \texttt{23127266\_p05.ipynb}.
+
+\textbf{b) Execute Cells Sequentially.}
+
+Execute cells in order by clicking "Run" or pressing Shift+Enter. The notebook follows this structure:
+
+\begin{quote}
+\begin{enumerate}
+    \item \textbf{Import and Setup} - Import required libraries (\texttt{torch}, \texttt{numpy}, \texttt{matplotlib}), set random seed for reproducibility
+    \item \textbf{Activation Functions} - Define \texttt{Activation} class with sigmoid, tanh, ReLU and their derivatives
+    \item \textbf{Loss Functions} - Define \texttt{Loss} and \texttt{LossPrime} classes with MSE and its derivative
+    \item \textbf{Layers} - Implement \texttt{FCLayer} and \texttt{ActivationLayer} classes with forward and backward methods
+    \item \textbf{Network Class} - Implement \texttt{Network} class as a sequential container with training, prediction, and persistence methods
+    \item \textbf{Training Data} - Prepare XOR problem data and demonstrate basic network training
+    \item \textbf{Network Builder Utilities} - Provide helper functions (\texttt{build\_network}, \texttt{build\_net\_with\_depth}, \texttt{calculate\_accuracy}, \texttt{plot\_decision\_boundary})
+    \item \textbf{Training and Testing} - Perform training experiments with different architectures and hyperparameters, visualize decision boundaries
+    \item \textbf{Save and Load Model} - Demonstrate model persistence: train model, save to file, load from file, verify predictions match
+\end{enumerate}
+\end{quote}
+
+\subsection{Model File}
+
+After training and saving in Section 9, a file named \texttt{xor\_model.pkl} will be created in the current directory. This file contains the model's state dictionary (weights and biases for all fully connected layers) serialized using Python's pickle module. The file can be loaded in subsequent runs without retraining, as long as the network architecture matches the saved model.

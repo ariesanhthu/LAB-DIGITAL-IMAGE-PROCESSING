@@ -1,0 +1,132 @@
+\section{Training Methodology}
+
+The training process encompasses data preprocessing, normalization, forward propagation, backward propagation, and validation. Each stage transforms the raw image data through mathematical operations to enable effective learning.
+
+\subsection{Dataset Preprocessing and Splitting}
+
+In this work, pre-processing is defined as the conversion of raw image data into a structured MNIST-like CSV format.
+The original dataset consists of grayscale digit images stored in label-based directories.
+Each image is resized to $28 \times 28$, flattened into a 784-dimensional vector, and stored together with its digit label in a CSV file.
+
+To support both rapid verification and full-scale training, two pre-processed datasets are generated:
+a training sample used for debugging and hyperparameter tuning, and a full training set used for final model evaluation.
+
+For each CSV dataset, training and validation subsets are created during the data loading stage.
+A fixed 20\% of the samples is randomly selected as the validation set, while the remaining data is used for training.
+The split is controlled by a fixed random seed to ensure reproducibility across experiments.
+
+\subsection{Preprocessing: Image to Latent Representation}
+
+Raw grayscale images of size $28 \times 28$ pixels are converted into latent vector representations suitable for neural network processing. The transformation pipeline consists of the following steps:
+
+\subsubsection{Image Flattening}
+
+Each two-dimensional image matrix $\mathbf{I} \in \mathbb{R}^{28 \times 28}$ is reshaped into a one-dimensional vector $\mathbf{x} \in \mathbb{R}^{784}$ by concatenating rows:
+
+\begin{equation}
+\mathbf{x} = \text{flatten}(\mathbf{I}) = [I_{1,1}, I_{1,2}, \ldots, I_{1,28}, I_{2,1}, \ldots, I_{28,28}]^\top
+\end{equation}
+
+This operation preserves spatial information while converting the image into a format compatible with fully-connected layers.
+
+\subsubsection{Pixel Value Normalization}
+
+Pixel intensities are initially in the range $[0, 255]$ (8-bit grayscale). These values are normalized to $[0, 1]$ by division:
+
+\begin{equation}
+\mathbf{x}_{\text{norm}} = \frac{\mathbf{x}}{255}
+\end{equation}
+
+This normalization ensures that input features are on a consistent scale, preventing numerical instability and facilitating gradient-based optimization.
+
+\subsubsection{Batch Formation}
+
+Multiple latent vectors are organized into batches for efficient processing. A batch matrix $\mathbf{X} \in \mathbb{R}^{N \times 784}$ contains $N$ samples, where each row represents one flattened and normalized image.
+
+\subsection{Feature Normalization}
+
+After initial pixel normalization, additional feature normalization may be applied to stabilize training. Two common approaches are considered:
+
+\subsubsection{Column-wise Normalization}
+
+Each feature (pixel position) is normalized by its maximum value across the training set:
+
+\begin{equation}
+x_{i,j}^{\text{norm}} = \frac{x_{i,j}}{\max_k x_{k,j}}
+\end{equation}
+
+where $x_{i,j}$ denotes the $j$-th pixel of the $i$-th sample. This ensures all features have a maximum value of 1, preventing any single pixel from dominating the learning process.
+
+\subsubsection{Standardization}
+
+Alternatively, features can be standardized to have zero mean and unit variance:
+
+\begin{equation}
+x_{i,j}^{\text{std}} = \frac{x_{i,j} - \mu_j}{\sigma_j}
+\end{equation}
+
+where $\mu_j = \frac{1}{N}\sum_{i=1}^{N} x_{i,j}$ and $\sigma_j = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_{i,j} - \mu_j)^2}$ are the mean and standard deviation of feature $j$ computed over the training set.
+
+\subsection{Forward Propagation}
+
+During training, forward propagation computes predictions for each batch. The process follows the sequence described in Section 3, transforming input latent vectors $\mathbf{X}$ through linear layers and activations to produce probability distributions $\hat{\mathbf{Y}}$.
+
+\subsection{Backward Propagation}
+
+Backward propagation computes gradients and updates parameters as described in Section 4. The process is repeated for each batch in the training set, with gradients accumulated or averaged appropriately depending on the batch size.
+
+\subsection{Validation and Loss Computation}
+
+After each training epoch, model performance is evaluated on a held-out validation set to monitor generalization and detect overfitting.
+
+\subsubsection{Validation Accuracy}
+
+For each validation sample, the predicted class is obtained via:
+
+\begin{equation}
+\hat{c}_i = \arg\max_k \hat{y}_{i,k}
+\end{equation}
+
+The validation accuracy is computed as:
+
+\begin{equation}
+\text{Accuracy} = \frac{1}{N_{\text{val}}} \sum_{i=1}^{N_{\text{val}}} \mathbb{1}[\hat{c}_i = c_i]
+\end{equation}
+
+where $\mathbb{1}[\cdot]$ is the indicator function, $c_i$ is the true class label, and $N_{\text{val}}$ is the number of validation samples.
+
+\subsubsection{Validation Loss}
+
+The cross-entropy loss on the validation set provides a measure of prediction confidence:
+
+\begin{equation}
+\mathcal{L}_{\text{val}} = -\frac{1}{N_{\text{val}}} \sum_{i=1}^{N_{\text{val}}} \log(\hat{y}_{i,c_i})
+\end{equation}
+
+Lower validation loss indicates better model calibration, where predicted probabilities align more closely with true class assignments.
+
+\subsubsection{Training Monitoring}
+
+Training and validation metrics are tracked across epochs to assess learning progress. Key observations include:
+\begin{itemize}
+    \item Decreasing training loss indicates successful optimization.
+    \item Validation accuracy plateauing suggests convergence.
+    \item Large gap between training and validation accuracy may indicate overfitting.
+    \item Consistent improvement in both metrics indicates effective learning.
+\end{itemize}
+
+\subsection{Example: Complete Training Step}
+
+Consider a mini-batch of two samples with simplified dimensions. The preprocessing yields:
+
+\begin{align}
+\mathbf{X} &= \begin{bmatrix}
+0.2 & 0.5 & 0.8 & 0.3 \\
+0.1 & 0.9 & 0.4 & 0.6
+\end{bmatrix}, \quad
+\mathbf{y}_{\text{int}} = \begin{bmatrix}
+2 \\ 3
+\end{bmatrix}
+\end{align}
+
+After forward propagation, predictions are obtained. Backward propagation computes gradients, and parameters are updated. The process repeats for subsequent batches until all training data is processed in one epoch.

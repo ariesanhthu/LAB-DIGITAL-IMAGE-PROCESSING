@@ -1,0 +1,85 @@
+\subsection{Project Structure}
+
+The implementation is organized as a single Jupyter Notebook (\texttt{pytorch-basic-neural-networks.ipynb}) containing all components. The notebook includes sections for environment setup, tensor operations demonstration, activation functions, neural network implementation, data preparation, training, model persistence, prediction, and experiments.
+
+\subsection{Class Structure}
+
+The program consists of two main classes:
+
+\subsubsection{ActivationFunction Class}
+
+A utility class providing static methods for activation functions and their derivatives. This class uses PyTorch operations exclusively and operates on tensors.
+
+\begin{quote}
+\begin{itemize}
+    \item \texttt{sigmoid(s)}: Computes sigmoid activation function $\sigma(s) = \frac{1}{1 + e^{-s}}$, output range [0, 1]
+    \item \texttt{sigmoid\_derivative(s)}: Computes derivative of sigmoid function $\sigma'(s) = s \cdot (1 - s)$ where $s$ is typically the sigmoid output
+\end{itemize}
+\end{quote}
+
+Both methods are static and can be called without instantiating the class.
+
+\subsubsection{FFNeuralNetwork Class}
+
+The main neural network class inheriting from \texttt{nn.Module}:
+
+\begin{quote}
+\textbf{Initialization (\_\_init\_\_):}
+\begin{itemize}
+    \item Sets architecture parameters: \texttt{input\_size} (default: 3), \texttt{hidden\_size} (default: 4), \texttt{output\_size} (default: 1)
+    \item Initializes weight matrices \texttt{W1} (inputSize × hiddenSize) and \texttt{W2} (hiddenSize × outputSize) with random values from normal distribution using \texttt{nn.Parameter}
+    \item Allocates storage for intermediate variables: \texttt{z}, \texttt{z2}, \texttt{z3} for forward pass; \texttt{z\_activation}, \texttt{z\_activation\_derivative}, \texttt{out\_error}, \texttt{out\_delta}, \texttt{z2\_error}, \texttt{z2\_delta} for backward pass
+\end{itemize}
+\end{quote}
+
+\begin{table}[H]
+    \centering
+    \caption{Summary of core and static methods}
+    \label{tab:core-methods}
+    \begin{tabular}{|p{5cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
+    \hline
+    \textbf{Method} & \textbf{Input} & \textbf{Output} & \textbf{Notes} \\
+    \hline
+    \texttt{activation(z)} &
+    $z$ &
+    Activated tensor &
+    Sigmoid activation \\
+    \hline
+    \texttt{activation\_derivative(z)} &
+    $z$ &
+    Derivative tensor &
+    Sigmoid derivative \\
+    \hline
+    \texttt{forward(X)} &
+    Input tensor $X$ &
+    Network output &
+    Input $\rightarrow$ Hidden $\rightarrow$ Output \\
+    \hline
+    \texttt{backward(X, y, output, lr)} &
+    $X$, $y$, $output$, $lr$ &
+    Updated weights &
+    Manual backpropagation \\
+    \hline
+    \texttt{train(X, y, lr)} &
+    $X$, $y$, $lr$ &
+    Updated model &
+    One training step \\
+    \hline
+    \texttt{predict(x\_{\text{predict}})} &
+    Input sample &
+    Predicted output &
+    Inference only \\
+    \hline
+    \texttt{save\_weights(model, path)} &
+    Model, file path &
+    Saved file &
+    Uses state dictionary \\
+    \hline
+    \texttt{load\_weights(path, in, hid, out)} &
+    File path, layer sizes &
+    New model instance &
+    Reconstructs model \\
+    \hline
+\end{tabular}
+\end{table}
+    

@@ -1,0 +1,88 @@
+\section{Training Process}
+
+\subsection{Input Data}
+
+The training dataset used in this practice is the MNIST-like handwritten digit dataset. Images are stored in folder structure, where each subdirectory is labeled by digit class (0-9). Each image is converted to grayscale, resized to $28 \times 28$ pixels, and flattened into a 784-dimensional vector.
+
+The input--output pairs are defined as:
+\[
+\mathcal{D} = \{(x_i, y_i)\}_{i=1}^{N},
+\]
+where $x_i \in \mathbb{R}^{784}$ represents a flattened and normalized image, and $y_i \in \{0,1,\dots,9\}$ denotes the ground-truth digit label.
+
+In the implementation, the input data is stored as a tensor of shape $(N, 784)$, and the target labels are stored as a tensor of shape $(N,)$ with integer class labels. All values are represented using floating-point tensors for inputs and integer tensors for labels.
+
+\subsection{Data Preprocessing}
+
+\subsubsection{Image Loading and Preprocessing}
+
+Raw grayscale images are loaded from folder structure and preprocessed through the following steps:
+\begin{enumerate}
+    \item \textbf{Image loading}: Images are loaded from subdirectories organized by digit class.
+    \item \textbf{Grayscale conversion}: Images are converted to grayscale if they are in color format.
+    \item \textbf{Resizing}: Images are resized to $28 \times 28$ pixels to match MNIST format.
+    \item \textbf{Flattening}: Each $28 \times 28$ image is flattened into a 784-dimensional vector.
+    \item \textbf{Normalization}: Pixel values are normalized using standardization:
+    \[
+    x_{i,j}^{\text{std}} = \frac{x_{i,j} - \mu_j}{\sigma_j}
+    \]
+    where $\mu_j$ and $\sigma_j$ are the mean and standard deviation of pixel $j$ computed over the training set.
+\end{enumerate}
+
+\subsubsection{Train-Validation Split}
+
+The dataset is split into training and validation sets. A fixed 20\% of the samples is randomly selected as the validation set, while the remaining data is used for training. The split is controlled by a fixed random seed to ensure reproducibility across experiments.
+
+\subsection{Training Procedure}
+
+Training is performed using mini-batch Stochastic Gradient Descent (SGD). During training, the dataset is divided into mini-batches of configurable size (default: 64 samples per batch).
+
+For each epoch, the network iterates through all training batches and performs the following steps for each batch:
+
+\begin{quote}
+\begin{enumerate}
+    \item Forward propagation through all layers to compute the predicted probability distributions.
+    \item Loss computation using the cross-entropy loss function.
+    \item Backward propagation through all layers to compute gradients.
+    \item Parameter update using SGD with the specified learning rate.
+\end{enumerate}
+\end{quote}
+
+After all batches have been processed in an epoch, the model is evaluated on both training and validation sets. Loss values and accuracy metrics are computed and stored in the training history.
+
+\subsection{Training Configuration}
+
+The training process is controlled by several hyperparameters:
+\begin{itemize}
+    \item \textbf{Learning rate} ($\alpha$): Controls the step size in parameter updates (default: 0.05).
+    \item \textbf{Batch size}: Number of samples processed together in each update (default: 64).
+    \item \textbf{Number of epochs}: Total number of complete passes through the training dataset (default: 200 for sample set, 100 for full set).
+    \item \textbf{Hidden layer sizes}: Configurable architecture, default $[128, 64]$.
+    \item \textbf{Activation function}: ReLU for hidden layers, Softmax for output layer.
+    \item \textbf{Normalization mode}: Standardization is applied to input features.
+\end{itemize}
+
+\subsection{Validation and Monitoring}
+
+After each epoch (or at specified intervals), the model performance is evaluated on the validation set. Key metrics tracked include:
+\begin{itemize}
+    \item \textbf{Training loss}: Cross-entropy loss on training set.
+    \item \textbf{Validation loss}: Cross-entropy loss on validation set.
+    \item \textbf{Training accuracy}: Percentage of correctly classified samples in training set.
+    \item \textbf{Validation accuracy}: Percentage of correctly classified samples in validation set.
+\end{itemize}
+
+These metrics are plotted over epochs to visualize training progress and detect overfitting. A large gap between training and validation accuracy may indicate overfitting, while consistent improvement in both metrics indicates effective learning.
+
+\subsection{Training History}
+
+The training history is stored in a dictionary containing lists of metrics at each evaluation point:
+\begin{itemize}
+    \item \texttt{epochs}: List of epoch numbers where metrics were recorded.
+    \item \texttt{train\_loss}: List of training loss values.
+    \item \texttt{val\_loss}: List of validation loss values.
+    \item \texttt{train\_acc}: List of training accuracy values.
+    \item \texttt{val\_acc}: List of validation accuracy values.
+\end{itemize}
+
+Metrics are recorded at the first epoch, last epoch, and at regular intervals (e.g., every 10 epochs) to reduce storage requirements while maintaining visibility into training progress.

@@ -1,0 +1,36 @@
+\chapter{Conclusion}
+
+\section{Task Completion Summary}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.15\textwidth} p{0.6\textwidth} p{0.15\textwidth}}
+\hline
+\textbf{No.} & \textbf{Objective} & \textbf{Completion} \\
+\hline
+1 & Implement a Feed Forward Neural Network with manual backpropagation in PyTorch using modular design & 100\% \\
+2 & Visualize Image and Network Architecture & 100\% \\
+3 & Load and preprocess image datasets from folder structure for training & 100\% \\
+4 & Train and evaluate the model on both sample and full datasets & 100\% \\
+5 & Visualize training loss, accuracy, and confusion matrices & 100\% \\
+6 & Save and reload trained model parameters for validation & 100\% \\
+7 & Compare the results with different hidden layer sizes, batch sizes, and normalization modes & 100\% \\
+\hline
+\end{tabular}
+\caption{Objective completion summary}
+\label{tab:objective-completion}
+\end{table}
+
+\section{Conclusion}
+
+This report presented the implementation and evaluation of a Feed Forward Neural Network for handwritten digit classification using an MNIST-like dataset. The network was implemented with manual backpropagation in PyTorch using a modular design approach.
+
+The experimental results demonstrate high classification accuracy with the full training set configuration achieving validation accuracy of 0.955--0.958 and training accuracy of 0.985--0.987. The training sample configuration shows overfitting with training accuracy reaching 1.0 while validation accuracy plateaus at 0.86--0.87. Comparison experiments with four different configurations reveal that batch size has a more significant impact on generalization than the number of hidden layers, with the B1\_batch\_32 configuration achieving the best validation accuracy of 0.968571.
+
+\textbf{Best Practices.}
+Using a training sample for early verification helps reduce development time. Training on the full dataset significantly improves generalization, reducing the gap between training and validation metrics. Monitoring validation loss and accuracy provides a reliable indicator of overfitting. Visualization of training metrics and confusion matrices facilitates understanding of model behavior.
+
+\textbf{Limitations.}
+The model shows overfitting when trained on limited data, with a consistent gap between training and validation metrics. Increased model complexity does not necessarily improve performance, as demonstrated by the A2\_strong\_3layer\_512\_256\_128 configuration achieving the lowest validation accuracy despite having the deepest architecture. The fully connected architecture limits the model's ability to exploit spatial information in images compared to convolutional architectures.
+
+Overall, the full training set configuration offers better generalization than the sample configuration, and smaller batch sizes (32) with moderate architectures provide optimal performance for this task.

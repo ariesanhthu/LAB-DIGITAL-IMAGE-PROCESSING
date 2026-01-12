@@ -1,0 +1,28 @@
+\subsection{Running the Notebook}
+
+The implementation is provided as a Jupyter Notebook (\texttt{23127266\_p06\_01.ipynb}). Execute cells sequentially by clicking "Run" or pressing Shift+Enter.
+
+\subsection{Execution Workflow}
+
+\begin{enumerate}
+    \item \textbf{Environment Setup}: Import required libraries and verify installation
+    \item \textbf{Dataset Download}: Acquire dataset using Method 1 or Method 2
+    \item \textbf{Preprocessing}: Convert images to CSV format using \texttt{build\_mnist\_like\_csv()}
+    \item \textbf{Model Definition}: Define \texttt{FFNeuralNetwork} class with ReLU and Softmax activations
+    \item \textbf{Data Loading}: Load and normalize data using \texttt{load\_mnist\_csv()}
+    \item \textbf{Training}: Train model using \texttt{train\_ffnn\_from\_csv()}
+    \item \textbf{Evaluation}: Visualize results and compute accuracy metrics
+    \item \textbf{Model Persistence}: Save trained models to disk
+\end{enumerate}
+
+\subsection{Model Files}
+
+After training, the following model files are saved:
+
+\begin{itemize}
+    \item \texttt{ffnn\_mnist\_state\_dict.pt}: Model trained on training sample
+    \item \texttt{ffnn\_mnist\_state\_dict\_set.pt}: Model trained on full training set
+\end{itemize}
+
+These files contain the model's state dictionary (weights and biases) serialized using PyTorch's \texttt{torch.save()} function.
+

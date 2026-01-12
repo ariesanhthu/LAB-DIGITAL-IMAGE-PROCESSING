@@ -1,0 +1,58 @@
+\section{Network Construction}
+
+The network is organized as a sequential structure using a modular design approach, where layers are dynamically added and executed in order during training and inference. This design supports flexible configuration of network architecture with multiple hidden layers and provides a clear framework for conducting implementation-based experiments.
+
+\subsection{Class Structure}
+
+The program is organized in an object-oriented manner with the following main classes:
+
+\begin{itemize}
+    \item \textbf{BaseLayer}: An abstract base class that defines a common interface for all layers through two methods \texttt{forward()} and \texttt{backward()}. This abstraction allows uniform treatment of different layer types in the network.
+    \item \textbf{FCLayer}: A fully-connected (linear) layer that performs linear transformation between input and output, including both weights and bias. Each FCLayer stores weight matrix $W$ and bias vector $b$, initialized with small random values from a normal distribution.
+    \item \textbf{ActivationLayer}: An activation layer that applies a nonlinear function element-wise and computes the corresponding gradient in the backward propagation phase. This layer wraps activation functions and their derivatives, supporting sigmoid, tanh, ReLU, and softmax.
+    \item \textbf{Network}: A class that manages the entire network, responsible for adding layers, configuring the loss function, training the model, and making predictions. It maintains a list of layers and coordinates forward and backward passes.
+    \item \textbf{Activation}: A utility class providing static methods for activation functions (sigmoid, tanh, ReLU, softmax).
+    \item \textbf{ActivationPrime}: A utility class providing static methods for activation function derivatives used in backpropagation.
+    \item \textbf{Loss}: A utility class providing static methods for loss functions (MSE, cross-entropy with logits, cross-entropy with probabilities).
+    \item \textbf{LossPrime}: A utility class providing static methods for loss function derivatives.
+\end{itemize}
+
+\subsection{Network Architecture}
+
+The implemented feed-forward neural network consists of multiple layers: an input layer, one or more hidden layers, and an output layer. The architecture transforms the input latent representation through a series of linear transformations and nonlinear activations to produce class probability estimates.
+
+For the MNIST digit classification task, the default architecture is:
+\begin{itemize}
+    \item \textbf{Input layer}: Receives flattened image vectors of dimension $d_{\text{in}} = 784$, corresponding to $28 \times 28$ pixel images.
+    \item \textbf{Hidden layers}: Contains configurable numbers of neurons. The default configuration uses two hidden layers with sizes $d_{h1} = 128$ and $d_{h2} = 64$, where each neuron applies a linear transformation followed by the ReLU activation function.
+    \item \textbf{Output layer}: Contains $d_{\text{out}} = 10$ neurons, one for each digit class, with the Softmax activation function applied to produce normalized probability distributions.
+\end{itemize}
+
+The network architecture can be represented as: $784 \rightarrow 128 \rightarrow 64 \rightarrow 10$, where arrows indicate fully-connected layers with activation functions applied between layers.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/a.png}
+    \caption{FFNN architecture with 2 hidden layers for digit classification.}
+    \label{fig:architecture}
+\end{figure}
+
+\subsection{Parameter Initialization}
+
+The network parameters consist of weight matrices and bias vectors for each fully-connected layer. For a network with architecture $784 \rightarrow 128 \rightarrow 64 \rightarrow 10$, the parameters are:
+\begin{itemize}
+    \item $\mathbf{W}_1 \in \mathbb{R}^{784 \times 128}$: Weight matrix connecting input to first hidden layer
+    \item $\mathbf{b}_1 \in \mathbb{R}^{128}$: Bias vector for first hidden layer
+    \item $\mathbf{W}_2 \in \mathbb{R}^{128 \times 64}$: Weight matrix connecting first to second hidden layer
+    \item $\mathbf{b}_2 \in \mathbb{R}^{64}$: Bias vector for second hidden layer
+    \item $\mathbf{W}_3 \in \mathbb{R}^{64 \times 10}$: Weight matrix connecting second hidden layer to output
+    \item $\mathbf{b}_3 \in \mathbb{R}^{10}$: Bias vector for output layer
+\end{itemize}
+
+Initialization follows a small-variance normal distribution strategy:
+\begin{align}
+    \mathbf{W}_i &\sim \mathcal{N}(0, \sigma^2), \quad \sigma = 0.01 \\
+    \mathbf{b}_i &= \mathbf{0}
+\end{align}
+
+This initialization scheme ensures that initial activations remain in the linear region of the ReLU function, promoting stable gradient flow during early training stages.

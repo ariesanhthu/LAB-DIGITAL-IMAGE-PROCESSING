@@ -1,0 +1,115 @@
+\section{Overview}
+
+In this assignment, I implement several edge detection techniques using NumPy. 
+Color images $f(x,y)\in\mathbb{R}^3$ are first converted to grayscale $I(x,y)$, and all 
+algorithms operate on this single-channel representation.
+
+Traditional operators are reimplemented from their mathematical formulations and applied 
+through discrete convolution on $I(x,y)$. A basic neural network model is also constructed 
+to perform learning-based edge detection.
+
+Finally, the results from the NumPy implementations and the neural network are compared 
+with PyTorch’s built-in functions to observe differences between classical methods, 
+data-driven models, and optimized library routines.
+
+\subsection{Definition}
+
+\textbf{What is an edge?}
+
+An edge in a digital image is a set of pixels where the image intensity changes abruptly. These pixels mark locations of significant intensity variation, often caused by sudden changes in illumination, surface orientation, or object structure. \cite[p.~81]{gonzalezwoods2018}
+
+\textbf{How to detect an edge?}
+
+Edges are formed from pixels with derivative values that exceed a preset threshold. Thus, an edge is a 'local' concept that is based on a measure of intensity-level discontinuity at a point. \cite[p.~81]{gonzalezwoods2018}
+
+\subsection{Problem Statement}
+
+\textbf{Input.}  
+A grayscale digital image
+\[
+f(x,y) : \Omega \subset \mathbb{Z}^2 \rightarrow [0,255],
+\]
+which maps each pixel coordinate $(x,y)$ to an intensity value. 
+\textit{(This project uses grayscale images for processing.)}
+
+\textbf{Goal.}  
+Identify locations where $f(x,y)$ exhibits significant intensity discontinuities.
+
+\textbf{Output.}  
+An edge map
+\[
+E(x,y) : \Omega \rightarrow \{0,1\},
+\]
+defined as
+\[
+E(x,y) =
+\begin{cases}
+1, & \text{if } g(x,y) > T, \\
+0, & \text{otherwise},
+\end{cases}
+\]
+where
+\[
+g(x,y) = \mathcal{D}[f(x,y)]
+\]
+is the edge response produced by an edge operator $\mathcal{D}$.
+
+\textbf{Problem.}  
+Design or select an operator $\mathcal{D}$ such that the resulting map $E(x,y)$
+accurately marks true intensity discontinuities, achieves good spatial localization,
+and remains robust to noise.
+
+\subsection{Approaches}
+
+In this project, I implement the two main approaches:
+\begin{quote}
+    \begin{itemize}
+        \item Traditional methods
+        \item Deep learning-based methods
+    \end{itemize}
+\end{quote}
+    
+Traditional methods are the classical edge detection methods that are based on mathematical operators. Deep learning-based methods are the modern edge detection methods that are based on deep learning models. Each approach has several techniques as the figure \ref{fig:edge-detection-approaches} below.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{forest}
+    for tree={
+        draw,
+        rounded corners,
+        node options={align=center},
+        edge={-latex},
+        s sep=5pt,
+        l sep=10pt,
+        font=\small
+    }
+    [Edge Detection Approaches, s sep=20pt, l sep=20pt
+        [Traditional Methods, s sep=10pt, l sep=60pt
+            [Gradient Operators, s sep=2pt, l sep=60pt
+                [Basic Gradient]
+                [Differencing Operators]
+                [Roberts]
+                [Prewitt]
+                [Sobel]
+                [Frei-Chen]
+            ]
+            [Laplacian Operators
+                [4-neighborhood\\Laplacian]
+                [8-neighborhood\\Laplacian]
+                [Laplacian mask variants]
+            ]
+            [Laplacian of Gaussian (LoG)]
+            [Canny Edge Detector]
+        ]
+        [Deep Learning-based Methods
+            [U-Net]
+            [HED]
+        ]
+    ]
+    \end{forest}
+    }
+    \caption{Overview of Edge Detection Approaches}
+    \label{fig:edge-detection-approaches}
+\end{figure}
+    

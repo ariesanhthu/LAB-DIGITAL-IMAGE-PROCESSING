@@ -1,0 +1,285 @@
+\subsection{Laplacian Operators}
+
+Laplacian-based edge detection relies on the second-order derivatives 
+of the image. The Laplacian highlights regions where the intensity 
+curvature changes abruptly, corresponding to zero-crossings typically 
+associated with edges \cite{lyquocngoc_lecture6}. For a continuous 
+intensity function $f(x,y)$, the Laplacian is
+
+\[
+\nabla^2 f(x,y) = 
+\frac{\partial^2 f}{\partial x^2} + 
+\frac{\partial^2 f}{\partial y^2}.
+\]
+
+In discrete images, the operator is approximated using masks derived 
+from second-order finite differences.
+
+% -----------------------------------------------------------
+\subsubsection{4-neighborhood Laplacian}
+
+\textbf{a) Theory.}
+
+The 4-neighborhood Laplacian estimates curvature using the four 
+adjacent pixels (up, down, left, right). It corresponds to the 
+discrete approximation
+
+\[
+\nabla^2 f(x,y) \approx 
+f(x+1,y) + f(x-1,y) + f(x,y+1) + f(x,y-1) - 4 f(x,y).
+\]
+
+\textbf{b) Method.}
+
+This yields the convolution mask:
+\[
+W_{4} =
+\begin{bmatrix}
+0 & 1 & 0\\
+1 & -4 & 1\\
+0 & 1 & 0
+\end{bmatrix}.
+\] \cite{gonzalezwoods2018}
+
+Applying the mask:
+\[
+g(x,y) = (f * W_{4})(x,y).
+\]
+
+Edges are located at zero-crossings or magnitude peaks of $g$.
+
+\textbf{c) Algorithm.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function laplacian_4neighbor(image f):
+    Compute g = convolution(f, W4)
+    Optionally detect zero-crossings in g
+    Return g
+\end{lstlisting}
+\end{quote}
+
+% -----------------------------------------------------------
+\subsubsection{8-neighborhood Laplacian}
+
+\textbf{a) Theory.}
+
+The 8-neighborhood Laplacian includes diagonal neighbors, producing 
+a more isotropic approximation of curvature. The discrete operator is:
+
+\[
+\nabla^2 f(x,y) \approx 
+\sum_{\text{8 neighbors}} f(x_i,y_i) - 8 f(x,y).
+\]
+
+\textbf{b) Method.}
+
+The corresponding mask is:
+\[
+W_{8} =
+\begin{bmatrix}
+1 & 1 & 1\\
+1 & -8 & 1\\
+1 & 1 & 1
+\end{bmatrix}.
+\]
+\cite{gonzalezwoods2018}
+
+\[
+g(x,y) = (f * W_{8})(x,y).
+\]
+
+Compared to the 4-neighborhood version, this mask produces stronger 
+responses, especially for diagonal structures.
+
+\textbf{c) Algorithm.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function laplacian_8neighbor(image f):
+    Compute g = convolution(f, W8)
+    If binary edges required:
+        Detect zero-crossings of g
+    Return g
+\end{lstlisting}
+\end{quote}
+
+% -----------------------------------------------------------
+\subsubsection{Laplacian Mask Variants}
+
+\textbf{a) Theory.}
+
+Laplacian masks can be modified to adjust sensitivity, noise 
+amplification, or edge thickness. Variants arise from different 
+discrete approximations of second derivatives or by adding smoothing 
+to reduce noise sensitivity.
+
+The variants presented in the lecture (p.44–48) apply different 
+weighting distributions to the second derivative stencil.
+
+\textbf{b) Method.}
+
+Common Laplacian variants include:
+
+\[
+W_{v1} =
+\begin{bmatrix}
+0 & -\frac{3}{8}h & \frac{3}{8}h & 0
+\end{bmatrix},
+\]
+
+\[
+W_{v2} =
+\begin{bmatrix}
+0 & -\frac{3}{16}h & 0 & \frac{3}{16}h & 0
+\end{bmatrix},
+\]
+
+\[
+W_{v3} =
+\begin{bmatrix}
+0 & -\frac{h}{8} & -\frac{h}{8} & 0 & 
+\frac{h}{8} & \frac{h}{8} & 0
+\end{bmatrix},
+\]
+
+\[
+W_{v4} =
+\begin{bmatrix}
+0 & -\frac{h}{16} & -\frac{h}{8} & 
+-\frac{h}{16} & 0 & 
+\frac{h}{16} & \frac{h}{8} & 
+\frac{h}{16} & 0
+\end{bmatrix}.
+\]
+
+(Here $h = b - a$ denotes the local intensity step size, following 
+the finite-difference derivation in the lecture slides.)
+
+These variants allow tuning of directional sensitivity and transition 
+sharpness while preserving the second-derivative nature of the operator.
+
+\textbf{c) Algorithm.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function laplacian_variant(image f, mask Wv):
+    Compute g = convolution(f, Wv)
+    If binary edges required:
+        Detect zero-crossings or apply thresholding
+    Return g
+\end{lstlisting}
+\end{quote}
+
+% -----------------------------------------------------------
+\subsubsection{Laplacian of Gaussian (LoG)}
+
+\textbf{a) Theory.}
+
+LoG detects edges by computing the second derivative of the image after 
+Gaussian smoothing. The core mathematics:
+
+\[
+\text{LoG}(x,y) = \nabla^2(G_\sigma * f)(x,y)
+                = f * \left(\nabla^2 G_\sigma\right),
+\]
+
+where
+
+\[
+G_\sigma(x,y)=\frac{1}{2\pi\sigma^2}
+\exp\!\left(-\frac{x^2+y^2}{2\sigma^2}\right),
+\]
+
+\[
+\nabla^2 G_\sigma(x,y)
+=
+\left(\frac{x^2+y^2-2\sigma^2}{\sigma^4}\right)
+\frac{1}{2\pi\sigma^2}
+\exp\!\left(-\frac{x^2+y^2}{2\sigma^2}\right).
+\]
+
+Edges appear at zero-crossing points of the LoG image:
+
+\[
+L(x,y) = 0 \quad \text{and sign changes in the neighborhood}.
+\]
+
+\textbf{b) Method.}
+
+\textbf{Step 1: Gaussian smoothing}  
+Smooth the input image with a Gaussian kernel:
+
+\[
+S = G_\sigma * f.
+\]
+
+\textbf{Step 2: Apply LoG kernel}  
+Instead of computing Laplacian(S), I use the derivative of Gaussian:
+
+\[
+L(x,y) = (f * \nabla^2 G_\sigma)(x,y).
+\]
+
+The LoG kernel is computed dynamically from the formula above. For 
+discrete implementation, the kernel size is typically $6\sigma$ rounded 
+to the nearest odd number. A sample discrete 5×5 approximation:
+
+\[
+LoG \approx
+\begin{bmatrix}
+0 & 0 & -1 & 0 & 0\\
+0 & -1 & -2 & -1 & 0\\
+-1 & -2 & 16 & -2 & -1\\
+0 & -1 & -2 & -1 & 0\\
+0 & 0 & -1 & 0 & 0
+\end{bmatrix}.
+\]
+
+\textbf{Step 3: Zero-crossing detection}  
+At a point $(x,y)$:
+
+\[
+\mathrm{Edge}(x,y)=
+\begin{cases}
+1, & \exists(i,j)\in \mathcal{N}:
+L(x,y)\,L(x+i,y+j)<0,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+With 4-neighborhood:
+
+\[
+\mathcal{N}=\{(1,0),(0,1),(-1,0),(0,-1)\}.
+\]
+
+The final result:
+
+\[
+E(x,y)=\mathrm{Edge}(x,y).
+\]
+
+\textbf{c) Algorithm.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function LoG_edge_detection(f, sigma):
+
+    # Step 1: Gaussian smoothing
+    S = G_sigma * f
+
+    # Step 2: Apply LoG filter
+    LoG_kernel = Laplacian(G_sigma)
+    L = f * LoG_kernel
+
+    # Step 3: Zero-crossings
+    For each pixel (x,y):
+        For each neighbor (i,j) in N:
+            If L(x,y) * L(x+i, y+j) < 0:
+                E(x,y) = 1
+                break
+
+    Return E
+\end{lstlisting}
+\end{quote}

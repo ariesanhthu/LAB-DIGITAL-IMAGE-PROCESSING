@@ -1,0 +1,104 @@
+\section{Quality Results}
+
+\subsection{Metrics comparison}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/result/comparison.png}
+    \caption{Qualitative outputs of Roberts, Prewitt, Sobel, FreiChen, Laplacian (4/8-neighbor), LoG, and Canny on the same scene.}
+    \label{fig:traditional-compare}
+\end{figure}
+
+As shown in Fig.~\ref{fig:traditional-compare}, Roberts and Prewitt emphasize only the strongest edges, leaving many weak contours faint or missing. Sobel and FreiChen produce smoother, more continuous boundaries, retaining thin structures around the vehicle and crosswalk. Laplacian variants amplify noise and textured backgrounds, while LoG mitigates some noise at the cost of slight edge blur. Canny delivers the cleanest silhouettes with consistent edge continuity and minimal clutter.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/result/metrics.png}
+    \caption{Quantitative performance metrics comparison: Precision, Recall, F1-score, and IoU for traditional edge detection algorithms.}
+    \label{fig:metrics-comparison}
+\end{figure}
+
+The quantitative comparison in Figure~\ref{fig:metrics-comparison} further confirms this trend. Among the evaluated methods, Canny achieves the highest overall performance with Precision = 0.173, Recall = 0.222, F1 = 0.192, and IoU = 0.107. Other gradient-based detectors such as Prewitt, Sobel, and FreiChen reach moderate precision values around 0.29, but their recall scores remain extremely low ($\approx$0.064), resulting in F1-scores below 0.10. Laplacian-based methods perform significantly worse, with F1-scores below 0.01.
+
+\begin{table}[H]
+    \centering
+    \caption{Performance comparison of classical edge detection methods.}
+    \begin{tabular}{lccccc}
+    \toprule
+    \textbf{Method} & \textbf{F1} & \textbf{Precision} & \textbf{Recall} & \textbf{IoU} & \textbf{Time (ms)} \\
+    \midrule
+    BackwardDiff   & 0.0517 & 0.2543 & 0.0288 & 0.0265 & 752.32 \\
+    BasicGradient  & 0.0831 & 0.2773 & 0.0488 & 0.0433 & 957.32 \\
+    Canny          & 0.2136 & 0.1943 & 0.2370 & 0.1196 & 52692.81 \\
+    CentralDiff    & 0.0831 & 0.2773 & 0.0488 & 0.0433 & 896.93 \\
+    ForwardDiff    & 0.0534 & 0.2749 & 0.0296 & 0.0274 & 776.70 \\
+    FreiChen       & 0.1121 & 0.2891 & 0.0695 & 0.0594 & 13947.18 \\
+    LapVar1        & 0.0534 & 0.0283 & 0.4785 & 0.0274 & 7362.20 \\
+    LapVar2        & 0.0534 & 0.0283 & 0.4765 & 0.0274 & 10014.30 \\
+    LapVar3        & 0.0069 & 0.1688 & 0.0035 & 0.0034 & 9049.91 \\
+    LapVar4        & 0.0045 & 0.1628 & 0.0023 & 0.0022 & 8914.99 \\
+    Laplacian4     & 0.0024 & 0.1341 & 0.0012 & 0.0012 & 7253.89 \\
+    Laplacian8     & 0.0055 & 0.1628 & 0.0028 & 0.0027 & 7219.80 \\
+    Prewitt        & 0.1122 & 0.2905 & 0.0696 & 0.0595 & 12976.51 \\
+    Roberts        & 0.0667 & 0.2904 & 0.0377 & 0.0345 & 12884.77 \\
+    Sobel          & 0.1121 & 0.2880 & 0.0696 & 0.0594 & 12728.51 \\
+    \bottomrule
+\end{tabular}
+    \label{tab:traditional-comparison}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Performance comparison of deep learning edge detection methods.}
+    \begin{tabular}{lccccc}
+    \toprule
+    \textbf{Method} & \textbf{F1} & \textbf{Precision} & \textbf{Recall} & \textbf{IoU} & \textbf{Time (ms)} \\
+    \midrule
+    HED             & 0.0758 & 0.0525 & 0.1363 & 0.0394 & 2458.00 \\
+    U-Net           & 0.0928 & 0.2435 & 0.0574 & 0.0487 & 2623.94 \\
+    \bottomrule
+\end{tabular}
+    \label{tab:deeplearning-comparison}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{img/Precision-Recall traditional.png}
+    \caption{Precision--Recall curves of traditional edge detectors on the BIPED-test set.}
+    \label{fig:pr_traditional}
+\end{figure}
+
+In Figure~\ref{fig:pr_traditional}, the precision--recall curves show that all traditional edge-detectors exhibit a rapid decline in precision as recall increases, indicating weak robustness on the BIPED-test dataset. Most operators remain below 0.3 precision at low recall and approach 0 as recall approaches 1.0.
+
+As illustrated in Fig.~\ref{fig:pr_traditional} and Table~\ref{tab:traditional-comparison}, most operators start near $0.30$--$0.40$ precision at very low recall and degrade quickly as thresholds relax. Gradient-based methods (BasicGradient, ForwardDiff, BackwardDiff, CentralDiff) overlap tightly, revealing limited discriminative power and high noise sensitivity. Laplacian variants (Laplacian4, Laplacian8, LapVar1--4) gain slightly higher initial precision but fall sharply because second-order derivatives introduce many false edges. Directional kernels (Prewitt, Sobel, FreiChen) show moderate stability yet do not outperform the Laplacian family by a clear margin. Canny, while typically strong, sits close to the others on BIPED, highlighting the challenge of suppressing texture-induced gradients and preserving very thin contours.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/Figure_1.png}
+    \caption{Performance comparison of Canny, HED, and U-Net edge detection methods across multiple metrics.}
+    \label{fig:deep-models-comparison}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Performance comparison of Canny, HED, and U-Net edge detection methods.}
+    \begin{tabular}{lccccc}
+    \toprule
+    \textbf{Method} & \textbf{F1} & \textbf{Precision} & \textbf{Recall} & \textbf{IoU} & \textbf{Time (ms)} \\
+    \midrule
+    Canny          & 0.2136 & 0.1943 & 0.2370 & 0.1196 & 52692.81 \\
+    HED            & 0.0758 & 0.0525 & 0.1363 & 0.0394 & 2461.25 \\
+    U-Net          & 0.0928 & 0.2435 & 0.0574 & 0.0487 & 4005.27 \\
+    \bottomrule
+\end{tabular}
+    \label{tab:comparison}
+\end{table}
+
+The quantitative comparison of three edge-detection methods is summarized in Table~\ref{tab:comparison}. Among the evaluated approaches, Canny achieves the highest overall performance with an F1-score of 0.2136, Precision of 0.1943, Recall of 0.2370, and an IoU of 0.1196. However, it also incurs the highest computational cost, taking 52{,}692.81 ms per image. In contrast, the deep-learning methods HED and U-Net produce significantly lower F1-scores of 0.0758 and 0.0928, respectively. HED demonstrates the lowest Precision (0.0525) but a higher Recall (0.1363) than U-Net, while U-Net achieves the highest Precision (0.2435) among all methods but suffers from very low Recall (0.0574). Their runtimes are notably faster than Canny, with 2{,}461.25 ms for HED and 4{,}005.27 ms for U-Net. Overall, these results indicate that although Canny yields the best accuracy metrics, its computational cost is considerably higher than that of the learning-based methods.
+
+\subsection{Overall Assessment}
+
+Overall, the figures indicate that traditional operators struggle to achieve a good balance between precision and recall, with Canny being the only method that maintains a relatively better trade-off.
+
+Visual and quantitative evidence (Figs.~\ref{fig:traditional-compare}, \ref{fig:metrics-comparison}, \ref{fig:pr_traditional} and Table~\ref{tab:traditional-comparison}) indicate that classical detectors struggle on natural, high-frequency scenes like BIPED. Canny provides the best balance between edge completeness and noise suppression, followed by Sobel and FreiChen for lightweight processing. Laplacian-based and early gradient operators remain more noise-prone or miss fine structures, motivating the move to learning-based methods in later experiments.

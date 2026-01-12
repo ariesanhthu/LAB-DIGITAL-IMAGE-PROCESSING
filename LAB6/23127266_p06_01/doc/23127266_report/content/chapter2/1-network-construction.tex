@@ -1,0 +1,26 @@
+\section{Network Architecture}
+
+The implemented feed-forward neural network consists of three layers: an input layer, a single hidden layer, and an output layer. The architecture transforms the input latent representation through a series of linear transformations and nonlinear activations to produce class probability estimates.
+
+\subsection{Layer Structure}
+
+The network architecture is defined as follows:
+\begin{itemize}
+    \item \textbf{Input layer}: Receives flattened image vectors of dimension $d_{\text{in}} = 784$, corresponding to $28 \times 28$ pixel images.
+    \item \textbf{Hidden layer}: Contains $d_h$ neurons (configurable, typically 32 or 128), where each neuron applies a linear transformation followed by the ReLU activation function.
+    \item \textbf{Output layer}: Contains $d_{\text{out}} = 10$ neurons, one for each digit class, with the Softmax activation function applied to produce normalized probability distributions.
+\end{itemize}
+
+\subsection{Parameter Initialization}
+
+The network parameters consist of weight matrices and bias vectors for each layer. The weight matrix $\mathbf{W}_1 \in \mathbb{R}^{784 \times d_h}$ connects the input layer to the hidden layer, while $\mathbf{W}_2 \in \mathbb{R}^{d_h \times 10}$ connects the hidden layer to the output layer. Corresponding bias vectors are $\mathbf{b}_1 \in \mathbb{R}^{d_h}$ and $\mathbf{b}_2 \in \mathbb{R}^{10}$.
+
+Initialization follows a small-variance normal distribution strategy:
+\begin{align}
+    \mathbf{W}_1 &\sim \mathcal{N}(0, \sigma^2), \quad \sigma = 0.01 \\
+    \mathbf{W}_2 &\sim \mathcal{N}(0, \sigma^2), \quad \sigma = 0.01 \\
+    \mathbf{b}_1 &= \mathbf{0} \\
+    \mathbf{b}_2 &= \mathbf{0}
+\end{align}
+
+This initialization scheme ensures that initial activations remain in the linear region of the ReLU function, promoting stable gradient flow during early training stages.

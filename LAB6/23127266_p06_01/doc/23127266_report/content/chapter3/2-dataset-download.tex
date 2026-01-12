@@ -1,0 +1,64 @@
+The MNIST dataset in JPG format is required for training and evaluation. The dataset is available at \url{https://www.kaggle.com/datasets/scolianni/mnistasjpg}.
+
+\subsection{Method 1: Direct Download from Kaggle}
+
+\begin{enumerate}
+    \item Navigate to the dataset page on Kaggle
+    \item Click the "Download" button to download the dataset archive
+    \item Extract the archive to the project directory
+    \item Rename the extracted folder to \texttt{mnistasjpg\_data}
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/chapter3/Kaggle.PNG}
+    \caption{Kaggle dataset download page for MNIST as JPG.}
+    \label{fig:kaggle-download}
+\end{figure}
+
+\subsection{Method 2: Programmatic Download via Kaggle API}
+
+Alternatively, uncomment and execute the following code cells in the notebook:
+
+\textbf{Step 1: Install kagglehub library}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+# %pip install kagglehub
+\end{lstlisting}
+\end{quote}
+
+\textbf{Step 2: Download dataset}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+# import kagglehub
+# path = kagglehub.dataset_download("scolianni/mnistasjpg")
+# print("Path to dataset files:", path)
+\end{lstlisting}
+\end{quote}
+
+\textbf{Step 3: Move dataset to target directory}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+# import shutil
+# import os
+# target_path = os.path.join(os.getcwd(), "mnistasjpg_data")
+# if not os.path.exists(target_path):
+#     shutil.move(path, target_path)
+#     print(f"Dataset moved to: {target_path}")
+\end{lstlisting}
+\end{quote}
+
+\subsection{Dataset Structure}
+
+After download, the dataset directory \texttt{mnistasjpg\_data} contains the following structure:
+
+\begin{itemize}
+    \item \texttt{trainingSample/}: Reduced training set (600 samples)
+    \item \texttt{trainingSet/}: Full training set (42,000 samples)
+\end{itemize}
+
+Each split folder contains subdirectories labeled 0-9, where each subdirectory contains JPG images of the corresponding digit class.
+

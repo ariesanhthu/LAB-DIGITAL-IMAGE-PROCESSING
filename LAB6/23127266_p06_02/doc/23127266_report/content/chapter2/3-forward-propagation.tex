@@ -1,0 +1,80 @@
+\section{Forward Propagation}
+
+Forward propagation is the process of computing the network output based on input data. In this model, data is passed sequentially through each layer in the layer list of the \texttt{Network} class. Each layer stores intermediate values (pre-activations and activations) for use in the backward propagation process.
+
+\subsection{Forward Pass Computation}
+
+Given an input batch $\mathbf{X} \in \mathbb{R}^{N \times 784}$ containing $N$ samples, the forward propagation proceeds through the following steps for a network with architecture $784 \rightarrow 128 \rightarrow 64 \rightarrow 10$:
+
+\subsubsection{Input to First Hidden Layer}
+
+The first linear transformation computes pre-activations for the first hidden layer:
+\begin{equation}
+\mathbf{Z}_1 = \mathbf{X}\mathbf{W}_1 + \mathbf{b}_1
+\end{equation}
+
+where $\mathbf{Z}_1 \in \mathbb{R}^{N \times 128}$ contains the pre-activation values. The ReLU activation is then applied element-wise:
+\begin{equation}
+\mathbf{H}_1 = \text{ReLU}(\mathbf{Z}_1) = \max(\mathbf{0}, \mathbf{Z}_1)
+\end{equation}
+
+yielding the first hidden layer activations $\mathbf{H}_1 \in \mathbb{R}^{N \times 128}$.
+
+\subsubsection{First to Second Hidden Layer}
+
+The first hidden activations are transformed through the second linear layer:
+\begin{equation}
+\mathbf{Z}_2 = \mathbf{H}_1\mathbf{W}_2 + \mathbf{b}_2
+\end{equation}
+
+where $\mathbf{Z}_2 \in \mathbb{R}^{N \times 64}$ contains the pre-activation values. ReLU activation is applied again:
+\begin{equation}
+\mathbf{H}_2 = \text{ReLU}(\mathbf{Z}_2) = \max(\mathbf{0}, \mathbf{Z}_2)
+\end{equation}
+
+yielding the second hidden layer activations $\mathbf{H}_2 \in \mathbb{R}^{N \times 64}$.
+
+\subsubsection{Second Hidden to Output Layer}
+
+The second hidden activations are transformed through the output linear layer:
+\begin{equation}
+\mathbf{Z}_3 = \mathbf{H}_2\mathbf{W}_3 + \mathbf{b}_3
+\end{equation}
+
+where $\mathbf{Z}_3 \in \mathbb{R}^{N \times 10}$ contains the output logits. The Softmax function is applied row-wise to produce the final probability distribution:
+\begin{equation}
+\hat{\mathbf{Y}} = \text{Softmax}(\mathbf{Z}_3)
+\end{equation}
+
+where $\hat{\mathbf{Y}} \in \mathbb{R}^{N \times 10}$ and each row sums to unity.
+
+\subsection{Forward Pass Steps}
+
+Forward propagation is performed sequentially according to the following steps:
+\begin{quote}
+    \begin{enumerate}
+        \item Receive input data from the training set (batched or individual samples).
+        \item Pass data through each fully-connected layer, computing linear transformation $Z = XW + b$.
+        \item Apply the corresponding activation function at each activation layer (ReLU for hidden layers, Softmax for output layer).
+        \item Store intermediate values (pre-activations and activations) in each layer for use in backpropagation.
+        \item Obtain the final output of the network as probability distributions over classes.
+    \end{enumerate}
+\end{quote}
+
+This implementation allows the network to support any number of hidden layers, not limited to a fixed architecture. The modular design enables flexible network configuration through the \texttt{Network.add()} method.
+
+\subsection{Implementation Details}
+
+The \texttt{forward()} method of each layer is implemented independently and called sequentially in the \texttt{Network} class. PyTorch tensors are used throughout the computation process to ensure efficiency and consistency in data dimensions.
+
+For the \texttt{FCLayer}, the forward pass computes:
+\begin{equation}
+\text{out\_data} = \text{in\_data} \times \text{weights} + \text{bias}
+\end{equation}
+
+For the \texttt{ActivationLayer}, the forward pass applies the activation function element-wise:
+\begin{equation}
+\text{out\_data} = \text{activation}(\text{in\_data})
+\end{equation}
+
+The \texttt{Network.predict()} method performs forward propagation for inference, while the training loop calls forward propagation for each batch during the training process.

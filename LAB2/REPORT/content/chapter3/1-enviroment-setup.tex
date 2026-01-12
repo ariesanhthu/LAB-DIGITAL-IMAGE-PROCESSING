@@ -1,0 +1,123 @@
+\subsection{System Requirements}
+
+This edge detection project requires the following system components:
+
+\begin{itemize}
+    \item Python 3.7+;
+    \item CUDA (optional, for GPU-based training) \\
+    For training:
+    \item RAM: Minimum 8GB;
+    \item Disk space: Approximately 5GB for dataset and checkpoints.
+\end{itemize}
+
+\subsection{Python and Library Installation}
+
+To set up the development environment, perform the following steps:
+
+\textbf{a) Create a Virtual Environment.}
+
+Create a virtual environment to isolate the project's dependencies.
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python -m venv venv
+\end{lstlisting}
+\end{quote}
+
+Activate the virtual environment:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+# Windows:
+venv\Scripts\activate
+
+# Linux/Mac:
+source venv/bin/activate
+\end{lstlisting}
+\end{quote}
+
+\textbf{b) Install PyTorch.}
+
+Depending on your system, choose one of the following commands:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+# CPU only:
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# CUDA 11.8:
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# CUDA 12.1:
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+\end{lstlisting}
+\end{quote}
+
+\textbf{c) Install Other Libraries.}
+
+Install the remaining dependencies:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+pip install numpy pillow opencv-python tqdm matplotlib scikit-image scipy
+\end{lstlisting}
+\end{quote}
+
+Alternatively, use the requirements.txt file:
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+pip install -r requirements.txt
+\end{lstlisting}
+\end{quote}
+
+\subsection{Main Libraries}
+
+The project uses the following Python libraries:
+
+\begin{itemize}
+    \item \texttt{numpy}: Multidimensional array processing and mathematical operations;
+    \item \texttt{opencv-python}: Image processing and manipulation;
+    \item \texttt{Pillow}: Reading and writing image files;
+    \item \texttt{torch}, \texttt{torchvision}: PyTorch deep learning framework;
+    \item \texttt{matplotlib}: Plotting and visualizing images and figures;
+    \item \texttt{scikit-image}: Advanced image processing algorithms;
+    \item \texttt{scipy}: Scientific and numerical computation library;
+    \item \texttt{tqdm}: Progress bar display.
+\end{itemize}
+
+\subsection{Dataset Setup}
+
+The project uses the BIPED dataset. The dataset should be organized as follows:
+
+\begin{quote}
+\begin{verbatim}
+dataset/
+`-- BIPED/
+    `-- edges/
+        |-- imgs/
+        |   |-- train/
+        |   |   `-- rgbr/
+        |   |       `-- real/
+        |   `-- test/
+        |       `-- rgbr/
+        |-- edge_maps/
+        |   |-- train/
+        |   |   `-- rgbr/
+        |   |       `-- real/
+        |   `-- test/
+        |       `-- rgbr/
+        |-- train_rgb.lst
+        `-- test_rgb.lst
+\end{verbatim}
+\end{quote}
+
+\subsection{Installation Check}
+
+To verify that the installation was successful, run the main script:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+cd source
+python main.py
+\end{lstlisting}
+\end{quote}

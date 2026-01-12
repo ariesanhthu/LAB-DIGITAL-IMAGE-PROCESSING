@@ -1,0 +1,22 @@
+\chapter{Dataset Preparation and Preprocessing}
+
+\section{Dataset Description}
+The dataset used in this laboratory is derived from an MNIST-like image collection, where handwritten digit images are stored in folder structures corresponding to labels from 0 to 9.
+Each image is converted to grayscale and resized to $28 \times 28$ pixels.
+
+\section{CSV Dataset Construction}
+\subsection{Image-to-CSV Conversion}
+To simplify training, images are converted into a CSV format where each row contains:
+\begin{itemize}
+    \item A label column representing the digit class.
+    \item 784 pixel intensity values flattened from the $28 \times 28$ image.
+\end{itemize}
+
+Pixel values are optionally normalized to the range $[0, 1]$ by dividing by 255.
+
+\subsection{Dataset Splits}
+Two dataset configurations are generated:
+\begin{itemize}
+    \item \textbf{Training Sample}: 600 images used for rapid experimentation.
+    \item \textbf{Training Set}: 42,000 images used for full-scale training.
+\end{itemize}

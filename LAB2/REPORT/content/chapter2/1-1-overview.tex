@@ -1,0 +1,24 @@
+\subsection{Overview}
+
+Traditional edge detection methods are built upon fundamental image derivatives and filtering operators. These techniques rely on detecting intensity changes in local neighborhoods to estimate the presence and direction of edges. Unlike modern learning-based methods, classical operators derive edges directly from mathematical approximations of the image gradient or the Laplacian.
+
+Gradient-based methods estimate edges by computing the spatial derivatives of an image. Given a grayscale image $f(x,y)$, the first-order partial derivatives are approximated as:
+
+\[
+\nabla f(x,y) = 
+\begin{bmatrix}
+f_x(x,y) \\[4pt]
+f_y(x,y)
+\end{bmatrix},
+\qquad
+e(x,y) = \sqrt{f_x^2(x,y) + f_y^2(x,y)}.
+\]
+
+An edge corresponds to locations where the magnitude $e(x,y)$ is large, and the edge orientation is:
+
+\[
+\phi(x,y) = \arctan\left(\frac{f_y(x,y)}{f_x(x,y)}\right).
+\]
+
+In what follows, I present all classical operators derived from finite-difference approximations of these derivatives.
+

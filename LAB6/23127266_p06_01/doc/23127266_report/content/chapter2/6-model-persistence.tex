@@ -1,0 +1,38 @@
+\section{Model Persistence}
+
+Model persistence enables saving trained network parameters to disk and reloading them for inference or continued training. This capability is essential for deploying models and reproducing experimental results.
+
+\subsection{State Dictionary Representation}
+
+The model state is represented as a dictionary containing all learnable parameters. For the implemented architecture, the state dictionary includes:
+
+\begin{itemize}
+    \item $\mathbf{W}_1$: Input-to-hidden weight matrix
+    \item $\mathbf{b}_1$: Hidden layer bias vector
+    \item $\mathbf{W}_2$: Hidden-to-output weight matrix
+    \item $\mathbf{b}_2$: Output layer bias vector
+\end{itemize}
+
+Each parameter tensor is stored with its associated key, allowing precise reconstruction of the network's learned mapping.
+
+\subsection{Saving Model Parameters}
+
+When saving, the state dictionary is serialized to disk using a binary format. The saved file contains only the parameter values, not the network architecture definition. This approach ensures:
+
+\begin{itemize}
+    \item \textbf{Portability}: Saved models can be loaded into networks with matching architectures regardless of implementation details.
+    \item \textbf{Efficiency}: Only essential parameters are stored, minimizing file size.
+    \item \textbf{Version independence}: Parameter values are architecture-agnostic, allowing compatibility across different framework versions.
+\end{itemize}
+
+\subsection{Loading Model Parameters}
+
+To restore a saved model, a new network instance with the same architecture must be created. The saved state dictionary is then loaded and applied to the network parameters, replacing initial random values with trained weights. This process requires:
+
+\begin{itemize}
+    \item Matching architecture dimensions (input size, hidden size, output size).
+    \item Consistent parameter naming conventions.
+    \item Validation to ensure all required parameters are present.
+\end{itemize}
+
+After loading, the network produces identical predictions to those obtained before saving, given the same input data and architecture configuration.

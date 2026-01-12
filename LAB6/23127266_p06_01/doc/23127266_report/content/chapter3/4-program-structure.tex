@@ -1,0 +1,64 @@
+\subsection{Project Structure}
+
+The implementation is organized as a single Jupyter Notebook containing all components: data preprocessing, neural network definition, training procedures, and evaluation utilities.
+
+\subsection{Class Structure}
+
+\subsubsection{FFNeuralNetwork Class}
+
+The main neural network class inheriting from \texttt{nn.Module}:
+
+\begin{table}[H]
+    \centering
+    \caption{FFNeuralNetwork class methods}
+    \label{tab:ffnn-methods}
+    \begin{tabular}{|p{4cm}|p{4cm}|p{5cm}|}
+    \hline
+    \textbf{Method} & \textbf{Input} & \textbf{Output} \\
+    \hline
+    \texttt{\_\_init\_\_(config)} & Configuration dict with input\_size, hidden\_size, output\_size & Initialized model with random weights \\
+    \hline
+    \texttt{relu(z)} & Pre-activation tensor $z$ & ReLU-activated tensor \\
+    \hline
+    \texttt{relu\_derivative(z)} & Pre-activation tensor $z$ & ReLU derivative tensor \\
+    \hline
+    \texttt{softmax(z)} & Logits tensor $z$ & Probability distribution tensor \\
+    \hline
+    \texttt{forward(X)} & Input batch $X \in \mathbb{R}^{N \times 784}$ & Output probabilities $\hat{Y} \in \mathbb{R}^{N \times 10}$ \\
+    \hline
+    \texttt{backward(X, y\_int, lr)} & Input batch, integer labels, learning rate & Updated model parameters \\
+    \hline
+    \texttt{train\_step(X, y\_int, lr)} & Input batch, integer labels, learning rate & Output probabilities \\
+    \hline
+    \texttt{save\_weights(model, path)} & Model instance, file path & Saved state dictionary file \\
+    \hline
+    \texttt{load\_weights(path, config)} & File path, configuration dict & Loaded model instance \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Utility Functions}
+
+\begin{table}[H]
+    \centering
+    \caption{Utility functions for data processing and visualization}
+    \label{tab:utility-functions}
+    \begin{tabular}{|p{7cm}|p{4cm}|p{5cm}|}
+    \hline
+    \textbf{Function} & \textbf{Input} & \textbf{Output} \\
+    \hline
+    \texttt{build\_mnist\_like\_csv (dataset\_root, split, out\_csv, normalize)} & Dataset root path, split name, output CSV path, normalization mode & Tuple: (saved CSV path, statistics dict) \\
+    \hline
+    \texttt{load\_mnist\_csv (config)} & Configuration dict with csv\_path, input\_size, output\_size & Dict: X\_train, y\_train\_int, y\_train\_oh, X\_val, y\_val\_int, y\_val\_oh, mean, std \\
+    \hline
+    \texttt{train\_ffnn\_from\_csv(config)} & Configuration dict with training parameters & Dict: model, history, train\_acc, val\_acc, y\_val\_int, val\_out \\
+    \hline
+    \texttt{visualize\_input\_images\_from\_csv (csv\_path, num\_images)} & CSV path, number of images & Displayed image grid \\
+    \hline
+    \texttt{visualize\_results(results)} & Results dict from training & Plots: loss curves, accuracy curves, confusion matrix \\
+    \hline
+    \texttt{evaluate\_and\_visualize\_from\_csv (config, model\_path, num\_show)} & Config dict, model path, number of samples & Dict: val\_acc, picked\_indices, y\_true, y\_pred \\
+    \hline
+    \end{tabular}
+\end{table}
+

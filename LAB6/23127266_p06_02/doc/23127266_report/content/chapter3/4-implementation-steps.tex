@@ -1,0 +1,69 @@
+\subsection{Implementation Sections}
+
+\begin{longtable}{|p{1cm}|p{3.5cm}|p{8.5cm}|}
+\hline
+\textbf{No.} & \textbf{Section Name} & \textbf{Summary (Inputs / Outputs / Properties)} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Section Name} & \textbf{Summary (Inputs / Outputs / Properties)} \\
+\hline
+\endhead
+\hline
+\endfoot
+\hline
+\caption{Implementation sections in the notebook}
+\label{tab:implementation-sections}
+\endlastfoot
+
+1 & Import and Setup &
+Inputs: none.  
+Outputs: initialized environment, fixed random seed. \\
+\hline
+
+2 & Activation &
+Class properties: activation function, derivative function.  
+Inputs: tensor $x$.  
+Outputs: activated tensor and gradient tensor. \\
+\hline
+
+3 & Loss &
+Class properties: loss function, loss derivative.  
+Inputs: predicted output $y_{\text{pred}}$, target $y$.  
+Outputs: scalar loss value and loss gradient. \\
+\hline
+
+4 & Layers &
+\texttt{FCLayer} properties: weights, bias, input data, output data.  
+\texttt{ActivationLayer} properties: activation function, activation derivative.  
+Inputs: input tensor.  
+Outputs: transformed tensor and propagated gradient. \\
+\hline
+
+5 & Network &
+Class properties: list of layers, loss function, learning rate.  
+Inputs: training data and target values.  
+Outputs: trained network and prediction results. \\
+\hline
+
+6 & Training Data &
+Inputs: XOR input samples and corresponding labels.  
+Outputs: formatted tensors for training and evaluation. \\
+\hline
+
+7 & Builder Utilities &
+Inputs: layer sizes, activation types, input data.  
+Outputs: constructed network instances, accuracy values, visualization figures. \\
+\hline
+
+8 & Training and Testing &
+Inputs: network instance, hyperparameters.  
+Outputs: accuracy metrics and decision boundary visualizations. \\
+\hline
+
+9 & Save and Load Model &
+Inputs: trained network instance, file path.  
+Outputs: saved model file (\texttt{xor\_model.pkl}) and loaded network instance. \\
+\hline
+
+\end{longtable}

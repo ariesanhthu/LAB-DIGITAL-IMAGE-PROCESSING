@@ -1,0 +1,103 @@
+\section{Model Persistence}
+
+Model persistence enables saving trained network parameters to disk and reloading them for inference or continued training. This capability is essential for deploying models and reproducing experimental results.
+
+\subsection{State Dictionary Representation}
+
+The model state is represented as a dictionary containing all learnable parameters from fully-connected layers. The \texttt{Network} class provides two methods for managing state:
+
+\begin{itemize}
+    \item \texttt{state\_dict()}: Returns a dictionary containing weights and biases for all fully connected layers. Keys follow the format \texttt{layer\_\{i\}\_weights} and \texttt{layer\_\{i\}\_bias} where \texttt{i} is the index of the FCLayer in the network (counting only FC layers, not activation layers).
+    \item \texttt{load\_state\_dict(state\_dict)}: Loads weights and biases from a state dictionary into the network, with validation to ensure the structure matches. Raises \texttt{ValueError} if the number of layers or keys don't match.
+\end{itemize}
+
+For a network with architecture $784 \rightarrow 128 \rightarrow 64 \rightarrow 10$, the state dictionary includes:
+\begin{itemize}
+    \item \texttt{layer\_0\_weights}: $\mathbf{W}_1 \in \mathbb{R}^{784 \times 128}$ (input-to-first-hidden weight matrix)
+    \item \texttt{layer\_0\_bias}: $\mathbf{b}_1 \in \mathbb{R}^{128}$ (first hidden layer bias vector)
+    \item \texttt{layer\_1\_weights}: $\mathbf{W}_2 \in \mathbb{R}^{128 \times 64}$ (first-to-second-hidden weight matrix)
+    \item \texttt{layer\_1\_bias}: $\mathbf{b}_2 \in \mathbb{R}^{64}$ (second hidden layer bias vector)
+    \item \texttt{layer\_2\_weights}: $\mathbf{W}_3 \in \mathbb{R}^{64 \times 10}$ (second-hidden-to-output weight matrix)
+    \item \texttt{layer\_2\_bias}: $\mathbf{b}_3 \in \mathbb{R}^{10}$ (output layer bias vector)
+\end{itemize}
+
+At initialization, weights are randomly sampled from a normal distribution. When a saved \texttt{state\_dict} is loaded, these initial random values are completely replaced by the trained weights, ensuring consistent model restoration.
+
+\subsection{Saving Model}
+
+The model is saved using the \texttt{save(filepath)} method of the \texttt{Network} class. This method:
+
+\begin{enumerate}
+    \item Extracts the state dictionary via \texttt{self.state\_dict()}
+    \item Extracts the network architecture information from FCLayers (list of layer sizes: $[input\_size, hidden1, hidden2, \ldots, output\_size]$)
+    \item Combines architecture and state dictionary into a single dictionary:
+    \begin{itemize}
+        \item \texttt{architecture}: Network structure information (e.g., $[784, 128, 64, 10]$)
+        \item \texttt{state\_dict}: Trained weights and biases
+    \end{itemize}
+    \item Serializes the dictionary to disk using Python's \texttt{pickle} module
+    \item Saves the file with the specified path (e.g., \texttt{custom\_mnist\_net.pkl})
+\end{enumerate}
+
+The implementation uses \texttt{pickle.dump()} to write the combined dictionary to a binary file. This approach stores both the model parameters and architecture information, enabling automatic network reconstruction during loading.
+
+\subsection{Loading Model}
+
+To load a saved model, the static method \texttt{Network.load(filepath, network=None)} is used:
+
+\begin{enumerate}
+    \item The saved data is loaded from the file using \texttt{pickle.load()}
+    \item If the saved format includes \texttt{architecture} (new format), a new network is automatically created:
+    \begin{itemize}
+        \item Network architecture is reconstructed from the saved architecture list
+        \item FCLayers and ActivationLayers are added in the correct sequence
+        \item Default activation (tanh) and loss function (MSE) are configured
+    \end{itemize}
+    \item If the saved format only contains \texttt{state\_dict} (old format), a network instance must be provided with matching architecture
+    \item The state dictionary is applied to the network instance via \texttt{network.load\_state\_dict()}
+    \item The method validates that the state dictionary structure matches the network architecture
+\end{enumerate}
+
+The \texttt{load\_state\_dict()} method performs validation to ensure:
+\begin{itemize}
+    \item The number of items in the state dictionary matches the number of fully connected layers (2 items per layer: weights and bias)
+    \item All required keys (\texttt{layer\_\{i\}\_weights} and \texttt{layer\_\{i\}\_bias}) are present for each layer
+    \item Raises \texttt{ValueError} if there is a mismatch
+\end{itemize}
+
+After loading, the network produces identical predictions to those obtained before saving, given the same input data and architecture configuration.
+
+\subsection{Checkpoint Saving and Loading}
+
+For training workflows, a checkpoint system is implemented that saves both model parameters and configuration:
+
+\begin{itemize}
+    \item \texttt{save\_checkpoint(path, network, cfg)}: Saves network state dictionary together with configuration dictionary to a checkpoint file.
+    \item \texttt{load\_checkpoint(path)}: Loads checkpoint and automatically rebuilds the network using the saved configuration, returning both the network and configuration.
+\end{itemize}
+
+This approach enables complete model restoration including hyperparameters and training configuration, facilitating experiment reproducibility and model deployment.
+
+\subsection{Usage Example}
+
+The typical workflow for saving and loading a model is:
+
+\begin{quote}
+\begin{enumerate}
+    \item \textbf{Train the model}: Create and train a network with desired architecture and hyperparameters using \texttt{Network.fit()}
+    \item \textbf{Save the model}: Call \texttt{net.save("custom\_mnist\_net.pkl")} to persist the trained weights and architecture
+    \item \textbf{Load the model}: Call \texttt{Network.load("custom\_mnist\_net.pkl")} to automatically reconstruct and restore the network
+    \item \textbf{Use for inference}: Call \texttt{net.predict(X)} to make predictions on new data
+\end{enumerate}
+\end{quote}
+
+Alternatively, for checkpoint-based workflows:
+\begin{quote}
+\begin{enumerate}
+    \item \textbf{Save checkpoint}: Call \texttt{save\_checkpoint("checkpoint.pkl", net, config)} after training
+    \item \textbf{Load checkpoint}: Call \texttt{loaded = load\_checkpoint("checkpoint.pkl")} to get network and config
+    \item \textbf{Verify}: Test the loaded model on validation data to confirm identical predictions
+\end{enumerate}
+\end{quote}
+
+After loading, the model can be used for inference through forward propagation. Given the same input data and network architecture, the loaded model is expected to produce the same predictions as those obtained before saving.

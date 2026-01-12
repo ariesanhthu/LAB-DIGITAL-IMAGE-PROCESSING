@@ -1,0 +1,121 @@
+\subsection{Training Performance}
+
+The training performance is evaluated using loss, accuracy, and confusion matrix metrics for both training sample and training set configurations.
+
+\subsubsection{Training Sample Results}
+
+Figures~\ref{fig:sample-loss},~\ref{fig:sample-accuracy}, and~\ref{fig:sample-confusion} show the loss curve, accuracy curve, and confusion matrix for the training sample configuration, respectively.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSample/Sample-training-loss.png}
+    \caption{Training loss curve for sample configuration}
+    \label{fig:sample-loss}
+\end{figure}
+
+The training loss decreases rapidly toward zero, whereas the validation loss decreases initially and then gradually increases after approximately 20--30 epochs.
+This divergence further confirms overfitting behavior.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSample/Sample-training-accuracy.png}
+    \caption{Training accuracy curve for sample configuration}
+    \label{fig:sample-accuracy}
+\end{figure}
+
+For the training sample configuration, the model reaches a training accuracy of approximately 99\% after 100 epochs, while the validation accuracy stabilizes around 95--96\%.
+The gap of about 3--4\% between training and validation accuracy indicates noticeable overfitting due to the limited data size.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSample/Sample-training-Confusion.png}
+    \caption{Confusion matrix for sample configuration}
+    \label{fig:sample-confusion}
+\end{figure}
+
+The confusion matrix shows strong performance on most digit classes; however, several misclassifications are observed, especially for visually similar digits such as 3 and 8.
+Overall, the training sample configuration is effective for debugging and hyperparameter tuning, but it does not provide optimal generalization.
+
+\subsubsection{Training Set Results}
+
+Figures~\ref{fig:set-loss},~\ref{fig:set-accuracy}, and~\ref{fig:set-confusion} show the loss curve, accuracy curve, and confusion matrix for the training set configuration, respectively.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSet/Set-training-loss.png}
+    \caption{Training loss curve for set configuration}
+    \label{fig:set-loss}
+\end{figure}
+
+The loss curves show stable convergence, with validation loss remaining relatively low and increasing only slightly after convergence.
+This behavior suggests mild overfitting but significantly better stability than the training sample configuration.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSet/Set-training-accuracy.png}
+    \caption{Training accuracy curve for set configuration}
+    \label{fig:set-accuracy}
+\end{figure}
+
+For the training set configuration, the model achieves a final training accuracy close to 100\%, while the validation accuracy converges to approximately 96.1\%.
+Compared to the sample setting, the accuracy gap is reduced to about 3.9\%, indicating improved generalization.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSet/Set-training-Confusion.png}
+    \caption{Confusion matrix for set configuration}
+    \label{fig:set-confusion}
+\end{figure}
+
+The confusion matrix is strongly diagonal, indicating high classification accuracy across all digit classes.
+Misclassifications are rare and mostly occur among visually ambiguous digits.
+Overall, this configuration demonstrates robust performance and reliable generalization.
+
+\subsection{Model Comparison}
+
+\subsubsection{Model Configuration Comparison}
+
+Three model configurations are evaluated to analyze the impact of hidden layer size and learning rate on performance. The configurations are designed as follows:
+
+\textbf{CONFIG} (baseline): Hidden size 128 with learning rate 0.2. The larger hidden size provides increased model capacity for complex feature learning, while the higher learning rate enables faster convergence. This configuration achieves the best validation accuracy of 97.49\%.
+
+\textbf{CONFIG\_32}: Hidden size 32 with learning rate 0.05. The smaller hidden size reduces model complexity and computational cost, suitable for resource-constrained scenarios. The lower learning rate prevents instability with the reduced capacity. This configuration achieves 96.17\% validation accuracy, showing a trade-off between model size and performance.
+
+\textbf{CONFIG\_64}: Hidden size 64 with learning rate 0.1. This configuration balances model capacity and training stability. The moderate hidden size offers a compromise between CONFIG\_32 and CONFIG, while the intermediate learning rate provides stable convergence. Validation accuracy reaches 96.90\%.
+
+The results demonstrate that increasing hidden size generally improves validation accuracy, with CONFIG achieving the best generalization. However, larger models require higher learning rates to effectively utilize their capacity. The learning rate scaling is proportional to hidden size to maintain training stability and convergence speed.
+
+\begin{table}[H]
+\centering
+\caption{Model Configuration Comparison}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Config} & \textbf{Hidden Size} & \textbf{Learning Rate} \\
+\hline
+CONFIG & 128 & 0.2 \\
+CONFIG\_32 & 32 & 0.05 \\
+CONFIG\_64 & 64 & 0.1 \\
+\hline
+\end{tabular}
+\end{table}
+
+These configurations are trained with batch size 64.
+
+\subsubsection{Results Comparison}
+
+Figure~\ref{fig:compare} presents a comparison of different model configurations, showing the performance metrics across various hyperparameter settings.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/compare.PNG}
+    \caption{Model configuration comparison}
+    \label{fig:compare}
+\end{figure}
+
+Figure~\ref{fig:compare} highlights the impact of dataset size and configuration on model performance.
+Models trained on the full training set consistently outperform those trained on the reduced sample, particularly in validation accuracy and stability.
+
+While both configurations achieve high training accuracy, the training set configuration yields lower validation loss and a more consistent accuracy curve.
+This confirms that increasing dataset size is more effective for improving generalization than solely adjusting hyperparameters.
+
+Therefore, the training set configuration is considered the better choice for final evaluation, whereas the training sample configuration is suitable for rapid experimentation and model verification.

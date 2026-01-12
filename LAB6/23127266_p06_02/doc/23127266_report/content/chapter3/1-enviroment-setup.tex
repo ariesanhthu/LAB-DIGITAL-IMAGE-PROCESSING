@@ -1,0 +1,96 @@
+\subsection{System Requirements}
+
+This PyTorch Feed Forward Neural Network project requires the following system components:
+
+\begin{quote}
+    \begin{itemize}
+        \item Python 3.6 or higher (Python 3.12.9 tested);
+        \item PyTorch library (version 2.7.1+cpu or compatible);
+        \item NumPy library (version 2.2.3 or compatible);
+        \item Jupyter Notebook or Python script environment for execution;
+        \item RAM: Minimum 2GB (recommended 4GB);
+        \item Disk space: Approximately 500MB for dependencies and saved model files.
+    \end{itemize}
+\end{quote}
+
+\subsection{Python and Library Installation}
+
+To set up the development environment, perform the following steps:
+
+\textbf{a) Create a Virtual Environment.}
+
+A virtual environment is recommended to isolate project dependencies.
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python -m venv .venv
+\end{lstlisting}
+\end{quote}
+
+Activate the virtual environment:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+# Windows:
+.venv\Scripts\activate
+
+# Linux/Mac:
+source .venv/bin/activate
+\end{lstlisting}
+\end{quote}
+
+\textbf{b) Install Required Libraries.}
+
+Install PyTorch for CPU-only execution:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+pip install torch
+\end{lstlisting}
+\end{quote}
+
+Install NumPy and additional supporting libraries:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+pip install numpy matplotlib pandas
+\end{lstlisting}
+\end{quote}
+
+For interactive execution using notebooks:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+pip install jupyter notebook
+\end{lstlisting}
+\end{quote}
+
+\subsection{Main Libraries}
+
+The project uses the following Python libraries:
+
+\begin{itemize}
+    \item \texttt{torch}: Core library for tensor computation and manual implementation of neural network layers;
+    \item \texttt{numpy}: Numerical computing library used for data handling and array manipulation;
+    \item \texttt{pickle}: Built-in Python module used to serialize and save trained model parameters;
+    \item \texttt{matplotlib}: Visualization library used for plotting experimental results;
+    \item \texttt{pandas}: Data analysis library used to summarize and compare experimental outcomes.
+\end{itemize}
+
+\subsection{Installation Check}
+
+To verify that the installation was successful, run Python and import the required libraries:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python
+>>> import torch
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> import pandas as pd
+>>> print(torch.__version__)
+>>> print(np.__version__)
+\end{lstlisting}
+\end{quote}
+
+If the installation is correct, the commands will execute without errors and display the corresponding version numbers.

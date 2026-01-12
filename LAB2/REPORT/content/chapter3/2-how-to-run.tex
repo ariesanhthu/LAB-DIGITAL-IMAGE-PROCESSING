@@ -1,0 +1,245 @@
+\subsection{Run Traditional Edge Detection on Single Image}
+
+Script \texttt{main.py} allows running traditional edge detection on a single image.
+
+\textbf{a) Run with default configuration.}
+
+By default, the script runs all 12 traditional edge detection algorithms, reads the image from \texttt{source/data/RGB\_008.jpg}, and saves results to \texttt{results/classical/}:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+cd source
+python main.py
+\end{lstlisting}
+\end{quote}
+
+\textbf{b) Run with custom image.}
+
+Specify the input image path:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python main.py --image path/to/img.jpg
+\end{lstlisting}
+\end{quote}
+
+\textbf{c) Run specific detector.}
+
+Run only Sobel detector:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python main.py --detector sobel
+\end{lstlisting}
+\end{quote}
+
+Run only Canny detector:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python main.py --detector canny
+\end{lstlisting}
+\end{quote}
+
+\textbf{d) Run with parameters.}
+
+Run LoG with custom sigma:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python main.py --detector log --sigma 2.0
+\end{lstlisting}
+\end{quote}
+
+Run Canny with custom thresholds:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python main.py --detector canny --sigma 1.5 --low_threshold 0.1 --high_threshold 0.3
+\end{lstlisting}
+\end{quote}
+
+\textbf{e) Specify output directory.}
+
+Change the output directory:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python main.py --output_dir results/my_classical
+\end{lstlisting}
+\end{quote}
+
+\subsection{Test Classical Edge Detection Algorithms}
+
+Script \texttt{evaluation/test\_classical.py} evaluates all classical edge detection algorithms on the BIPED test set.
+
+\textbf{a) Test on full test set.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+cd source
+python evaluation/test_classical.py
+\end{lstlisting}
+\end{quote}
+
+\textbf{b) Test with limited number of samples.}
+
+Limit the number of samples for faster testing:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python evaluation/test_classical.py --max_samples 10
+\end{lstlisting}
+\end{quote}
+
+\textbf{c) Save result images.}
+
+Save result images for some samples:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python evaluation/test_classical.py --save_images
+\end{lstlisting}
+\end{quote}
+
+\textbf{d) Customize parameters.}
+
+Specify threshold and output directory:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python evaluation/test_classical.py --threshold 100 --output_dir results/my_test
+\end{lstlisting}
+\end{quote}
+
+Available parameters:
+
+\begin{itemize}
+    \item \texttt{--dataset\_root}: Root directory of BIPED dataset (default: \texttt{dataset/BIPED/edges});
+    \item \texttt{--output\_dir}: Directory to save results (default: \texttt{results/classical});
+    \item \texttt{--threshold}: Threshold to binarize edge maps (0-255, default: 128);
+    \item \texttt{--max\_samples}: Maximum number of samples to test (None = all);
+    \item \texttt{--save\_images}: Save result images for some samples;
+    \item \texttt{--no\_plot}: Do not generate comparison plot.
+\end{itemize}
+
+Results include:
+
+\begin{itemize}
+    \item \texttt{results.json}: Metrics (Precision, Recall, F1, IoU) for each algorithm;
+    \item \texttt{metrics\_comparison.png}: Metrics comparison plot;
+    \item \texttt{images/sample\_*/}: Result images for samples (if \texttt{--save\_images}).
+\end{itemize}
+
+\subsection{Evaluate Deep Learning Models}
+
+Script \texttt{evaluation/evaluate\_deep\_models.py} evaluates HED and U-Net models on the BIPED dataset.
+
+\textbf{a) Requirements.}
+
+Before running, ensure the following files exist:
+
+\begin{itemize}
+    \item U-Net checkpoint: \texttt{source/model/biped\_edge\_unet\_best.pth};
+    \item HED model files:
+    \begin{itemize}
+        \item \texttt{UNet\_edge\_detection/deploy.prototxt.txt} or \texttt{source/model/deploy.prototxt.txt};
+        \item \texttt{UNet\_edge\_detection/hed\_pretrained\_bsds.caffemodel} or \texttt{source/model/hed\_pretrained\_bsds.caffemodel}.
+    \end{itemize}
+\end{itemize}
+
+\textbf{b) Run evaluation.}
+
+By default, the script evaluates on 5 images:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+cd source
+python evaluation/evaluate_deep_models.py
+\end{lstlisting}
+\end{quote}
+
+\textbf{c) Results.}
+
+Results are saved to \texttt{source/results/deep\_learning/}:
+
+\begin{itemize}
+    \item \texttt{deep\_models\_metrics.csv}: Metrics table in CSV format;
+    \item \texttt{deep\_models\_metrics\_comparison.png}: Comparison chart for F1, Precision, Recall, IoU;
+    \item \texttt{deep\_models\_time\_comparison.png}: Comparison chart for inference time.
+\end{itemize}
+
+Metrics computed: F1 Score, Precision, Recall, IoU, Time (ms).
+
+\subsection{Evaluation Metrics Table and PR Curves}
+
+Script \texttt{evaluation/evaluation.py} provides functions for evaluation metrics table and Precision-Recall curves.
+
+\textbf{a) Run metrics table evaluation.}
+
+From project root:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python -m source.evaluation.evaluation
+\end{lstlisting}
+\end{quote}
+
+Or from source directory:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+cd source
+python -m evaluation.evaluation
+\end{lstlisting}
+\end{quote}
+
+\textbf{b) Use in Python script or notebook.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+from source.evaluation.evaluation import test_metrics_table, test_biped_evaluation
+
+# Run metrics table evaluation on 5 images
+test_metrics_table()
+
+# Or run PR curves evaluation on 10 images
+test_biped_evaluation()
+\end{lstlisting}
+\end{quote}
+
+\textbf{c) Available functions.}
+
+\begin{itemize}
+    \item \texttt{test\_metrics\_table()}: Quick function to run evaluation on 5 images and print metrics table;
+    \item \texttt{test\_biped\_evaluation()}: Compute and plot Precision-Recall curves;
+    \item \texttt{evaluate\_metrics\_table()}: Compute metrics for all classical methods;
+    \item \texttt{print\_metrics\_table()}: Print results as text table;
+    \item \texttt{evaluate\_classical\_and\_deep\_on\_biped()}: Evaluate both classical and deep learning models, returns PR curves;
+    \item \texttt{plot\_pr\_curves()}: Plot Precision-Recall curves for multiple methods.
+\end{itemize}
+
+\textbf{d) Advanced usage example.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+from source.evaluation.evaluation import evaluate_metrics_table, print_metrics_table
+
+# Test on 10 images with different threshold
+metrics_table = evaluate_metrics_table(
+    biped_root="dataset/BIPED/edges",
+    max_images=10,
+    threshold=100.0
+)
+
+# Print and save results
+print_metrics_table(metrics_table)
+
+# Access metrics for specific method
+sobel_metrics = metrics_table["Sobel"]
+print(f"Sobel F1: {sobel_metrics['f1']:.4f}")
+print(f"Sobel Time: {sobel_metrics['time_ms']:.2f} ms")
+\end{lstlisting}
+\end{quote}
+
+\textbf{Note:} By default, \texttt{test\_metrics\_table()} tests on 5 images for faster execution. To test on the full dataset, set \texttt{max\_images=None} or omit this parameter.

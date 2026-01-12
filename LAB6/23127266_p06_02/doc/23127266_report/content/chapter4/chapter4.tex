@@ -1,0 +1,174 @@
+\chapter{Experimental Evaluation}
+
+\section{Visualize Input Images and Model Architecture}
+
+\subsection{Input Images}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sample.png}
+    \caption{Sample of input images from the Validation set}
+    \label{fig:validation-input}
+\end{figure}
+
+\subsection{Model Architecture}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/architecture.png}
+    \caption{Feedforward Neural Network Architecture}
+    \label{fig:model-architecture}
+\end{figure}
+
+\section{Execution Results}
+
+\subsection{Sample}
+
+Figure~\ref{fig:sample-predict} shows the prediction results on the training sample dataset.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/TrainingSample/predict.png}
+    \caption{Prediction results on training sample}
+    \label{fig:sample-predict}
+\end{figure}
+
+\subsection{Set}
+
+Figure~\ref{fig:set-predict} shows the prediction results on the training set dataset.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/result/TrainingSet/predict.png}
+    \caption{Prediction results on training set}
+    \label{fig:set-predict}
+\end{figure}
+
+\section{Evaluation and Discussion}
+
+\subsection{Training Performance}
+
+The training performance is evaluated using loss, accuracy, and confusion matrix metrics for both training sample and training set configurations.
+
+\subsubsection{Training Sample Results}
+
+Figures~\ref{fig:sample-loss},~\ref{fig:sample-accuracy}, and~\ref{fig:sample-confusion} show the loss curve, accuracy curve, and confusion matrix for the training sample configuration, respectively.
+
+As shown in Figures~\ref{fig:sample-loss} and~\ref{fig:sample-accuracy}, the training sample configuration demonstrates rapid learning in the initial epochs. The training loss decreases sharply from approximately 2.2 to near zero (around 0.01--0.02) by epoch 20, while the validation loss stabilizes at a higher value between 0.15 and 0.20. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSample/val-loss.png}
+    \caption{Training and validation loss curve for sample configuration}
+    \label{fig:sample-loss}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSample/val-acc.png}
+    \caption{Training and validation accuracy curve for sample configuration}
+    \label{fig:sample-accuracy}
+\end{figure}
+
+Similarly, the training accuracy reaches 1.0 by epoch 75 and remains at perfect accuracy, whereas the validation accuracy plateaus at approximately 0.86--0.87 after epoch 100. 
+
+The consistent gap between training and validation metrics indicates overfitting, which is expected given the limited dataset size of the training sample.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSample/confusion-matrix-sample.png}
+    \caption{Confusion matrix for sample configuration}
+    \label{fig:sample-confusion}
+\end{figure}
+
+\subsubsection{Training Set Results}
+
+Figures~\ref{fig:set-loss} and~\ref{fig:set-accuracy} show the loss curve and accuracy curve for the training set configuration, respectively.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSet/Training and Validation Loss.png}
+    \caption{Training and validation loss curve for set configuration}
+    \label{fig:set-loss}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSet/Training and Validation Accuracy.png}
+    \caption{Training and validation accuracy curve for set configuration}
+    \label{fig:set-accuracy}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/result/TrainingSet/confusion.png}
+    \caption{Confusion matrix for set configuration}
+    \label{fig:set-confusion}
+\end{figure}
+
+In Figures~\ref{fig:set-loss} and~\ref{fig:set-accuracy}, the training set configuration demonstrates strong learning performance with better generalization compared to the sample configuration. The training loss decreases from approximately 2.2 to near zero (around 0.01--0.02) by epoch 20, while the validation loss stabilizes at a lower value between 0.15 and 0.20. The training accuracy reaches approximately 0.985--0.987 and remains stable, whereas the validation accuracy plateaus at around 0.955--0.958 after epoch 30. The smaller gap between training and validation metrics indicates improved generalization due to the larger dataset size. 
+
+\subsection{Model Comparison}
+
+\subsubsection{Compare with one hidden layer}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/result/Set-training-accuracy.png}
+    \caption{Training accuracy curve for set configuration with one hidden layer (Lab 6.1)}
+    \label{fig:one-hidden-accuracy}
+\end{figure}
+
+Although the network in the previous lab (Lab 6.1) had only one layer and achieved higher accuracy, that model suffered from overfitting and did not perform well on unseen data. In contrast, while the current model's accuracy is slightly lower, we can see from Figure~\ref{fig:set-accuracy} that it generalizes better and performs well on new data.
+
+\subsubsection{Configuration Comparison}
+
+All experimental configurations share the following common parameters:
+
+\begin{itemize}
+    \item \textbf{Seed}: 42 (for reproducibility)
+    \item \textbf{Dataset}: Training set (full dataset)
+    \item \textbf{Input size}: 784
+    \item \textbf{Output size}: 10
+    \item \textbf{Validation split}: 0.2
+    \item \textbf{Shuffle}: True
+    \item \textbf{Normalization mode}: Standardize
+    \item \textbf{Epsilon}: 1e-6
+    \item \textbf{Hidden activation}: ReLU
+    \item \textbf{Weight initialization}: Standard deviation 0.01
+    \item \textbf{Epochs}: 200
+    \item \textbf{Learning rate}: 0.05
+    \item \textbf{Print every}: 10 epochs
+    \item \textbf{Save every}: 10 epochs
+\end{itemize}
+
+The experimental configurations differ in hidden layer architectures and batch sizes, as shown in Table~\ref{tab:config-comparison}.
+
+\begin{table}[H]
+\centering
+\caption{Model Configuration Comparison}
+\label{tab:config-comparison}
+\begin{tabular}{|l|p{5cm}|c|}
+\hline
+\textbf{Config} & \textbf{Layers} & \textbf{Batch Size} \\
+\hline
+A1\_good\_2layer\_256\_128 & 256 $\rightarrow$ 128 & 64 \\
+\hline
+A2\_strong\_3layer\_512\_256\_128 & 512 $\rightarrow$ 256 $\rightarrow$ 128 & 32 \\
+\hline
+B1\_batch\_32 & 256 $\rightarrow$ 128 & 32 \\
+\hline
+B2\_batch\_128 & 256 $\rightarrow$ 128 & 128 \\
+\hline
+\end{tabular}
+\end{table}
+
+Figure~\ref{fig:compare} presents a comparison of different model configurations, showing the performance metrics across training sample and training set configurations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/compare.PNG}
+    \caption{Model configuration comparison}
+    \label{fig:compare}
+\end{figure}
+
+As shown in Figure~\ref{fig:compare}, all four configurations achieve near-perfect training accuracy (0.999970--1.000000), indicating strong learning capacity. However, validation accuracy varies from 0.964881 to 0.968571, revealing different generalization capabilities. The B1\_batch\_32 configuration achieves the best validation accuracy of 0.968571, demonstrating that a smaller batch size (32) with a 2-layer architecture (256 $\rightarrow$ 128) provides optimal generalization. The A2\_strong\_3layer\_512\_256\_128 configuration, despite having the deepest architecture, achieves the lowest validation accuracy (0.964881), suggesting that increased model complexity does not necessarily improve performance. In conclusion, the batch size has a more significant impact on generalization than the number of hidden layers, with smaller batch sizes (32) yielding better validation performance.

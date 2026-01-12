@@ -1,0 +1,114 @@
+\section{Forward Propagation}
+
+Forward propagation computes the network output by sequentially applying linear transformations and activation functions to the input latent representation. The process transforms the input through each layer, storing intermediate values for use in backpropagation.
+
+\subsection{Forward Pass Computation}
+
+Given an input batch $\mathbf{X} \in \mathbb{R}^{N \times 784}$ containing $N$ samples, the forward propagation proceeds through the following steps:
+
+\subsubsection{Input to Hidden Layer}
+
+The first linear transformation computes pre-activations for the hidden layer:
+\begin{equation}
+\mathbf{Z}_1 = \mathbf{X}\mathbf{W}_1 + \mathbf{b}_1
+\end{equation}
+
+where $\mathbf{Z}_1 \in \mathbb{R}^{N \times d_h}$ contains the pre-activation values. The ReLU activation is then applied element-wise:
+\begin{equation}
+\mathbf{H}_1 = \text{ReLU}(\mathbf{Z}_1) = \max(\mathbf{0}, \mathbf{Z}_1)
+\end{equation}
+
+yielding the hidden layer activations $\mathbf{H}_1 \in \mathbb{R}^{N \times d_h}$.
+
+\subsubsection{Hidden to Output Layer}
+
+The hidden activations are transformed through the second linear layer:
+\begin{equation}
+\mathbf{Z}_2 = \mathbf{H}_1\mathbf{W}_2 + \mathbf{b}_2
+\end{equation}
+
+where $\mathbf{Z}_2 \in \mathbb{R}^{N \times 10}$ contains the output logits. The Softmax function is applied row-wise to produce the final probability distribution:
+\begin{equation}
+\hat{\mathbf{Y}} = \text{Softmax}(\mathbf{Z}_2)
+\end{equation}
+
+where $\hat{\mathbf{Y}} \in \mathbb{R}^{N \times 10}$ and each row sums to unity.
+
+\subsection{Example: Forward Pass with Small Matrices}
+
+Consider a simplified example with $N=2$ samples, $d_{\text{in}}=4$ (reduced input dimension), and $d_h=3$ hidden neurons. The forward pass computation proceeds as follows:
+
+\subsubsection{Step 1: Input to Hidden}
+
+Given input matrix and parameters:
+\begin{align}
+\mathbf{X} &= \begin{bmatrix}
+0.2 & 0.5 & 0.8 & 0.3 \\
+0.1 & 0.9 & 0.4 & 0.6
+\end{bmatrix}, \quad
+\mathbf{W}_1 = \begin{bmatrix}
+0.1 & 0.2 & -0.1 \\
+0.3 & -0.2 & 0.4 \\
+-0.1 & 0.3 & 0.2 \\
+0.2 & 0.1 & -0.3
+\end{bmatrix}, \quad
+\mathbf{b}_1 = \begin{bmatrix}
+0.1 & -0.1 & 0.2
+\end{bmatrix}
+\end{align}
+
+The pre-activation computation yields:
+\begin{equation}
+\mathbf{Z}_1 = \mathbf{X}\mathbf{W}_1 + \mathbf{b}_1 = \begin{bmatrix}
+0.2 & 0.5 & 0.8 & 0.3 \\
+0.1 & 0.9 & 0.4 & 0.6
+\end{bmatrix} \begin{bmatrix}
+0.1 & 0.2 & -0.1 \\
+0.3 & -0.2 & 0.4 \\
+-0.1 & 0.3 & 0.2 \\
+0.2 & 0.1 & -0.3
+\end{bmatrix} + \begin{bmatrix}
+0.1 & -0.1 & 0.2
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+\mathbf{Z}_1 = \begin{bmatrix}
+0.25 & 0.35 & 0.15 \\
+0.42 & 0.18 & 0.28
+\end{bmatrix}
+\end{equation}
+
+Applying ReLU activation:
+\begin{equation}
+\mathbf{H}_1 = \text{ReLU}(\mathbf{Z}_1) = \begin{bmatrix}
+0.25 & 0.35 & 0.15 \\
+0.42 & 0.18 & 0.28
+\end{bmatrix}
+\end{equation}
+
+\subsubsection{Step 2: Hidden to Output}
+
+Given output layer parameters:
+\begin{align}
+\mathbf{W}_2 = \begin{bmatrix}
+0.2 & -0.1 & 0.3 & 0.1 & -0.2 & 0.15 & 0.05 & -0.1 & 0.25 & 0.0 \\
+-0.1 & 0.3 & -0.2 & 0.2 & 0.1 & -0.15 & 0.3 & 0.05 & -0.1 & 0.2 \\
+0.1 & -0.2 & 0.15 & -0.1 & 0.3 & 0.2 & -0.15 & 0.25 & 0.1 & -0.05
+\end{bmatrix}, \quad \\
+\mathbf{b}_2 = \begin{bmatrix}
+0.05 & -0.05 & 0.1 & 0.0 & 0.05 & -0.1 & 0.15 & -0.05 & 0.1 & 0.0
+\end{bmatrix}
+\end{align}
+
+Note: In practice, $\mathbf{W}_2$ has shape $d_h \times 10$, but for brevity, this example uses a reduced output dimension. The computation proceeds:
+\begin{equation}
+\mathbf{Z}_2 = \mathbf{H}_1\mathbf{W}_2 + \mathbf{b}_2
+\end{equation}
+
+After computing logits, Softmax is applied row-wise. For a sample logit vector $\mathbf{z}_2^{(i)} = [z_1, z_2, \ldots, z_{10}]$, the Softmax output is:
+\begin{equation}
+p_k = \frac{\exp(z_k - \max_j z_j)}{\sum_{j=1}^{10} \exp(z_j - \max_j z_j)}
+\end{equation}
+
+yielding the final probability distribution $\hat{\mathbf{Y}}$ where each row represents class probabilities for one sample.

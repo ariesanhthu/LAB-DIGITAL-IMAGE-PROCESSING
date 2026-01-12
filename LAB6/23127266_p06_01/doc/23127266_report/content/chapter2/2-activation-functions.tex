@@ -1,0 +1,108 @@
+\section{Activation Functions}
+
+The network employs two distinct activation functions: Rectified Linear Unit (ReLU) for the hidden layer~\cite{gfg_relu_activation} and Softmax for the output layer~\cite{sefiks_softmax_activation}. Each function serves a specific purpose in the network's computational pipeline.
+
+\subsection{ReLU Activation Function}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/theory/ReLU.png}
+    \caption{ReLU activation function and its derivative. \cite{gfg_relu_activation}}
+    \label{fig:relu}
+\end{figure}
+
+The Rectified Linear Unit (ReLU) activation function is applied element-wise to the hidden layer pre-activations. The function is defined as:
+
+\begin{equation}
+\text{ReLU}(z) = \max(0, z) = \begin{cases}
+z & \text{if } z > 0 \\
+0 & \text{if } z \leq 0
+\end{cases}
+\end{equation}
+
+The derivative of ReLU with respect to its input is:
+
+\begin{equation}
+\frac{d}{dz}\text{ReLU}(z) = \begin{cases}
+1 & \text{if } z > 0 \\
+0 & \text{if } z \leq 0
+\end{cases}
+\end{equation}
+
+
+
+\subsubsection{Rationale for ReLU}
+
+ReLU is chosen for the hidden layer activation due to several advantageous properties:
+\begin{itemize}
+    \item \textbf{Computational efficiency}: The function and its derivative are computationally inexpensive, involving only thresholding operations.
+    \item \textbf{Sparsity}: ReLU naturally induces sparsity by zeroing out negative activations, effectively reducing the effective network capacity and promoting feature selectivity.
+    \item \textbf{Gradient flow}: Unlike saturating activations such as sigmoid or tanh, ReLU avoids vanishing gradients for positive inputs, allowing deeper networks to train effectively. The gradient remains constant (equal to 1) for positive values, facilitating stable backpropagation.
+    \item \textbf{Nonlinearity}: Despite its piecewise linear nature, the combination of multiple ReLU units enables the network to approximate complex nonlinear decision boundaries.
+\end{itemize}
+
+\subsection{Softmax Activation Function}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/theory/softmax-function.png}
+    \caption{Softmax activation function mapping logits to probability distribution.}
+    \label{fig:softmax}
+\end{figure}
+
+The Softmax function is applied to the output layer pre-activations to produce a valid probability distribution over the ten digit classes. Given a vector $\mathbf{z} \in \mathbb{R}^{10}$ of logits, the Softmax function computes:
+
+\begin{equation}
+\text{Softmax}(\mathbf{z})_k = \frac{\exp(z_k - \max_j z_j)}{\sum_{j=1}^{10} \exp(z_j - \max_j z_j)}
+\end{equation}
+
+where the subtraction of the maximum value ($\max_j z_j$) is performed for numerical stability, preventing overflow in the exponential computation.
+
+The Softmax output satisfies the probability axioms:
+
+\begin{align}
+\sum_{k=1}^{10} \text{Softmax}(\mathbf{z})_k &= 1 \\
+\text{Softmax}(\mathbf{z})_k &\geq 0 \quad \forall k \in \{1, \ldots, 10\}
+\end{align}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/theory/softmax-visual.PNG}
+    \caption{Softmax example. \cite{sefiks_softmax_activation}}
+    \label{fig:softmax-visual}
+\end{figure}
+
+\subsubsection{Rationale for Softmax}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/theory/visualize with probility.PNG}
+    \caption{Softmax architecture. \cite{tds_mlp_handwritten_digits}}
+    \label{fig:softmax-architecture}
+\end{figure}
+
+Softmax is the appropriate choice for the output layer in multi-class classification problems for the following reasons:
+\begin{itemize}
+    \item \textbf{Probability interpretation}: The output directly represents class probabilities, enabling intuitive interpretation of model confidence. The argmax operation on Softmax outputs yields the most probable class prediction.
+    \item \textbf{Compatibility with cross-entropy loss}: Softmax pairs naturally with the cross-entropy loss function, resulting in a simplified gradient computation during backpropagation. The gradient of the cross-entropy loss with respect to the logits reduces to the difference between predicted probabilities and one-hot encoded targets.
+    \item \textbf{Competitive normalization}: The exponential function in Softmax creates a competitive normalization effect, where larger logit values receive exponentially higher probabilities, effectively amplifying differences between classes.
+    \item \textbf{Differentiability}: Softmax is smooth and differentiable everywhere, ensuring stable gradient-based optimization.
+\end{itemize}
+
+\subsection{Gradient Computation for Softmax}
+
+The partial derivative of Softmax with respect to its input logits is required for backpropagation. For a Softmax output $\mathbf{p} = \text{Softmax}(\mathbf{z})$, the Jacobian matrix has elements:
+
+\begin{equation}
+\frac{\partial p_k}{\partial z_j} = \begin{cases}
+p_k(1 - p_k) & \text{if } k = j \\
+-p_k p_j & \text{if } k \neq j
+\end{cases}
+\end{equation}
+
+This can be expressed compactly as:
+\begin{equation}
+\frac{\partial p_k}{\partial z_j} = p_k(\delta_{kj} - p_j)
+\end{equation}
+
+where $\delta_{kj}$ is the Kronecker delta function.

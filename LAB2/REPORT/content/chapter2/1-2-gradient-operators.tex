@@ -1,0 +1,188 @@
+\subsection{Gradient Operators}
+
+\subsubsection{Overview}
+
+Gradient-based edge detectors approximate the first-order derivatives of the image intensity function. Edges are identified as locations where the gradient magnitude is large, typically corresponding to rapid intensity changes.
+
+\subsubsection{Basic Gradient Operator}
+
+\textbf{a) Theory.}
+The basic gradient operator computes the first-order derivative by simple forward or backward differences. It identifies edges as high local intensity changes.
+
+\textbf{b) Method.}
+Using simple differencing:
+\[
+f_x(x,y) \approx f(x+1,y) - f(x,y), \quad
+f_y(x,y) \approx f(x,y+1) - f(x,y).
+\]
+
+Edge magnitude:
+\[
+e(x,y)=\sqrt{f_x^2(x,y)+f_y^2(x,y)}.
+\]
+
+\textbf{c) Algorithm.}
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function basic_gradient(image f):
+    For each pixel (x, y):
+        fx = f(x+1, y) - f(x, y)
+        fy = f(x, y+1) - f(x, y)
+        e(x, y) = sqrt(fx^2 + fy^2)
+    Return edge magnitude e
+\end{lstlisting}
+\end{quote}
+
+\subsubsection{Differencing Operators}
+
+\textbf{a) Theory.}
+Differencing improves localization of edges, especially for ramp edges, by using symmetric differences. This centered difference reduces bias and detects the true center of gradient transitions.
+
+\textbf{b) Method.}
+\[
+f_x(x,y) \approx f(x,y+1) - f(x,y-1), \qquad
+f_y(x,y) \approx f(x+1,y) - f(x-1,y).
+\]
+
+\textbf{c) Algorithm.}
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function central_difference_operator(image f):
+    For each pixel (x, y):
+        fx = f(x, y+1) - f(x, y-1)
+        fy = f(x+1, y) - f(x-1, y)
+        e(x, y) = sqrt(fx^2 + fy^2)
+    Return edge magnitude e
+\end{lstlisting}
+\end{quote}
+
+\subsubsection{Roberts Operator}
+
+\textbf{a) Theory.}
+Roberts uses diagonal gradients to capture edges with minimum neighborhood (actually 2×2), making it sensitive but noisy.
+
+\textbf{b) Method.}
+\[
+f_x(x,y) \approx f(x,y) - f(x+1,y+1), \qquad
+f_y(x,y) \approx f(x,y+1) - f(x+1,y).
+\]
+
+\textbf{c) Algorithm.}
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function roberts_operator(image f):
+    For each pixel (x, y):
+        fx = f(x, y) - f(x+1, y+1)
+        fy = f(x, y+1) - f(x+1, y)
+        e(x, y) = sqrt(fx^2 + fy^2)
+    Return edge magnitude e
+\end{lstlisting}
+\end{quote}
+
+\subsubsection{Prewitt Operator}
+
+\textbf{a) Theory.}
+Prewitt smooths the image in one direction and differentiates in the other. It approximates derivatives using uniform weights.
+
+\textbf{b) Method.}
+\[
+W_x = 
+\begin{bmatrix}
+1 & 1 & 1\\
+0 & 0 & 0\\
+-1 & -1 & -1
+\end{bmatrix},\qquad
+W_y =
+\begin{bmatrix}
+1 & 0 & -1\\
+1 & 0 & -1\\
+1 & 0 & -1
+\end{bmatrix}.
+\]
+
+\[
+f_x = f * W_x, \qquad f_y = f * W_y.
+\]
+
+\textbf{c) Algorithm.}
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function prewitt_operator(image f):
+    Compute fx = convolution(f, Wx)
+    Compute fy = convolution(f, Wy)
+    For each pixel (x, y):
+        e(x, y) = sqrt(fx(x, y)^2 + fy(x, y)^2)
+    Return edge magnitude e
+\end{lstlisting}
+\end{quote}
+
+\subsubsection{Sobel Operator}
+
+\textbf{a) Theory.}
+Sobel improves over Prewitt by applying a stronger smoothing (central weighting) to reduce noise effects.
+
+\textbf{b) Method.}
+\[
+W_x =
+\frac{1}{4}
+\begin{bmatrix}
+1 & 2 & 1\\
+0 & 0 & 0\\
+-1 & -2 & -1
+\end{bmatrix},
+\qquad
+W_y =
+\frac{1}{4}
+\begin{bmatrix}
+1 & 0 & -1\\
+2 & 0 & -2\\
+1 & 0 & -1
+\end{bmatrix}.
+\]
+
+\textbf{c) Algorithm.}
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function sobel_operator(image f):
+    Compute fx = convolution(f, Wx)
+    Compute fy = convolution(f, Wy)
+    For each pixel (x, y):
+        e(x, y) = sqrt(fx(x, y)^2 + fy(x, y)^2)
+    Return edge magnitude e
+\end{lstlisting}
+\end{quote}
+
+\subsubsection{Frei–Chen Operator}
+
+\textbf{a) Theory.}
+Frei–Chen is a more ``rotationally symmetric'' operator than Sobel, using a normalization factor $k=\sqrt{2}$ for isotropic response.
+
+\textbf{b) Method.}
+\[
+W_x = 
+\begin{bmatrix}
+1 & \sqrt{2} & 1\\
+0 & 0 & 0\\
+-1 & -\sqrt{2} & -1
+\end{bmatrix},
+\qquad
+W_y =
+\begin{bmatrix}
+1 & 0 & -1\\
+\sqrt{2} & 0 & -\sqrt{2}\\
+1 & 0 & -1
+\end{bmatrix}.
+\]
+
+\textbf{c) Algorithm.}
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+Function frei_chen_operator(image f):
+    Compute fx = convolution(f, Wx)
+    Compute fy = convolution(f, Wy)
+    For each pixel (x, y):
+        e(x, y) = sqrt(fx(x, y)^2 + fy(x, y)^2)
+    Return edge magnitude e
+\end{lstlisting}
+\end{quote}
+

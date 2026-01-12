@@ -1,0 +1,118 @@
+
+\subsection{BIPEDv2 Dataset}
+
+\textbf{a) Description.}
+
+BIPEDv2 is a high-resolution benchmark for edge detection in natural outdoor scenes. The dataset consists of a set of RGB images $I_i \in \mathbb{R}^{1280 \times 720 \times 3}$, each associated with a fine-grained binary edge label map $G_i \in \{0, 1\}^{1280 \times 720}$, denoting the presence ($1$) or absence ($0$) of edge at each pixel.
+
+\vspace{0.4em}
+
+\textbf{b) Statistics.}
+
+BIPEDv2 contains $250$ manually labeled outdoor images (resolution $1280 \times 720$). The annotations are curated by expert annotators, removing redundant or spurious boundaries and ensuring highly accurate ground truth contours. The dataset is divided into $200$ images for training and $50$ images for testing. It is publicly available for reproducible benchmarking of edge detection methods.
+
+\vspace{0.4em}
+
+\subsection{Model Architecture}
+
+\textbf{a) U-Net Architecture.}
+
+The edge detection model employs a U-Net architecture, which consists of an encoder-decoder structure with skip connections. The encoder progressively downsamples the input image to extract hierarchical features, while the decoder upsamples these features to reconstruct the edge map at the original resolution.
+
+The model takes an RGB image $I \in \mathbb{R}^{3 \times H \times W}$ as input and produces edge probability logits $L \in \mathbb{R}^{1 \times H \times W}$. The architecture comprises:
+
+\begin{itemize}
+    \item \textbf{Encoder}: Four downsampling blocks that reduce spatial dimensions while increasing feature channels ($32 \rightarrow 64 \rightarrow 128 \rightarrow 256$);
+    \item \textbf{Decoder}: Three upsampling blocks with skip connections that restore spatial resolution while reducing channels;
+    \item \textbf{Output layer}: A $1 \times 1$ convolution that maps features to edge logits.
+\end{itemize}
+
+Each encoder block applies max pooling followed by two consecutive convolutions with batch normalization and ReLU activation. Each decoder block performs bilinear upsampling, concatenates with the corresponding encoder feature map via skip connections, and applies two convolutions.
+
+\vspace{0.4em}
+
+\textbf{b) Forward Pass.}
+
+The forward pass of the model can be described as:
+
+\[
+\begin{aligned}
+x_1 &= \text{DoubleConv}(I, 32) \\
+x_2 &= \text{Down}(x_1, 64) \\
+x_3 &= \text{Down}(x_2, 128) \\
+x_4 &= \text{Down}(x_3, 256) \\
+y_1 &= \text{Up}(x_4, x_3) \\
+y_2 &= \text{Up}(y_1, x_2) \\
+y_3 &= \text{Up}(y_2, x_1) \\
+L &= \text{Conv}_{1 \times 1}(y_3)
+\end{aligned}
+\]
+
+where $x_i$ represents encoder features at different scales, $y_i$ represents decoder features, and $L$ is the output logit map.
+
+\vspace{0.4em}
+
+\subsection{Data Preprocessing}
+
+\textbf{a) Dataset Loading.}
+
+The dataset loader parses the list file to extract image pairs. For each entry, it constructs paths to RGB images and corresponding edge maps based on the split (train or test). Training images are located in \texttt{imgs/train/rgbr/real/}, while test images are in \texttt{imgs/test/rgbr/}. Edge maps follow the same structure under \texttt{edge\_maps/}. All images are resized to $(320, 320)$ pixels.
+
+\vspace{0.4em}
+
+\textbf{b) Data Augmentation.}
+
+During training, images and edge maps are randomly flipped horizontally and vertically with probability $0.5$ each. RGB images are resized using bilinear interpolation, while edge maps use nearest-neighbor interpolation to preserve binary structure. Edge maps are binarized at threshold $0.5$ after conversion to tensors.
+
+\vspace{0.4em}
+
+\subsection{Loss Function and Metrics}
+
+\textbf{a) Loss Function.}
+
+The model is trained using binary cross-entropy loss with logits (BCEWithLogitsLoss), which combines sigmoid activation and binary cross-entropy loss for numerical stability. Given predicted logits $L \in \mathbb{R}^{B \times 1 \times H \times W}$ and ground truth edge maps $G \in \{0, 1\}^{B \times 1 \times H \times W}$, the loss is computed as:
+
+\[
+\mathcal{L} = -\frac{1}{N} \sum_{i=1}^{N} \left[ G_i \log(\sigma(L_i)) + (1 - G_i) \log(1 - \sigma(L_i)) \right]
+\]
+
+where $\sigma(\cdot)$ denotes the sigmoid function, $N = B \times H \times W$ is the total number of pixels, and $G_i \in \{0, 1\}$ represents the ground truth label at pixel $i$.
+
+\vspace{0.4em}
+
+\textbf{b) Evaluation Metric.}
+
+Intersection over Union (IoU) is used as the primary evaluation metric. For predicted probability map $P \in [0, 1]^{B \times 1 \times H \times W}$ and ground truth $G \in \{0, 1\}^{B \times 1 \times H \times W}$, IoU is computed as:
+
+\[
+\text{IoU} = \frac{1}{B} \sum_{b=1}^{B} \frac{|\hat{P}_b \cap G_b|}{|\hat{P}_b \cup G_b|}
+\]
+
+where $\hat{P}_b = \{p : P_b(p) > \theta\}$ is the binarized prediction with threshold $\theta = 0.5$. The metric is computed by binarizing predictions at threshold $0.5$, computing pixel-wise intersection and union, then averaging across batches.
+
+\vspace{0.4em}
+
+\subsection{Training Procedure}
+
+\textbf{a) Training Loop.}
+
+For each epoch, the model processes training batches sequentially. Each batch undergoes: (1) forward pass to compute logits $L = f_\theta(I)$, (2) loss computation $\mathcal{L} = \text{BCE}(L, G)$, (3) backpropagation to compute gradients $\nabla_\theta \mathcal{L}$, (4) parameter update via Adam optimizer. Training loss and IoU are averaged across all batches per epoch.
+
+\vspace{0.4em}
+
+\textbf{b) Validation.}
+
+After each training epoch, the model evaluates on the validation set in evaluation mode (no gradient computation). Predictions are computed, loss and IoU metrics are calculated, then averaged across validation batches to monitor generalization performance.
+
+\vspace{0.4em}
+
+\textbf{c) Model Checkpointing.}
+
+The model checkpoint with the highest validation IoU is saved after each epoch. The training loop tracks the best validation IoU and saves model state, optimizer state, epoch number, and metrics when a new best is found.
+
+\vspace{0.4em}
+
+\textbf{d) Hyperparameters.}
+
+The model is trained with the following hyperparameters: learning rate $\alpha = 10^{-4}$ using Adam optimizer, batch size $B = 4$, input image size $(H, W) = (320, 320)$, and $5$ training epochs. The model parameters are initialized randomly with seed $42$ for reproducibility.
+

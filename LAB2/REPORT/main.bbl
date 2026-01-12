@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{gonzalezwoods2018}
+Rafael~C. Gonzalez and Richard~E. Woods.
+\newblock {\em Digital Image Processing}.
+\newblock Pearson, 4 edition, 2018.
+
+\bibitem{lyquocngoc_lecture6}
+Ly~Quoc Ngoc.
+\newblock Digital image \& video processing - lecture 6: Image local
+  pre-processing: Edge detection, 2025.
+\newblock Lecture slides.
+
+\bibitem{nguyenngocthao_edgedetection}
+Nguyen~Ngoc Thao.
+\newblock Ctt310: Digital image processing -- edge detection, 2018.
+\newblock Lecture slides.
+
+\end{thebibliography}

@@ -1,0 +1,91 @@
+\section{Backward Propagation}
+
+Backward propagation is used to compute the gradients of the loss function with respect to all trainable parameters in the network and to update these parameters in order to minimize the loss.
+
+The network in this practice is trained using the cross-entropy loss function (with softmax probabilities), defined as:
+\[
+L = -\frac{1}{N} \sum_{i=1}^{N} \log(\hat{y}_{i,c_i}),
+\]
+where $c_i \in \{0,1,\dots,9\}$ denotes the ground-truth integer class label for sample $i$, $\hat{y}_{i,c_i}$ is the predicted probability for the true class, and $N$ is the batch size.
+
+\subsection{Gradient Computation}
+
+The backpropagation process is implemented manually and follows the reverse order of the forward pass. For each training batch, gradients are propagated from the output layer back to the input layer using the chain rule.
+
+\paragraph{Gradient from the loss function.}
+The derivative of the cross-entropy loss with respect to the predicted probabilities is given by:
+\[
+\frac{\partial L}{\partial \hat{y}_{i,k}} = \begin{cases}
+-\frac{1}{N \cdot \hat{y}_{i,c_i}} & \text{if } k = c_i \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+However, when using softmax with cross-entropy, it is more efficient to compute the gradient directly with respect to the logits. The gradient with respect to logits $\mathbf{z}_3$ is:
+\[
+\frac{\partial L}{\partial \mathbf{z}_3} = \frac{1}{N}(\hat{\mathbf{Y}} - \mathbf{Y}_{\text{one-hot}})
+\]
+
+where $\mathbf{Y}_{\text{one-hot}}$ is the one-hot encoded version of the integer labels. This elegant form arises from the combination of cross-entropy loss and Softmax activation.
+
+\paragraph{Backpropagation through the softmax activation layer.}
+The softmax derivative computation is handled specially in the \texttt{ActivationLayer.backward()} method. When the activation is softmax, the derivative function receives both the pre-activation logits and the output error gradient:
+
+\[
+\frac{\partial L}{\partial \mathbf{z}_3} = \text{softmax\_derivative}(\mathbf{z}_3, \frac{\partial L}{\partial \hat{\mathbf{Y}}})
+\]
+
+The softmax derivative computes:
+\[
+\frac{\partial L}{\partial z_{3,k}} = p_k \left(\frac{\partial L}{\partial \hat{y}_k} - \sum_j \frac{\partial L}{\partial \hat{y}_j} p_j\right)
+\]
+
+where $p_k = \text{Softmax}(\mathbf{z}_3)_k$.
+
+\paragraph{Backpropagation through the activation layer (ReLU).}
+Each ReLU activation layer applies a non-linear function element-wise. During backpropagation, the gradient with respect to the pre-activation input $z$ is computed by:
+\[
+\frac{\partial L}{\partial z} = \frac{\partial L}{\partial a} \odot \text{ReLU}'(z),
+\]
+where $a = \text{ReLU}(z)$ is the activation output, $\odot$ denotes element-wise multiplication, and $\text{ReLU}'(z) = 1$ if $z > 0$, else $0$.
+
+The activation layer does not update any parameters; it only propagates the gradient backward.
+
+\paragraph{Backpropagation through the fully-connected layer.}
+A fully-connected layer performs the linear transformation:
+\[
+Z = XW + b,
+\]
+where $X$ is the input vector, $W$ is the weight matrix, and $b$ is the bias. Given the gradient with respect to the output $Z$, $\delta = \partial L / \partial Z$, the gradients are computed as:
+\[
+\frac{\partial L}{\partial W} = X^\top \delta,
+\]
+\[
+\frac{\partial L}{\partial b} = \sum \delta \quad \text{(sum over batch dimension)},
+\]
+\[
+\frac{\partial L}{\partial X} = \delta W^\top.
+\]
+
+\paragraph{Parameter update using mini-batch SGD.}
+
+The network parameters are updated using Stochastic Gradient Descent (SGD) with mini-batches. With a learning rate $\alpha$, the update rules are:
+
+\[
+W \leftarrow W - \alpha \frac{\partial L}{\partial W},
+\]
+\[
+b \leftarrow b - \alpha \frac{\partial L}{\partial b}.
+\]
+
+Since training is performed in mini-batches, the gradients are averaged over the batch size $N$, and the bias gradient is computed as a sum over the batch dimension.
+
+\paragraph{Backward propagation order.}
+
+During training, the backward pass iterates through all layers in reverse order compared to the forward pass. At each layer, gradients are computed and propagated to the preceding layer until gradients with respect to the network input are obtained. The \texttt{Network.fit()} method coordinates this process by calling \texttt{backward()} on each layer in reverse order.
+
+\subsection{Implementation Details}
+
+The \texttt{backward()} method of each layer receives the output error gradient and learning rate as arguments. For \texttt{FCLayer}, it computes parameter gradients, updates weights and biases, and returns the input error gradient. For \texttt{ActivationLayer}, it computes the gradient through the activation function and returns the pre-activation error gradient.
+
+The special handling for softmax derivative requires passing both the pre-activation logits and the output error gradient, which is implemented in the \texttt{ActivationPrime.softmax\_derivative()} method.

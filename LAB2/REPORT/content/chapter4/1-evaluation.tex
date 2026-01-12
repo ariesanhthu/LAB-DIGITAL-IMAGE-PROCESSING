@@ -1,0 +1,58 @@
+In computer vision tasks such as object detection, segmentation, or binary classification, evaluating a model's performance requires metrics that reflect both correctness and completeness of predictions. Four commonly used metrics are Precision, Recall, F1-score, and Intersection over Union (IoU). Each metric captures a different aspect of prediction quality.
+
+\subsection{Confusion Matrix}
+
+Most evaluation metrics are derived from the confusion matrix. Let $G$ denote the ground truth binary map and $\hat{E}$ represent the predicted binary map. The confusion matrix consists of four fundamental quantities:
+
+\begin{itemize}
+    \item True Positive (TP): the model correctly predicts a positive instance.
+    \item False Positive (FP): the model predicts positive for a negative instance.
+    \item False Negative (FN): the model fails to detect a positive instance.
+    \item True Negative (TN): the model correctly predicts a negative instance (often omitted in detection tasks).
+\end{itemize}
+
+\subsection{Precision}
+
+Precision measures how accurate the positive predictions are. It answers: of all the predicted positives, how many are correct? Precision is defined as
+
+\[
+\mathrm{Precision} = \frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FP}}.
+\]
+
+High Precision indicates that the model rarely produces false alarms.
+
+\subsection{Recall}
+
+Recall measures the model's ability to find all positive instances. It answers: of all the actual positives, how many did the model detect? Recall is computed as
+
+\[
+\mathrm{Recall} = \frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FN}}.
+\]
+
+High Recall means the model rarely misses true objects or positive cases.
+
+\subsection{F1-Score}
+
+Precision and Recall often trade off against each other. The F1-score provides a balanced measure by computing their harmonic mean:
+
+\[
+\mathrm{F1} = \frac{2 \cdot \mathrm{Precision} \cdot \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}.
+\]
+
+F1-score is especially useful when the dataset is imbalanced or when both false positives and false negatives are important.
+
+\subsection{Intersection over Union (IoU)}
+
+In object detection and segmentation, the correctness of a prediction depends not only on detecting the object but also on how well the predicted region overlaps with the ground truth. IoU quantifies this overlap:
+
+\[
+\mathrm{IoU} = \frac{|\mathrm{Prediction} \cap \mathrm{Ground~Truth}|}{|\mathrm{Prediction} \cup \mathrm{Ground~Truth}|}.
+\]
+
+An IoU of 1.0 indicates perfect overlap, while 0 means no intersection. IoU is typically used to determine whether a prediction is counted as TP (e.g., IoU $\geq$ 0.5).
+
+\subsection{Relationship and Comparison}
+
+Precision focuses on reducing false positives, ensuring predictions are reliable. Recall focuses on reducing false negatives, ensuring detections are complete. F1-score balances the two, providing a single metric when neither should be prioritized alone. IoU evaluates the quality of spatial localization, which Precision and Recall alone cannot measure.
+
+These metrics complement each other: in classification tasks, Precision, Recall, and F1 are most relevant; in detection and segmentation, IoU is essential for evaluating geometric accuracy.

@@ -1,0 +1,26 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {I.1}{\ignorespaces Overview of Edge Detection Approaches}}{2}{figure.caption.1}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {IV.1}{\ignorespaces Input image and ground truth for edge detection evaluation.}}{34}{figure.caption.6}%
+\contentsline {figure}{\numberline {IV.2}{\ignorespaces Edge detection result using basic gradient method.}}{34}{figure.caption.7}%
+\contentsline {figure}{\numberline {IV.3}{\ignorespaces Edge detection result using forward difference operator.}}{35}{figure.caption.8}%
+\contentsline {figure}{\numberline {IV.4}{\ignorespaces Edge detection result using backward difference operator.}}{36}{figure.caption.9}%
+\contentsline {figure}{\numberline {IV.5}{\ignorespaces Edge detection result using central difference operator.}}{37}{figure.caption.10}%
+\contentsline {figure}{\numberline {IV.6}{\ignorespaces Edge detection result using Roberts operator.}}{38}{figure.caption.11}%
+\contentsline {figure}{\numberline {IV.7}{\ignorespaces Edge detection result using Prewitt operator.}}{39}{figure.caption.12}%
+\contentsline {figure}{\numberline {IV.8}{\ignorespaces Edge detection result using Sobel operator.}}{40}{figure.caption.13}%
+\contentsline {figure}{\numberline {IV.9}{\ignorespaces Edge detection result using Frei--Chen operator.}}{41}{figure.caption.14}%
+\contentsline {figure}{\numberline {IV.10}{\ignorespaces Edge detection result using 4-neighborhood Laplacian operator.}}{42}{figure.caption.15}%
+\contentsline {figure}{\numberline {IV.11}{\ignorespaces Edge detection result using 8-neighborhood Laplacian operator.}}{43}{figure.caption.16}%
+\contentsline {figure}{\numberline {IV.12}{\ignorespaces Edge detection result using Laplacian of Gaussian operator.}}{44}{figure.caption.17}%
+\contentsline {figure}{\numberline {IV.13}{\ignorespaces Edge detection result using Canny edge detector.}}{45}{figure.caption.18}%
+\contentsline {figure}{\numberline {IV.14}{\ignorespaces Quantitative performance metrics of U-Net edge detection model: Precision, Recall, F1-score, and IoU on the BIPED test set.}}{46}{figure.caption.19}%
+\contentsline {figure}{\numberline {IV.15}{\ignorespaces Edge detection result using HED (Holistically-Nested Edge Detection) model.}}{47}{figure.caption.20}%
+\contentsline {figure}{\numberline {IV.16}{\ignorespaces Qualitative outputs of Roberts, Prewitt, Sobel, FreiChen, Laplacian (4/8-neighbor), LoG, and Canny on the same scene.}}{48}{figure.caption.21}%
+\contentsline {figure}{\numberline {IV.17}{\ignorespaces Quantitative performance metrics comparison: Precision, Recall, F1-score, and IoU for traditional edge detection algorithms.}}{49}{figure.caption.22}%
+\contentsline {figure}{\numberline {IV.18}{\ignorespaces Precision--Recall curves of traditional edge detectors on the BIPED-test set.}}{51}{figure.caption.25}%
+\contentsline {figure}{\numberline {IV.19}{\ignorespaces Performance comparison of Canny, HED, and U-Net edge detection methods across multiple metrics.}}{52}{figure.caption.26}%
+\addvspace {10\p@ }

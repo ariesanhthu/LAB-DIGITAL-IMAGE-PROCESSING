@@ -1,0 +1,59 @@
+\chapter{Conclusion}
+
+\section{Summary of Achievements}
+
+The overall completion of the lab is shown in Table:
+\begin{table}[H]
+    \centering
+    \label{tab:completion}
+    \begin{tabular}{|p{10cm}|p{4cm}|}
+        \hline
+        \textbf{Section} & \textbf{Completion} \\
+        \hline
+        
+        Basic Gradient & 100\% \\
+        \hline
+        
+        Differencing Operators & 100\% \\
+        \hline
+        
+        Roberts & 100\% \\
+        \hline
+        
+        Prewitt & 100\% \\
+        \hline
+        
+        Sobel & 100\% \\
+        \hline
+        
+        Frei-Chen & 100\% \\
+        \hline
+        
+        4-neighborhood Laplacian & 100\% \\
+        \hline
+        
+        8-neighborhood Laplacian & 100\% \\
+        \hline
+        
+        Laplacian mask variants & 100\% \\
+        \hline
+        
+        Laplacian of Gaussian (LoG) & 100\% \\
+        \hline
+        
+        Canny Edge Detector & 100\% \\
+        \hline
+        
+        Comparison & 100\% \\
+        \hline
+    \end{tabular}
+    \caption{Summary of Achievements}
+\end{table}
+
+\section{Discussion}
+
+Overall, I implemented several classical edge detection algorithms and trained a lightweight deep learning model on the BIPED dataset. Experimental results show that the traditional operators provide fast and interpretable edges but are limited in handling complex textures, illumination changes, and object boundaries. The deep learning model achieves better performance than classical methods. 
+
+However, its accuracy remains lower compared to large-scale pretrained models commonly used in recent state-of-the-art approaches. This is expected, as our model is trained from scratch on a relatively small dataset and with limited training epochs.
+
+In future work, model performance can be further improved by training for more epochs, using stronger data augmentation strategies, expanding the training dataset, or fine-tuning from large pretrained backbones. These enhancements would help the network learn more robust edge features and close the performance gap with modern deep learning-based edge detectors.

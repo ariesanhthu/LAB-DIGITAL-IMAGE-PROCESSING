@@ -1,0 +1,76 @@
+\subsection{System Requirements}
+
+The project requires the following components:
+
+\begin{itemize}
+    \item Python 3.6 or higher
+    \item PyTorch library
+    \item NumPy, pandas, matplotlib, opencv-python
+    \item Jupyter Notebook for interactive execution
+    \item Minimum 2GB RAM (4GB recommended)
+    \item Approximately 500MB disk space for dependencies and model files
+\end{itemize}
+
+\subsection{Python and Library Installation}
+
+\textbf{a) Create Virtual Environment.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python -m venv .venv
+\end{lstlisting}
+\end{quote}
+
+Activate the virtual environment:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+# Windows:
+.venv\Scripts\activate
+
+# Linux/Mac:
+source .venv/bin/activate
+\end{lstlisting}
+\end{quote}
+
+\textbf{b) Install Required Libraries.}
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+pip install torch numpy pandas matplotlib opencv-python pillow jupyter
+\end{lstlisting}
+\end{quote}
+
+For dataset download via Kaggle API:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+pip install kagglehub
+\end{lstlisting}
+\end{quote}
+
+\subsection{Main Libraries}
+
+\begin{itemize}
+    \item \texttt{torch}: Tensor computation and neural network implementation
+    \item \texttt{numpy}: Numerical computing and array manipulation
+    \item \texttt{pandas}: Data handling and CSV operations
+    \item \texttt{matplotlib}: Visualization of results and images
+    \item \texttt{opencv-python}: Image loading and processing
+    \item \texttt{PIL}: Image format conversion and resizing
+\end{itemize}
+
+\subsection{Installation Check}
+
+Verify installation by importing libraries:
+
+\begin{quote}
+\begin{lstlisting}[style=pseudo]
+python
+>>> import torch
+>>> import numpy as np
+>>> import pandas as pd
+>>> print(torch.__version__)
+>>> print(np.__version__)
+\end{lstlisting}
+\end{quote}

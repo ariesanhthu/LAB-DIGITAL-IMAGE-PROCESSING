@@ -1,0 +1,132 @@
+\subsection{Project Directory Structure}
+
+The project is organized as follows:
+
+\begin{quote}
+\begin{verbatim}
+source/
+|-- classical/              # Classical edge detectors
+|   |-- base.py             # Abstract base for edge detectors
+|   |-- gradient.py         # Gradient operators
+|   |-- laplacian.py        # Laplacian operators
+|   |-- log.py              # Laplacian of Gaussian
+|   `-- canny.py            # Canny edge detector
+|-- deep_learning/          # Deep learning models (inference only)
+|   |-- test_hed.py         # HED model loading and inference with OpenCV DNN
+|   `-- __init__.py         # Module exports
+|-- evaluation/             # Evaluation scripts
+|   |-- test_classical.py   # Test and evaluation for classical algorithms
+|   |-- evaluate_deep_models.py  # Evaluate HED and U-Net models
+|   `-- evaluation.py       # Evaluation metrics table and PR curves
+|-- utils/                  # Utilities
+|   |-- image_utils.py      # Image I/O and preprocessing
+|   `-- visualization.py    # Visualization functions
+`-- main.py                 # Entry point - run traditional edge detection on single image
+\end{verbatim}
+\end{quote}
+
+\subsection{Key Functions and Classes}
+
+\subsubsection{Classical Edge Detection Algorithms}
+
+Classical edge detection algorithms implemented in the \texttt{classical} module:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{5cm}|p{7.5cm}|}
+\hline
+\textbf{No.} & \textbf{Function/Class} & \textbf{Description} \\ \hline
+
+1 & \texttt{BaseEdgeDetector} & Abstract base class for all classical edge detectors, providing preprocessing and normalization utilities. \\ \hline
+
+2 & \texttt{RobertsOperator} & Roberts gradient operator using cross kernels to detect diagonal edges. \\ \hline
+
+3 & \texttt{PrewittOperator} & Prewitt gradient operator computing horizontal and vertical gradients with 3x3 kernels. \\ \hline
+
+4 & \texttt{SobelOperator} & Sobel gradient operator similar to Prewitt but with larger center weights. \\ \hline
+
+5 & \texttt{FreiChenOperator} & Frei-Chen gradient operator with specialized kernels. \\ \hline
+
+6 & \texttt{Laplacian4Neighbor} & Laplacian operator with 4-neighborhood for second-derivative edge detection. \\ \hline
+
+7 & \texttt{Laplacian8Neighbor} & Laplacian operator with 8-neighborhood using all adjacent pixels. \\ \hline
+
+8 & \texttt{LaplacianOfGaussian} & Laplacian of Gaussian (LoG) filter combining Gaussian smoothing with zero-crossing detection. \\ \hline
+
+9 & \texttt{CannyEdgeDetector} & Full Canny algorithm: smoothing, gradient computation, non-maximum suppression, and hysteresis thresholding. \\ \hline
+
+\end{tabular}
+\caption{Core Classes for Classical Edge Detection}
+\label{tab:classical-functions}
+\end{table}
+
+\subsubsection{Deep Learning Models}
+
+Deep learning models implemented in the \texttt{deep\_learning} module:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{5cm}|p{7.5cm}|}
+\hline
+\textbf{No.} & \textbf{Function/Class} & \textbf{Description} \\ \hline
+
+1 & \texttt{load\_hed\_caffe} & Load HED Caffe model using OpenCV DNN from prototxt and caffemodel files. \\ \hline
+
+2 & \texttt{predict\_hed\_opencv} & Predict edges using HED model loaded with OpenCV DNN, returns binary edge map. \\ \hline
+
+\end{tabular}
+\caption{Core Functions for Deep Learning Inference}
+\label{tab:deeplearning-functions}
+\end{table}
+
+\textbf{Note:} The \texttt{deep\_learning} module contains only inference code. Training is performed in a separate notebook.
+
+\subsubsection{Utility Functions}
+
+Utility functions implemented in the \texttt{utils} module:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{5cm}|p{7.5cm}|}
+\hline
+\textbf{No.} & \textbf{Function} & \textbf{Description} \\ \hline
+
+1 & \texttt{load\_image} & Read an image file and convert it to an RGB uint8 numpy array. \\ \hline
+
+2 & \texttt{save\_image} & Save a numpy array as an image file, automatically normalizing to uint8. \\ \hline
+
+3 & \texttt{preprocess\_image} & Preprocess images for edge detection: convert to grayscale, resize, and normalize to [0, 1] if needed. \\ \hline
+
+4 & \texttt{postprocess\_edge\_map} & Postprocess edge maps: normalize to [0, 255] and apply threshold to binarize if needed. \\ \hline
+
+5 & \texttt{visualize\_edge\_detection} & Display the original image and edge map side by side using matplotlib. \\ \hline
+
+6 & \texttt{compare\_edge\_detectors} & Compare results from multiple edge detectors on the same image. \\ \hline
+
+\end{tabular}
+\caption{Utility Functions}
+\label{tab:utility-functions}
+\end{table}
+
+\subsubsection{Main Scripts}
+
+Main scripts to run the program:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{8cm}|p{7cm}|}
+\hline
+\textbf{No.} & \textbf{Script} & \textbf{Description} \\ \hline
+
+1 & \texttt{main.py} & Entry point for traditional edge detection on a single image, runs all 12 detectors by default and saves results. \\ \hline
+
+2 & \texttt{evaluation/test\_classical.py} & Script to test and evaluate all classical algorithms on the BIPED test set, computing metrics (Precision, Recall, F1, IoU) and saving results. \\ \hline
+
+3 & \texttt{evaluation/evaluate\_deep\_models.py} & Script to evaluate HED and U-Net models on BIPED dataset, outputs metrics table and visualization charts. \\ \hline
+
+4 & \texttt{evaluation/evaluation.py} & Script providing functions for evaluation metrics table and Precision-Recall curves for comparing classical and deep learning methods. \\ \hline
+
+\end{tabular}
+\caption{Main Scripts}
+\label{tab:main-scripts}
+\end{table}

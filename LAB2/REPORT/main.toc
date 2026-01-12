@@ -1,0 +1,86 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {I}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1}Overview}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1}Definition}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Problem Statement}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Approaches}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Objectives}{3}{section.1.2}%
+\contentsline {section}{\numberline {3}Program Structure}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {3.1}Input}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {3.2}Output}{3}{subsection.1.2}%
+\contentsline {chapter}{\numberline {II}Implementation}{4}{chapter.2}%
+\contentsline {section}{\numberline {1}Traditional Approaches}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {1.1}Overview}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {1.2}Gradient Operators}{4}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Overview}{4}{subsubsection.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Basic Gradient Operator}{5}{subsubsection.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Differencing Operators}{5}{subsubsection.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Roberts Operator}{6}{subsubsection.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Prewitt Operator}{6}{subsubsection.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}Sobel Operator}{7}{subsubsection.2.6}%
+\contentsline {subsubsection}{\numberline {1.2.7}Frei–Chen Operator}{7}{subsubsection.2.7}%
+\contentsline {subsection}{\numberline {1.3}Laplacian Operators}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}4-neighborhood Laplacian}{8}{subsubsection.2.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}8-neighborhood Laplacian}{9}{subsubsection.2.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Laplacian Mask Variants}{10}{subsubsection.2.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Laplacian of Gaussian (LoG)}{11}{subsubsection.2.4}%
+\contentsline {subsection}{\numberline {1.4}Canny}{13}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Theory}{13}{subsubsection.2.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Method}{13}{subsubsection.2.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Algorithm}{14}{subsubsection.2.3}%
+\contentsline {section}{\numberline {2}Deep Learning Approaches}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.1}BIPEDv2 Dataset}{15}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Model Architecture}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Data Preprocessing}{17}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Loss Function and Metrics}{17}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Training Procedure}{18}{subsection.2.5}%
+\contentsline {chapter}{\numberline {III}Installation and Usage}{20}{chapter.3}%
+\contentsline {section}{\numberline {1}Environment Setup}{20}{section.3.1}%
+\contentsline {subsection}{\numberline {1.1}System Requirements}{20}{subsection.3.1}%
+\contentsline {subsection}{\numberline {1.2}Python and Library Installation}{20}{subsection.3.2}%
+\contentsline {subsection}{\numberline {1.3}Main Libraries}{21}{subsection.3.3}%
+\contentsline {subsection}{\numberline {1.4}Dataset Setup}{22}{subsection.3.4}%
+\contentsline {subsection}{\numberline {1.5}Installation Check}{23}{subsection.3.5}%
+\contentsline {section}{\numberline {2}How to Run the Program}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {2.1}Run Traditional Edge Detection on Single Image}{23}{subsection.3.1}%
+\contentsline {subsection}{\numberline {2.2}Test Classical Edge Detection Algorithms}{24}{subsection.3.2}%
+\contentsline {subsection}{\numberline {2.3}Evaluate Deep Learning Models}{25}{subsection.3.3}%
+\contentsline {subsection}{\numberline {2.4}Evaluation Metrics Table and PR Curves}{26}{subsection.3.4}%
+\contentsline {section}{\numberline {3}Project Directory Structure}{28}{section.3.3}%
+\contentsline {subsection}{\numberline {3.1}Project Directory Structure}{28}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Key Functions and Classes}{29}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Classical Edge Detection Algorithms}{29}{subsubsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Deep Learning Models}{29}{subsubsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Utility Functions}{30}{subsubsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Main Scripts}{30}{subsubsection.3.4}%
+\contentsline {chapter}{\numberline {IV}Results and Comparison}{32}{chapter.4}%
+\contentsline {section}{\numberline {1}Evaluation Metrics}{32}{section.4.1}%
+\contentsline {subsection}{\numberline {1.1}Confusion Matrix}{32}{subsection.4.1}%
+\contentsline {subsection}{\numberline {1.2}Precision}{32}{subsection.4.2}%
+\contentsline {subsection}{\numberline {1.3}Recall}{33}{subsection.4.3}%
+\contentsline {subsection}{\numberline {1.4}F1-Score}{33}{subsection.4.4}%
+\contentsline {subsection}{\numberline {1.5}Intersection over Union (IoU)}{33}{subsection.4.5}%
+\contentsline {subsection}{\numberline {1.6}Relationship and Comparison}{33}{subsection.4.6}%
+\contentsline {section}{\numberline {2}Image Qualitative Evaluation}{34}{section.4.2}%
+\contentsline {subsection}{\numberline {2.1}Basic Gradient}{34}{subsection.4.1}%
+\contentsline {subsection}{\numberline {2.2}Forward Difference}{35}{subsection.4.2}%
+\contentsline {subsection}{\numberline {2.3}Backward Difference}{36}{subsection.4.3}%
+\contentsline {subsection}{\numberline {2.4}Central Difference}{37}{subsection.4.4}%
+\contentsline {subsection}{\numberline {2.5}Roberts Operator}{38}{subsection.4.5}%
+\contentsline {subsection}{\numberline {2.6}Prewitt Operator}{39}{subsection.4.6}%
+\contentsline {subsection}{\numberline {2.7}Sobel Operator}{40}{subsection.4.7}%
+\contentsline {subsection}{\numberline {2.8}Frei--Chen Operator}{41}{subsection.4.8}%
+\contentsline {subsection}{\numberline {2.9}Laplacian Operator (4-neighborhood)}{42}{subsection.4.9}%
+\contentsline {subsection}{\numberline {2.10}Laplacian Operator (8-neighborhood)}{43}{subsection.4.10}%
+\contentsline {subsection}{\numberline {2.11}Laplacian of Gaussian (LoG)}{44}{subsection.4.11}%
+\contentsline {subsection}{\numberline {2.12}Canny Edge Detector}{45}{subsection.4.12}%
+\contentsline {subsection}{\numberline {2.13}Deep Learning Results}{46}{subsection.4.13}%
+\contentsline {subsubsection}{\numberline {2.13.1}U-Net}{46}{subsubsection.4.1}%
+\contentsline {subsubsection}{\numberline {2.13.2}HED}{47}{subsubsection.4.2}%
+\contentsline {section}{\numberline {3}Quality Results}{48}{section.4.3}%
+\contentsline {subsection}{\numberline {3.1}Metrics comparison}{48}{subsection.4.1}%
+\contentsline {subsection}{\numberline {3.2}Overall Assessment}{53}{subsection.4.2}%
+\contentsline {chapter}{\numberline {V}Conclusion}{54}{chapter.5}%
+\contentsline {section}{\numberline {1}Summary of Achievements}{54}{section.5.1}%
+\contentsline {section}{\numberline {2}Discussion}{54}{section.5.2}%
+\contentsline {section}{REFERENCE}{56}{section*.29}%

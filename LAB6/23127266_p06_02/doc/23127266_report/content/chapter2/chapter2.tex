@@ -1,0 +1,16 @@
+\chapter{Implementation}
+
+\section{Overview}
+
+The handwritten digit classification problem is formulated as a supervised multi-class classification task, where the objective is to learn a discriminative mapping from high-dimensional pixel space to discrete class labels. The input space consists of grayscale images of size $28 \times 28$ pixels, which are flattened into latent representations of dimension 784. Each latent vector $\mathbf{x} \in \mathbb{R}^{784}$ encodes the spatial intensity distribution of a handwritten digit, where pixel values are normalized using standardization (mean subtraction and variance scaling).
+
+The classification problem aims to assign each input latent vector $\mathbf{x}_i$ to one of ten digit classes $\mathcal{C} = \{0, 1, 2, \ldots, 9\}$. Given a training dataset $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^{N}$ where $y_i \in \mathcal{C}$ denotes the ground-truth label, the model learns a function $f: \mathbb{R}^{784} \rightarrow \mathbb{R}^{10}$ that maps input features to a probability distribution over classes. The predicted class is obtained via the argmax operation: $\hat{y}_i = \arg\max_k f(\mathbf{x}_i)_k$.
+
+The implementation uses a modular design approach where each component of the network is constructed and organized into separate classes, enabling flexible network configuration and clear understanding of how individual components interact within a feed-forward neural network.
+
+\input{content/chapter2/1-network-construction}
+\input{content/chapter2/2-activation-functions}
+\input{content/chapter2/3-forward-propagation}
+\input{content/chapter2/4-backward-propagation}
+\input{content/chapter2/5-training-process}
+\input{content/chapter2/6-model-persistence}
